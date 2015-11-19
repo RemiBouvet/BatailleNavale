@@ -2,36 +2,65 @@
 
 # Programme général
 
+enum (Aucun, Torpilleur, Sous-Marin, Destroyer, Porte-Avion) t_bateau
 
-Rep jusqu'à l'arret du prog
-  MenuAfficher
-    PartieLancer
-      GrilleGenerer
-        ObstaclePlacer
-        GrilleAfficher
+enum (Aucun, Obstacle) t_obstacle
+
+enum (Non, Oui) t_toucher
+
+structure case{t_bateau, t_obstacle, t_toucher)
+
+case grille1
+case grille2
+
+struture {grille1, grille2} t_grille
+t_grille grille
+
+
+struture {eBatNb, eTirNb, eTouchNb} t_donnee
+
+t_donnee donnee1
+t_donnee donnee2
+
+struture {donnee1, donnee2} t_stats
+t_stats info
+
+int bQuitter
+
+
+  Rep jusqu'à quitter(bQuitter)
+    bQuitter = 0;
+    MenuAfficher
+      PartieLancer
       
-    
-      BateauPlacer
-        JoueurPlacer(Joueur 1)
-        GrilleAfficher(Grille vu 1)
-        JoueurPlacer(Joueur 2)
-        GrilleAfficher(Grille vu 2)
-    
-    
-      Rep jusqu'à partie fini(L'un des deux joueurs n'a plus de bateau ou quitter la partie)
-          JoueurJouer(N = numéro du joueur en cours)
-              PlateauAfficher(Plateau vu N)
-                GrilleAfficher(Grille vu N)
-                HUDAfficher(N)
-              TorpilleurDeplacer(N)
-              PlateauAfficher(Plateau vu N)
-              TorpilleurAttaquer(N)
-              PlateauAfficher(Plateau vu N)
-          ChangerJoueur
-      fin rep
-    
-      ScoreAfficher
-fin rep
+        PartieInitialiser(##eJoueur, Grille, info)
+            eJoueur = 1 ou 2
+            InfoInitialiser(##info)
+            GrilleGenerer(eJoueur ## Grille)
+              ObstaclePlacer(##Grille)
+              GrilleAfficher(Grille)
+            BateauPlacer(eJoueur# Grille#)
+              JoueurPlacer(eJoueur # Grille#)
+              GrilleAfficher(eJoueur, Grille)
+              JoueurPlacer(eJoueur # Grille #)
+              GrilleAfficher(eJoueur, Grille)
+      
+      
+        Rep jusqu'à bPartieFini(Grille, bQuitter)
+            JoueurJouer(eJoueur # Grille, info#)
+                PlateauAfficher(eJoueur,Grille,info)
+                  GrilleAfficher(eJoueur,Grille)
+                  GrilleMasque(eJoueur, Grille)
+                  HUDAfficher(eJoueur,info) 
+                TorpilleurDeplacer(eJoueur #Grille #)
+                PlateauAfficher(eJoueur, Grille, infos)
+                TorpilleurAttaquer(eJoueur # Grille, info #)
+                PlateauAfficher(eJoueur, Grille, info)
+            ChangerJoueur(#eJoueur, bQuitter#)
+        fin rep
+      
+        ScoreAfficher(info)
+  fin rep
 
 
 ## GrilleGenerer
