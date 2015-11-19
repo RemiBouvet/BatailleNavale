@@ -1,6 +1,9 @@
 # BatailleNavale
 
 ## Programme général
+* Pommes
+* Poires
+    * Sous élément avec au moins quatre espaces devant.
 
 ```
   enum (Aucun, Torpilleur, Sous-Marin, Destroyer, Porte-Avion) t_bateau
