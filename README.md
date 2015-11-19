@@ -29,9 +29,9 @@
   int bQuitter
   
   
-    Rep jusqu'à quitter(bQuitter)
-      bQuitter = 0;
-      MenuAfficher
+   1. Rep jusqu'à quitter(bQuitter)
+     *  bQuitter = 0;
+      *  MenuAfficher
         PartieLancer
         
           PartieInitialiser($$eJoueur, Grille, info)
@@ -40,7 +40,7 @@
               GrilleGenerer(eJoueur $$ Grille)
                 ObstaclePlacer($$Grille)
                 GrilleAfficher(Grille)
-              BateauPlacer(eJoueur# Grille$)
+              BateauPlacer(eJoueur$ Grille$)
                 JoueurPlacer(eJoueur $ Grille$)
                 GrilleAfficher(eJoueur, Grille)
                 JoueurPlacer(eJoueur $ Grille $)
