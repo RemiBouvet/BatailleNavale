@@ -2,7 +2,7 @@
 
 # Programme général
 
-enum (Aucun, Torpilleur, Sous-Marin, Destroyer, Porte-Avion) t_bateau
+`enum (Aucun, Torpilleur, Sous-Marin, Destroyer, Porte-Avion) t_bateau
 
 enum (Aucun, Obstacle) t_obstacle
 
@@ -61,7 +61,7 @@ int bQuitter
       
         ScoreAfficher(info)
   fin rep
-
+`
 
 ## GrilleGenerer
 
