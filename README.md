@@ -34,30 +34,30 @@
       MenuAfficher
         PartieLancer
         
-          PartieInitialiser(##eJoueur, Grille, info)
+          PartieInitialiser($$eJoueur, Grille, info)
               eJoueur = 1 ou 2
-              InfoInitialiser(##info)
-              GrilleGenerer(eJoueur ## Grille)
-                ObstaclePlacer(##Grille)
+              InfoInitialiser($$info)
+              GrilleGenerer(eJoueur $$ Grille)
+                ObstaclePlacer($$Grille)
                 GrilleAfficher(Grille)
-              BateauPlacer(eJoueur# Grille#)
-                JoueurPlacer(eJoueur # Grille#)
+              BateauPlacer(eJoueur# Grille$)
+                JoueurPlacer(eJoueur $ Grille$)
                 GrilleAfficher(eJoueur, Grille)
-                JoueurPlacer(eJoueur # Grille #)
+                JoueurPlacer(eJoueur $ Grille $)
                 GrilleAfficher(eJoueur, Grille)
         
         
           Rep jusqu'à bPartieFini(Grille, bQuitter)
-              JoueurJouer(eJoueur # Grille, info#)
+              JoueurJouer(eJoueur $ Grille, info$)
                   PlateauAfficher(eJoueur,Grille,info)
                     GrilleAfficher(eJoueur,Grille)
                     GrilleMasque(eJoueur, Grille)
                     HUDAfficher(eJoueur,info) 
-                  TorpilleurDeplacer(eJoueur #Grille #)
+                  TorpilleurDeplacer(eJoueur $Grille $)
                   PlateauAfficher(eJoueur, Grille, infos)
-                  TorpilleurAttaquer(eJoueur # Grille, info #)
+                  TorpilleurAttaquer(eJoueur $ Grille, info $)
                   PlateauAfficher(eJoueur, Grille, info)
-              ChangerJoueur(#eJoueur, bQuitter#)
+              ChangerJoueur($eJoueur, bQuitter$)
           fin rep
         
           ScoreAfficher(info)
