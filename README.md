@@ -29,8 +29,8 @@
   
   
    1. Rep jusqu'à quitter(bQuitter)
-     *  bQuitter = 0;
-     *  MenuAfficher
+        bQuitter = 0;
+        MenuAfficher
         PartieLancer
         
           PartieInitialiser($$eJoueur, Grille, info)
