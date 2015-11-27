@@ -3,7 +3,7 @@
 #define N 10
 #define M 10
 #include "Struct.h"
-void Grille_lire_case(int i, int j, int num_grille,t_case *ensemble[N][M]);
+void Grille_lire_case(int i, int j, int num_grille,t_case ensemble[N][M]);
 void Grille_ecrire_case(int i, int j, int num_grille,t_case ensemble[N][M]);
 void Grille_lire_matrice(int num_grille,t_case Case[N][M]);
 void Grille_ecrire_matrice(int num_grille,t_case Case[N][M]);
