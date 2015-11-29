@@ -8,7 +8,7 @@
 #include "Outil.h"
 
 #include "Grille.h"
-#include "struct.h"
+#include "Struct.h"
 #define nb_bateau 1
 
 t_case grille1[N][M];
@@ -128,9 +128,7 @@ void Placer_bateau(int num_grille){
     }*/
 
     }
-    Dis("Grille_lire_matrice0");
-    Grille_lire_matrice(num_grille,grille1); //erreur presente
-    Dis("Grille_lire_matrice1");
+    Grille_lire_matrice(num_grille); //erreur presente
     for(i=0;i<N;i++){
         for(j=0;j<M;j++){
             printf("%i  ",grille1[i][j].bateau);
@@ -142,5 +140,6 @@ void Placer_bateau(int num_grille){
 
 int main(void){
     Placer_bateau(1);
+    return 0;
 
 }
