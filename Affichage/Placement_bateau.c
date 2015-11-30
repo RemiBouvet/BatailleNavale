@@ -16,9 +16,7 @@ void Placer_bateau(int num_grille){
                 scanf("%i",&choix_sens);
                 if(bCroit(1,choix_sens,2)){
                     if(choix_sens==1 || choix_sens==2){
-                        Appel0("ecrire bateau");
                         Grille_ecrire_bateau(i,j,num_grille,Torpilleur);
-                        Appel1("Fin ecrire bateau");
 
                     }
                 }

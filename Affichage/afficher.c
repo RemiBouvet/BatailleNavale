@@ -48,7 +48,21 @@ void Grille_perso_afficher(int num_grille){
 			printf("\n");
 		}
 		printf("\t");
-
+		for(k=0;k < N ; k++) printf("-----");
+    	printf("\n\n");
+    	printf("CORRESPONDANCE DES SYMBOLES :\n");
+    	printf("TP = torpilleur");
+    	printf("\n");
+    	printf("SM = sous-matin");
+    	printf("\n");
+    	printf("DE = destroyer");
+    	printf("\n");
+    	printf("PA = porte-avion");
+    	printf("\n");
+    	printf("'nom'_T = 'nom' touché");
+    	printf("\n");
+    	printf("X = obstacle");
+    	printf("\n\n");
 }
 
 void Grille_masque_afficher(int num_grille){
@@ -58,7 +72,7 @@ void Grille_masque_afficher(int num_grille){
 		for(i=0;i < N ; i++){
 			printf("\t");
 			for(k=0;k < N ; k++)
-				printf("----");
+				printf("-----");
 			printf("-\n\t|");
 			for(j=0; j < M ; j++){
 				Grille_lire_case(i, j,num_grille,*(grille.grille1));
@@ -66,26 +80,26 @@ void Grille_masque_afficher(int num_grille){
 					printf(" X ");
 				else if (grille.grille1[i][j].obstacle == Aucun_o){
 					if(grille.grille1[i][j].bateau == Aucun_b)
-						printf(" 0 ");
+						printf("    ");
 					else if(grille.grille1[i][j].bateau == Torpilleur)
-						printf(" 0 ");
+						printf("    ");
 					else if(grille.grille1[i][j].bateau == Sous_Marin){
 						if(grille.grille1[i][j].toucher == Oui)
 							printf(" T ");
 						else
-							printf(" 0 ");
+							printf("    ");
 					}
 					else if(grille.grille1[i][j].bateau == Destroyer){
 						if(grille.grille1[i][j].toucher == Oui)
 							printf(" T ");
 						else
-							printf(" 0 ");
+							printf("    ");
 					}
 					else if(grille.grille1[i][j].bateau == Porte_Avion){
 						if(grille.grille1[i][j].toucher == Oui)
 							printf(" T ");
 						else
-							printf(" 0 ");
+							printf("    ");
 					}	
 				}
 				printf("|");
@@ -93,5 +107,13 @@ void Grille_masque_afficher(int num_grille){
 			printf("\n");
 		}
 		printf("\t");
+		for(k=0;k < N ; k++)
+			printf("-----");
+    	printf("\n\n");
+    	printf("CORRESPONDANCE DES SYMBOLES :\n");
+    	printf("T = touché");
+    	printf("\n");
+    	printf("X = obstacle");
+    	printf("\n\n");
 
 }
