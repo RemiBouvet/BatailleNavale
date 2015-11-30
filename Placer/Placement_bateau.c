@@ -16,25 +16,25 @@ void Placer_bateau(int num_grille){
     int compteur=0,i,j,choix_sens,valeur=0;
     printf("Vous allez rentrer le torpilleur\n");
     for(compteur=0;compteur!=1;compteur++){
-       printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau");
+       printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
         scanf("%i%i",&i,&j);
         if(bCroit(0,i,N) && bCroit(0,j,M)){
-                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical");
+                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                 scanf("%i",&choix_sens);
                 if(bCroit(1,choix_sens,2)){
                     if(choix_sens==1 || choix_sens==2){
-                        valeur=0;
-                        while(valeur!=Torpilleur){
-                            Grille_ecrire_bateau(i,j,num_grille,Torpilleur);
-                            valeur++;
-                        }
+                        Appel0("ecrire bateau");
+                        Grille_ecrire_bateau(i,j,num_grille,Torpilleur);
+                        Appel1("Fin ecrire bateau");
+
                     }
                 }
-        }
+        }/*
         printf("Vous allez rentrer le Sous_Marin\n");
+        printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
         scanf("%i%i",&i,&j);
         if(bCroit(0,i,N) && bCroit(0,j,M)){
-                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical");
+                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                 scanf("%i",&choix_sens);
                 if(bCroit(1,choix_sens,2)){
                     if(choix_sens==1){
@@ -63,10 +63,10 @@ void Placer_bateau(int num_grille){
                 }
         }
         printf("Vous allez placer le Destroyer\n");
-        printf("Veuillez rentrer les coordonnées i et j pour placer le bateau");
+        printf("Veuillez rentrer les coordonnées i et j pour placer le bateau : ");
         scanf("%i%i",&i,&j);
         if(bCroit(0,i,N) && bCroit(0,j,M)){
-                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical");
+                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                 scanf("%i",&choix_sens);
                 if(bCroit(1,choix_sens,2)){
                     if(choix_sens==1){
@@ -101,7 +101,7 @@ void Placer_bateau(int num_grille){
         printf("Veuillez rentrer les coordonnées i et j pour placer le bateau");
         scanf("%i%i",&i,&j);
         if(bCroit(0,i,N) && bCroit(0,j,M)){
-                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical");
+                printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                 scanf("%i",&choix_sens);
                 if(bCroit(1,choix_sens,2)){
                     if(choix_sens==1){
@@ -136,7 +136,7 @@ void Placer_bateau(int num_grille){
                     }
                 }
             
-        }
+        }*/
 
         
     }

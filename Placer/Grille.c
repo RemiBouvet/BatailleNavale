@@ -79,7 +79,7 @@ void Grille_ecrire_matrice(int num_grille,t_case Case[N][M]){
 }
 
 void Grille_lire_bateau(int i,int j, int num_grille,int *peResultat){
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(bCroit(0,i,N) && bCroit(0,j,M)){
         if(bCroit(1,num_grille,2)){
             if(num_grille==1)*peResultat=grille.grille1[i][j].bateau;
             else if(num_grille==2)*peResultat=grille.grille2[i][j].bateau;
@@ -91,20 +91,18 @@ void Grille_lire_bateau(int i,int j, int num_grille,int *peResultat){
 
 
 void Grille_lire_toucher(int i,int j, int num_grille,int *peResultat){
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(bCroit(0,i,N) && bCroit(0,j,M)){
         if(bCroit(1,num_grille,2)){
-            if(num_grille==1)*peResultat=grille.grille1[i][j].toucher;
-            else if(num_grille==2)*peResultat=grille.grille2[i][j].toucher;
+                if(num_grille==1)*peResultat=grille.grille1[i][j].toucher;
+                else if(num_grille==2)*peResultat=grille.grille2[i][j].toucher;
         }
-
     }
 }
 
 
 void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat){
 
-    if(i>0 && i<=N && j>0 && j<=M){
-        if(bCroit(1,num_grille,2)){
+    if(bCroit(0,i,N) && bCroit(0,j,M)){        if(bCroit(1,num_grille,2)){
             if(num_grille==1)*peResultat=grille.grille1[i][j].obstacle;
             else if(num_grille==2)*peResultat=grille.grille2[i][j].obstacle;
         }
@@ -114,7 +112,7 @@ void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat){
 
 
 void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(bCroit(0,i,N) && bCroit(0,j,M)){
         if(bCroit(1,num_grille,2)){
             if(choix==Torpilleur){
                 if(num_grille==1)grille.grille1[i][j].bateau=Torpilleur;
@@ -142,7 +140,7 @@ void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
 }
 
 void Grille_ecrire_toucher(int i,int j, int num_grille,t_toucher choix){
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(bCroit(0,i,N) && bCroit(0,j,M)){
         if(bCroit(1,num_grille,2)){
             if(choix==Oui){
                 if(num_grille==1)grille.grille1[i][j].toucher=Oui;
@@ -159,7 +157,7 @@ void Grille_ecrire_toucher(int i,int j, int num_grille,t_toucher choix){
 void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix){
     //Assert1("Numero grille",num_grille==1);
     //Assert1("Numero grille",num_grille==2);
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(bCroit(0,i,N) && bCroit(0,j,M)){
         if(bCroit(1,num_grille,2)){
             if(choix==Obstacle){
                 if(num_grille==1)grille.grille1[i][j].obstacle=Obstacle;
