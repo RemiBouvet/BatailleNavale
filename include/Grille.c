@@ -4,9 +4,7 @@
 #include "Struct.h"
 #include "Outil.h"
 
-t_case grille1[N][M];
-t_case grille2[N][M];
-t_case Case[N][M];
+
 t_plateau grille; //structure qui prend 2 grille
 
 void Grille_init(){
@@ -46,14 +44,14 @@ void Grille_lire_matrice(int num_grille){
         if(num_grille==1){
             for(i=0;i<N;i++){
                 for(j=0;j<M;j++){
-                    Grille_lire_case(i,j,num_grille,(Case));
+                    Grille_lire_case(i,j,num_grille,grille.grille1);
 
                 }
             }
         }else if(num_grille==2){
             for(i=0;i<N;i++){
                 for(j=0;j<M;j++){
-                    Grille_lire_case(i,j,num_grille,(Case));
+                    Grille_lire_case(i,j,num_grille,grille.grille1);
                 }
             }
         }
@@ -61,7 +59,7 @@ void Grille_lire_matrice(int num_grille){
     Appel1("Grille_lire_matrice1");
 }
 
-void Grille_ecrire_matrice(int num_grille){
+void Grille_ecrire_matrice(int num_grille,t_case Case[N][M]){
     int i,j;
     if(bCroit(1,num_grille,2)){
         if(num_grille==1){
@@ -119,7 +117,8 @@ void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
     if(i>0 && i<=N && j>0 && j<=M){
         if(bCroit(1,num_grille,2)){
             if(choix==Torpilleur){
-                if(num_grille==1)grille.grille1[i][j].bateau=Torpilleur;
+                if(num_grille==1){grille.grille1[i][j].bateau=Torpilleur;
+                printf("Bateau mit %i \n",grille.grille1[i][j].bateau);}
                 else if(num_grille==2)grille.grille2[i][j].bateau=Torpilleur;
             }
             if(choix==Sous_Marin){
