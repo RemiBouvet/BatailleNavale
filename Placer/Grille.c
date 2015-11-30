@@ -38,7 +38,6 @@ void Grille_ecrire_case(int i, int j, int num_grille,t_case ensemble[N][M]){
 }
 void Grille_lire_matrice(int num_grille){
     int i,j;
-    Appel0("Grille_lire_matrice0");
     if(bCroit(1,num_grille,2)){
 
         if(num_grille==1){
@@ -56,7 +55,6 @@ void Grille_lire_matrice(int num_grille){
             }
         }
     }
-    Appel1("Grille_lire_matrice1");
 }
 
 void Grille_ecrire_matrice(int num_grille,t_case Case[N][M]){

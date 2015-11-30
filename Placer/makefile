@@ -1,7 +1,7 @@
 FLAG= -g -Wall
 
-testa4: Grille.o Outil.o Placement_bateau.o
-	gcc -o testa4 Grille.o Outil.o Placement_bateau.o $(FLAG)
+placer: Grille.o Outil.o Placement_bateau.o
+	gcc -o placer Grille.o Outil.o Placement_bateau.o $(FLAG)
 Outil.o: Outil.c Outil.h
 	gcc -c Outil.c Outil.h $(FLAG)
 Grille.o: Grille.c Grille.h
