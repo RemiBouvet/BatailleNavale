@@ -3,40 +3,42 @@
 #include "Outil.h"
 #include "afficher.h"
 
-void Grille_perso_afficher(int num_grille,t_case ensemble[N][M]){
-	 int nC,nL, k;
-	 Appel0("Grille_afficher");
-		for(nL=0;nL < N ; nL++){
+t_plateau grille;
+
+void Grille_perso_afficher(int num_grille){
+	 int i,j, k;
+	 
+	 printf("***********************************  GRILLE PERSONNEL  *********************************** \n");
+		for(i=0;i < N ; i++){
 			printf("\t");
 			for(k=0;k < N ; k++)
 				printf("-----");
 			printf("-\n\t|");
-			for(nC=0; nC < M ; nC++){
-				Grille_lire_case(nL, nC,num_grille,ensemble);
-				/*printf("%i %i %i", ensemble[nL][nC].obstacle, ensemble[nL][nC].bateau, ensemble[nL][nC].toucher);*/
+			for(j=0; j < M ; j++){
+                Grille_lire_case(i, j,num_grille,*(grille.grille1));
 				
-				if(ensemble[nL][nC].obstacle == Obstacle )
+				if(grille.grille1[i][j].obstacle == Obstacle )
 					printf(" X ");
-				else if (ensemble[nL][nC].obstacle == Aucun_o){
-					if(ensemble[nL][nC].bateau == Aucun_b)
-						printf(" 0 ");
-					else if(ensemble[nL][nC].bateau == Torpilleur)
+				else if (grille.grille1[i][j].obstacle == Aucun_o){
+					if(grille.grille1[i][j].bateau == Aucun_b)
+						printf("    ");
+					else if(grille.grille1[i][j].bateau == Torpilleur)
 						printf(" TP ");
-					else if(ensemble[nL][nC].bateau == Sous_Marin){
-						if(ensemble[nL][nC].toucher == Oui)
-							printf(" SM_T ");
+					else if(grille.grille1[i][j].bateau == Sous_Marin){
+						if(grille.grille1[i][j].toucher == Oui)
+							printf("SM_T");
 						else
 							printf(" SM ");
 					}
-					else if(ensemble[nL][nC].bateau == Destroyer){
-						if(ensemble[nL][nC].toucher == Oui)
-							printf(" D_T ");
+					else if(grille.grille1[i][j].bateau == Destroyer){
+						if(grille.grille1[i][j].toucher == Oui)
+							printf("DE_T");
 						else
-							printf(" D ");
+							printf(" DE ");
 					}
-					else if(ensemble[nL][nC].bateau == Porte_Avion){
-						if(ensemble[nL][nC].toucher == Oui)
-							printf(" PA_T ");
+					else if(grille.grille1[i][j].bateau == Porte_Avion){
+						if(grille.grille1[i][j].toucher == Oui)
+							printf("PA_T");
 						else
 							printf(" PA ");
 					}	
@@ -46,40 +48,41 @@ void Grille_perso_afficher(int num_grille,t_case ensemble[N][M]){
 			printf("\n");
 		}
 		printf("\t");
-	 Appel1("Grille_afficher");
+
 }
 
-void Grille_masque_afficher(int num_grille,t_case ensemble[N][M]){
-	int nC,nL, k;
-	 Appel0("Grille_afficher");
-		for(nL=0;nL < N ; nL++){
+void Grille_masque_afficher(int num_grille){
+	int i,j, k;
+
+	 	printf("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n");
+		for(i=0;i < N ; i++){
 			printf("\t");
 			for(k=0;k < N ; k++)
-				printf("-----");
+				printf("----");
 			printf("-\n\t|");
-			for(nC=0; nC < M ; nC++){
-				Grille_lire_case(nL, nC,num_grille,ensemble);
-				if(ensemble[nL][nC].obstacle == Obstacle )
+			for(j=0; j < M ; j++){
+				Grille_lire_case(i, j,num_grille,*(grille.grille1));
+				if(grille.grille1[i][j].obstacle == Obstacle )
 					printf(" X ");
-				else if (ensemble[nL][nC].obstacle == Aucun_o){
-					if(ensemble[nL][nC].bateau == Aucun_b)
+				else if (grille.grille1[i][j].obstacle == Aucun_o){
+					if(grille.grille1[i][j].bateau == Aucun_b)
 						printf(" 0 ");
-					else if(ensemble[nL][nC].bateau == Torpilleur)
+					else if(grille.grille1[i][j].bateau == Torpilleur)
 						printf(" 0 ");
-					else if(ensemble[nL][nC].bateau == Sous_Marin){
-						if(ensemble[nL][nC].toucher == Oui)
+					else if(grille.grille1[i][j].bateau == Sous_Marin){
+						if(grille.grille1[i][j].toucher == Oui)
 							printf(" T ");
 						else
 							printf(" 0 ");
 					}
-					else if(ensemble[nL][nC].bateau == Destroyer){
-						if(ensemble[nL][nC].toucher == Oui)
+					else if(grille.grille1[i][j].bateau == Destroyer){
+						if(grille.grille1[i][j].toucher == Oui)
 							printf(" T ");
 						else
 							printf(" 0 ");
 					}
-					else if(ensemble[nL][nC].bateau == Porte_Avion){
-						if(ensemble[nL][nC].toucher == Oui)
+					else if(grille.grille1[i][j].bateau == Porte_Avion){
+						if(grille.grille1[i][j].toucher == Oui)
 							printf(" T ");
 						else
 							printf(" 0 ");
@@ -90,5 +93,5 @@ void Grille_masque_afficher(int num_grille,t_case ensemble[N][M]){
 			printf("\n");
 		}
 		printf("\t");
-	 Appel1("Grille_afficher");
+
 }
