@@ -4,10 +4,10 @@
 #define M 10
 #include "Struct.h"
 void Grille_init();
-void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble[N][M]);
+void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble);
 void Grille_ecrire_case(int i, int j, int num_grille,t_case ensemble[N][M]);
 void Grille_lire_matrice(int num_grille);
-void Grille_ecrire_matrice(int num_grille);
+void Grille_ecrire_matrice(int num_grille,t_case Case[N][M]);
 void Grille_lire_bateau(int i,int j, int num_grille,int *peResultat);
 void Grille_lire_toucher(int i,int j, int num_grille,int *peResultat);
 void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat);
