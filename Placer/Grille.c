@@ -21,10 +21,10 @@ void Grille_init(){
     }
 }
 
-void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble[N][M]){
-    int ab=(pEnsemble[i][j])->bateau;
-    int cd=(pEnsemble[i][j])->toucher;
-    int bg=(pEnsemble[i][j])->obstacle;
+void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble){
+    int ab=(pEnsemble)->bateau;
+    int cd=(pEnsemble)->toucher;
+    int bg=(pEnsemble)->obstacle;
     Grille_lire_bateau(i,j, num_grille,&ab);
     Grille_lire_toucher(i,j, num_grille,&cd);
     Grille_lire_obstacle(i,j,num_grille,&bg);
@@ -44,14 +44,14 @@ void Grille_lire_matrice(int num_grille){
         if(num_grille==1){
             for(i=0;i<N;i++){
                 for(j=0;j<M;j++){
-                    Grille_lire_case(i,j,num_grille,grille.grille1);
+                    Grille_lire_case(i,j,num_grille,*(grille.grille1));
 
                 }
             }
         }else if(num_grille==2){
             for(i=0;i<N;i++){
                 for(j=0;j<M;j++){
-                    Grille_lire_case(i,j,num_grille,grille.grille1);
+                    Grille_lire_case(i,j,num_grille,*(grille.grille1));
                 }
             }
         }
@@ -117,8 +117,8 @@ void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
     if(i>0 && i<=N && j>0 && j<=M){
         if(bCroit(1,num_grille,2)){
             if(choix==Torpilleur){
-                if(num_grille==1){grille.grille1[i][j].bateau=Torpilleur;
-                printf("Bateau mit %i \n",grille.grille1[i][j].bateau);}
+                if(num_grille==1)grille.grille1[i][j].bateau=Torpilleur;
+                    //printf("Bateau mit %i \n",grille.grille1[i][j].bateau);}
                 else if(num_grille==2)grille.grille2[i][j].bateau=Torpilleur;
             }
             if(choix==Sous_Marin){

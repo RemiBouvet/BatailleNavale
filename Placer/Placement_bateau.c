@@ -32,7 +32,7 @@ void Placer_bateau(int num_grille){
                 }
 
             }
-        }/*
+        }
         printf("Vous allez rentrer le Sous_Marin\n");
         scanf("%i%i",&i,&j);
         if(bCroit(0,i,N)){
@@ -77,7 +77,6 @@ void Placer_bateau(int num_grille){
                         }
                     }
                 }
-                compteur++;
             }
         }
         printf("Vous allez placer le Porte_Avions\n");
@@ -124,9 +123,9 @@ void Placer_bateau(int num_grille){
                 compteur++;
             }
         }
-    }*/
-
     }
+
+    
    // Grille_lire_matrice(num_grille); //erreur presente
     for(i=0;i<N;i++){
         for(j=0;j<M;j++){
