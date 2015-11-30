@@ -11,7 +11,7 @@ void Grille_init(){
     int i, j;
     for(i = 0; i < N; i++){
         for(j = 0; j < M; j++){
-            Grille_ecrire_bateau(i,j, 1, Aucun_b);
+            Grille_ecrire_bateau(i,j, 1, Destroyer);
             Grille_ecrire_toucher(i,j, 1,Non);
             Grille_ecrire_obstacle(i,j,1,Aucun_o);
             Grille_ecrire_bateau(i,j, 2, Aucun_b);
