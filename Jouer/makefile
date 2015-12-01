@@ -1,20 +1,19 @@
-CC=gcc
-FLAG=
-SRC = (wildcard *.c) include/Grille.c
-OBJ =
-INCLUDE=include/
+FLAG= -g -Wall
 
-exec: jouer.o  $(INCLUDE)Outil.o TorpilleurDeplacer.o
-	$(CC) -o $@ $^ $(FLAG)
+prog : Grille.o Outil.o TorpilleurDeplacer.o jouer.o 
+	gcc -o prog $^ $(FLAG)
+	
+Outil.o : include/Outil.c include/Outil.h
+	gcc -c include/Outil.c include/Outil.h $(FLAG)
+	
+Grille.o : include/Grille.c 
+	gcc -c include/Grille.c $(FLAG)
 
-TorpilleurDeplacer.o: TorpilleurDeplacer.c TorpilleurDeplacer.h $(INCLUDE)Struct.h $(INCLUDE)Grille.h 
-	$(CC) -c $< $(FLAG)
+TorpilleurDeplacer.o : TorpilleurDeplacer.c TorpilleurDeplacer.h
+	gcc -c TorpilleurDeplacer.c $(FLAG)
 
-Outil.o: $(INCLUDE)Outil.c $(INCLUDE)Outil.h $(INCLUDE)Struct.h $(INCLUDE)Grille.h 
-	$(CC) -c $< $(FLAG)
+jouer.o : jouer.c 
+	gcc -c jouer.c $(FLAG)
 
-jouer.o: jouer.c TorpilleurDeplacer.c $(INCLUDE)Grille.c $(INCLUDE)Outil.c $(INCLUDE)Grille.h $(INCLUDE)Struct.h
-	$(CC) -c $< $(FLAG)
-
-clean:
-	rm -rf *.o
+clean : 
+	rm -rf *o
