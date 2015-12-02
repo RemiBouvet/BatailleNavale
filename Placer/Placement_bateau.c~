@@ -8,6 +8,7 @@
 #include "Outil.h"
 #include "Grille.h"
 #include "Struct.h"
+#include "Placement_obstacle.h"
 #define nb_bateau 4
 #define N_Torpilleur 2
 
@@ -51,10 +52,10 @@ int verif_presence(t_bateau bateau,int i,int j,int choix_sens,int num_grille){
 
 int Assez_de_place(t_bateau bateau, int i,int j,int choix_sens,int num_grille){
 	if(choix_sens==1){
-		return (j+bateau-1<=N);
+		return (j+bateau-1<N);
 	}
 	else if(choix_sens==2){
-		return (i+bateau-1<=M);
+		return (i+bateau-1<M);
 	}
 	return 0;
 }
@@ -141,8 +142,10 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
                     printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                     scanf("%i",&choix_sens);
                     if(bCroit(1,choix_sens,2)){
+								printf("esdfsdfsdfsdfsdfsdfsdf");
 				if(verif_presence(Porte_Avion,i,j,choix_sens,num_grille)&& Assez_de_place(Porte_Avion,i,j,choix_sens,num_grille)){
 		                        Placer_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
+
 					ok=1;
 				}
                      }
@@ -185,6 +188,15 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
 
 int main(void){
 	Grille_init();
+	int i,j;
 	Placer_bateau(1,1);
+	placer_obstacle(1);
+	printf("\n");
+	for(i=0;i<N;i++){
+		for(j=0;j<M;j++){
+		    printf("%i  ",grille[i][j].obstacle);
+		}
+        printf("\n");
+    	}
 	return 0;
 }

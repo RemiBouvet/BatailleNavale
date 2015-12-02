@@ -8,6 +8,7 @@
 #include "Outil.h"
 #include "Grille.h"
 #include "Struct.h"
+#include "Placement_obstacle.h"
 #define nb_bateau 4
 #define N_Torpilleur 2
 
@@ -185,6 +186,15 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
 
 int main(void){
 	Grille_init();
+	int i,j;
 	Placer_bateau(1,1);
+	placer_obstacle(1);
+	printf("\n");
+	for(i=0;i<N;i++){
+		for(j=0;j<M;j++){
+		    printf("%i  ",grille[i][j].obstacle);
+		}
+        printf("\n");
+    	}
 	return 0;
 }

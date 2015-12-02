@@ -8,5 +8,5 @@ Grille.o: Grille.c Grille.h
 	gcc -c Grille.c $(FLAG)
 Placement_bateau.o: Placement_bateau.c Struct.h
 	gcc -c Placement_bateau.c $(FLAG)
-Placement_obstacle.o: Placement_obstacle.c Struct.h Placement_obstacle.h Outil.h
+Placement_obstacle.o: Placement_obstacle.c Struct.h Placement_obstacle.h
 	gcc -c Placement_obstacle.c $(FLAG)
