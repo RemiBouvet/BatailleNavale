@@ -13,9 +13,11 @@ void Grille_init(){
             Grille_ecrire_bateau(i,j, 1, Aucun_b);
             Grille_ecrire_toucher(i,j, 1,Non);
             Grille_ecrire_obstacle(i,j,1,Aucun_o);
+	    Grille_ecrire_torpilleur(i,j,1,Aucun_t);
             Grille_ecrire_bateau(i,j, 2, Aucun_b);
             Grille_ecrire_toucher(i,j, 2,Non);
             Grille_ecrire_obstacle(i,j,2,Aucun_o);
+	    Grille_ecrire_torpilleur(i,j,2,Aucun_t);
         }
     }
 }
@@ -24,57 +26,19 @@ void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble){
     int ab=(pEnsemble)->bateau;
     int cd=(pEnsemble)->toucher;
     int bg=(pEnsemble)->obstacle;
+    int ap=(pEnsemble)->torpilleur;
     Grille_lire_bateau(i,j, num_grille,&ab);
     Grille_lire_toucher(i,j, num_grille,&cd);
     Grille_lire_obstacle(i,j,num_grille,&bg);
+    Grille_lire_torpilleur(i,j,num_grille,&ap);
 }
 
 void Grille_ecrire_case(int i, int j, int num_grille,t_case ensemble[N][M]){
     Grille_ecrire_bateau(i,j, num_grille, ensemble[i][j].bateau);
     Grille_ecrire_toucher(i,j, num_grille,ensemble[i][j].toucher);
     Grille_ecrire_obstacle(i,j,num_grille,ensemble[i][j].obstacle);
+    Grille_ecrire_torpilleur(i,j,num_grille,ensemble[i][j].torpilleur);
 
-}
-void Grille_lire_matrice(int num_grille){
-    int i,j;
-    Appel0("Grille_lire_matrice0");
-    if(bCroit(1,num_grille,2)){
-
-        if(num_grille==1){
-            for(i=0;i<N;i++){
-                for(j=0;j<M;j++){
-                    Grille_lire_case(i,j,num_grille,*(grille.grille1));
-
-                }
-            }
-        }else if(num_grille==2){
-            for(i=0;i<N;i++){
-                for(j=0;j<M;j++){
-                    Grille_lire_case(i,j,num_grille,*(grille.grille1));
-                }
-            }
-        }
-    }
-    Appel1("Grille_lire_matrice1");
-}
-
-void Grille_ecrire_matrice(int num_grille,t_case Case[N][M]){
-    int i,j;
-    if(bCroit(1,num_grille,2)){
-        if(num_grille==1){
-            for(i=0;i<N;i++){
-                for(j=0;j<M;j++){
-                    Grille_ecrire_case(i,j,num_grille,Case);
-                }
-            }
-        }else if(num_grille==2){
-            for(i=0;i<N;i++){
-                for(j=0;j<M;j++){
-                    Grille_ecrire_case(i,j,num_grille,Case);
-                }
-            }
-        }
-    }
 }
 
 void Grille_lire_bateau(int i,int j, int num_grille,int *peResultat){
@@ -110,16 +74,20 @@ void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat){
     }
 }
 
+void Grille_lire_torpilleur(int i,int j, int num_grille,int *peResultat){
+    if(i>0 && i<=N && j>0 && j<=M){
+        if(bCroit(1,num_grille,2)){
+            if(num_grille==1)*peResultat=grille.grille1[i][j].torpilleur;
+            else if(num_grille==2)*peResultat=grille.grille2[i][j].torpilleur;
+        }
+
+    }
+}
 
 
 void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
     if(i>0 && i<=N && j>0 && j<=M){
         if(bCroit(1,num_grille,2)){
-            if(choix==Torpilleur){
-                if(num_grille==1)grille.grille1[i][j].bateau=Torpilleur;
-                    //printf("Bateau mit %i \n",grille.grille1[i][j].bateau);}
-                else if(num_grille==2)grille.grille2[i][j].bateau=Torpilleur;
-            }
             if(choix==Sous_Marin){
                 if(num_grille==1)grille.grille1[i][j].bateau=Sous_Marin;
                 else if(num_grille==2)grille.grille2[i][j].bateau=Sous_Marin;
@@ -172,3 +140,18 @@ void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix){
     }
 }
 
+
+void Grille_ecrire_torpilleur(int i,int j, int num_grille,t_torpilleur choix){
+    if(i>0 && i<=N && j>0 && j<=M){
+        if(bCroit(1,num_grille,2)){
+            if(choix==Aucun_t){
+                if(num_grille==1)grille.grille1[i][j].torpilleur=Aucun_t;
+                else if(num_grille==2)grille.grille2[i][j].torpilleur=Aucun_t;
+            }
+            else if(choix==Present){
+                if(num_grille==1)grille.grille1[i][j].torpilleur=Present;
+                else if(num_grille==2)grille.grille2[i][j].torpilleur=Present;
+            }
+        }
+    }
+}
