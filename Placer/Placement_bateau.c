@@ -47,6 +47,16 @@ int verif_presence(t_bateau bateau,int i,int j,int choix_sens,int num_grille){
 	return 1;
 }
 
+int Assez_de_place(t_bateau bateau, int i,int j,int choix_sens,int num_grille){
+	if(choix_sens==1){
+		return (j+bateau-1<=N);
+	}
+	else if(choix_sens==2){
+		return (i+bateau-1<=M);
+	}
+	return 0;
+}
+
 void Placer_grillebateau(t_bateau bateau, int i,int j,int num_grille,int choix_sens){
 	int compteur=0;
 	if(choix_sens==1){
@@ -81,7 +91,8 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
                     printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                     scanf("%i",&choix_sens);
                     if(bCroit(1,choix_sens,2)){         
-			if(verif_presence(Sous_Marin,i,j,choix_sens,num_grille)){
+			if(verif_presence(Sous_Marin,i,j,choix_sens,num_grille) && Assez_de_place(Sous_Marin,i,j,choix_sens,num_grille)){
+				printf("%i\n",Assez_de_place(Sous_Marin,i,j,choix_sens,num_grille));
 				Placer_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
 				ok=1;
 			}
@@ -106,7 +117,7 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
                     printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                     scanf("%i",&choix_sens);
                     if(bCroit(1,choix_sens,2)){
-				if(verif_presence(Destroyer,i,j,choix_sens,num_grille)){
+				if(verif_presence(Destroyer,i,j,choix_sens,num_grille)&& Assez_de_place(Destroyer,i,j,choix_sens,num_grille)){
 		                        Placer_grillebateau(Destroyer, i,j,num_grille,choix_sens);
 					ok=1;
 				}
@@ -131,7 +142,7 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
                     printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                     scanf("%i",&choix_sens);
                     if(bCroit(1,choix_sens,2)){
-				if(verif_presence(Porte_Avion,i,j,choix_sens,num_grille)){
+				if(verif_presence(Porte_Avion,i,j,choix_sens,num_grille)&& Assez_de_place(Porte_Avion,i,j,choix_sens,num_grille)){
 		                        Placer_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
 					ok=1;
 				}
