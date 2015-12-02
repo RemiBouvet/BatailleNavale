@@ -11,12 +11,12 @@
 
 void placer_obstacle(int num_grille){
 	int a=uHasard(N);
-	printf("%i",a);
+	printf("%i ",a);
 
 }
 
 int main(void){
 	placer_obstacle(1);
 
-
+	return 0;
 }

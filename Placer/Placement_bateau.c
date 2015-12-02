@@ -51,10 +51,10 @@ int verif_presence(t_bateau bateau,int i,int j,int choix_sens,int num_grille){
 
 int Assez_de_place(t_bateau bateau, int i,int j,int choix_sens,int num_grille){
 	if(choix_sens==1){
-		return (j+bateau-1<=N);
+		return (j+bateau-1<N);
 	}
 	else if(choix_sens==2){
-		return (i+bateau-1<=M);
+		return (i+bateau-1<M);
 	}
 	return 0;
 }

@@ -164,7 +164,7 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
 		    scanf("%s",sJ);
 		    if(bStringtonum(sI,&i) && bStringtonum(sJ,&j)){
 		        if(bCroit(0,i,N) && bCroit(0,j,M)){
-				if(verif_presence(Torpilleur,i,j,choix_sens,num_grille)){
+				if(verif_presence(Present,i,j,choix_sens,num_grille)){
 					Grille_ecrire_torpilleur(i,j,num_grille,Present);
 					ok=1;
 				}

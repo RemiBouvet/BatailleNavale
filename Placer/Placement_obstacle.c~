@@ -14,3 +14,9 @@ void placer_obstacle(int num_grille){
 	printf("%i",a);
 
 }
+
+int main(void){
+	placer_obstacle(1);
+
+	return 0;
+}
