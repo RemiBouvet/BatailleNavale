@@ -75,7 +75,7 @@ void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat){
 }
 
 void Grille_lire_torpilleur(int i,int j, int num_grille,int *peResultat){
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
             if(num_grille==1)*peResultat=grille.grille1[i][j].torpilleur;
             else if(num_grille==2)*peResultat=grille.grille2[i][j].torpilleur;
@@ -142,13 +142,14 @@ void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix){
 
 
 void Grille_ecrire_torpilleur(int i,int j, int num_grille,t_torpilleur choix){
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
             if(choix==Aucun_t){
                 if(num_grille==1)grille.grille1[i][j].torpilleur=Aucun_t;
                 else if(num_grille==2)grille.grille2[i][j].torpilleur=Aucun_t;
             }
             else if(choix==Present){
+		printf("coucou");
                 if(num_grille==1)grille.grille1[i][j].torpilleur=Present;
                 else if(num_grille==2)grille.grille2[i][j].torpilleur=Present;
             }
