@@ -5,10 +5,12 @@
 
 t_plateau grille;
 
+/* FAIRE CONDITIONS LORSQU'IL Y TORPILLEUR SUR LA MEME CASE QU'UN AUTRE BATEAU */
 void Grille_perso_afficher(int num_grille){
 	 int i,j, k;
 	 
-	 printf("***********************************  GRILLE PERSONNEL  *********************************** \n");
+	 printf("***********************************  GRILLE PERSONNEL  *********************************** \n \n");
+	 printf("           A    B    C    D    E    F    G    H    I    J \n");
 		for(i=0;i < N ; i++){
 			printf("\t");
 			for(k=0;k < N ; k++)
@@ -20,11 +22,11 @@ void Grille_perso_afficher(int num_grille){
 				if(grille.grille1[i][j].obstacle == Obstacle )
 					printf(" X ");
 				else if (grille.grille1[i][j].obstacle == Aucun_o){
+					if(grille.grille1[i][j].torpilleur==Present)
+						printf(" TP ");
 					if(grille.grille1[i][j].bateau == Aucun_b){
 						printf("    ");
 					}
-					else if(grille.grille1[i][j].torpilleur == Present)
-						printf(" TP ");
 					else if(grille.grille1[i][j].bateau == Sous_Marin){
 						if(grille.grille1[i][j].toucher == Oui)
 							printf("SM_T");
@@ -72,7 +74,8 @@ void Grille_perso_afficher(int num_grille){
 void Grille_masque_afficher(int num_grille){
 	int i,j, k;
 
-	 	printf("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n");
+	 	printf("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n\n");
+	 	printf("           A    B    C    D    E    F    G    H    I    J \n");
 		for(i=0;i < N ; i++){
 			printf("\t");
 			for(k=0;k < N ; k++)
@@ -119,5 +122,5 @@ void Grille_masque_afficher(int num_grille){
     	printf("\n");
     	printf("X = obstacle");
     	printf("\n\n");
-
 }
+
