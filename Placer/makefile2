@@ -1,0 +1,10 @@
+FLAG= -g -Wall
+
+placer2: Grille.o Outil.o Placement_obstacle.o
+	gcc -o placer2 Grille.o Outil.o Placement_obstacle.o $(FLAG)
+Outil.o: Outil.c Outil.h
+	gcc -c Outil.c Outil.h $(FLAG)
+Grille.o: Grille.c Grille.h
+	gcc -c Grille.c $(FLAG)
+Placement_obstacle.o: Placement_obstacle.c Struct.h
+	gcc -c Placement_obstacle.c $(FLAG)

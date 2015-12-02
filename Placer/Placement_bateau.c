@@ -26,12 +26,13 @@ int bStringtonum(char *v,int *res){
 }
 
 int verif_presence(t_bateau bateau,int i,int j,int choix_sens,int num_grille){
-    int compteur=0,resultat_b=0,resultat_o=0;
+    int compteur=0,resultat_b=0,resultat_o=0,resultat_t=0;
     if(choix_sens==1){
 	    while(compteur<bateau){
 		Grille_lire_bateau(i,j+compteur,num_grille,&resultat_b);
 		Grille_lire_obstacle(i,j+compteur,num_grille,&resultat_o);
-		if(resultat_b!=0 || resultat_o!=0)return 0;
+		Grille_lire_torpilleur(i,j+compteur,num_grille,&resultat_t);
+		if(resultat_b!=0 || resultat_o!=0 || resultat_t!=0)return 0;
 	        compteur++;
 	   }
    }
@@ -39,7 +40,8 @@ int verif_presence(t_bateau bateau,int i,int j,int choix_sens,int num_grille){
 	while(compteur<bateau){
 		Grille_lire_bateau(compteur+i,j,num_grille,&resultat_b);
 		Grille_lire_obstacle(compteur+i,j,num_grille,&resultat_o);
-		if(resultat_b!=0 || resultat_o!=0)return 0;
+		Grille_lire_torpilleur(i,j+compteur,num_grille,&resultat_t);
+		if(resultat_b!=0 || resultat_o!=0 || resultat_t!=0)return 0;
 	        compteur++;
 	   }
 
@@ -72,9 +74,6 @@ void Placer_grillebateau(t_bateau bateau, int i,int j,int num_grille,int choix_s
 	}
 
 }
-
-
-
 
 void Placer_bateau(int num_grille,int nb_torpilleur){
     int compteur=0,choix_sens,i,j,ok=0,nb=0;
@@ -165,9 +164,8 @@ void Placer_bateau(int num_grille,int nb_torpilleur){
 		    scanf("%s",sJ);
 		    if(bStringtonum(sI,&i) && bStringtonum(sJ,&j)){
 		        if(bCroit(0,i,N) && bCroit(0,j,M)){
-		            printf("%i \n",verif_presence(Torpilleur,i,j,choix_sens,num_grille));
-				if(verif_presence(Torpilleur,i,j,choix_sens,num_grille)){
-					Grille_ecrire_bateau(i,j,num_grille,Torpilleur);
+				if(verif_presence(Present,i,j,choix_sens,num_grille)){
+					Grille_ecrire_torpilleur(i,j,num_grille,Present);
 					ok=1;
 				}
 		        }
