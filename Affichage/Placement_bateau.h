@@ -4,6 +4,7 @@
 #define N 10
 #define M 10
 
+int bStringtonum(char *v,int *res);
 void Placer_bateau(int num_grille);
 
 
