@@ -7,7 +7,7 @@
 
 
 int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[N_Torpilleur]){
-	int eBateau;
+	int eTorpilleur;
 	int eObstacle;
 	int x = 0, y = 0;
 	if(direction == Haut){
@@ -22,9 +22,12 @@ int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Tor
 	if(direction == Gauche){
 		y = -1;
 	}
-	Grille_lire_torpilleur(cTorpilleur[eNumero_Torpilleur].x + x,cTorpilleur[eNumero_Torpilleur].y + y, eJoueur, &eBateau);
+	if( x < 0 || x > N || y < 0 || y > M){
+		return 0;
+	}
+	Grille_lire_torpilleur(cTorpilleur[eNumero_Torpilleur].x + x,cTorpilleur[eNumero_Torpilleur].y + y, eJoueur, &eTorpilleur);
 	Grille_lire_obstacle(cTorpilleur[eNumero_Torpilleur].x + x,cTorpilleur[eNumero_Torpilleur].y + y, eJoueur, &eObstacle);
-	if(eBateau || eObstacle){
+	if(eObstacle || eTorpilleur){
 		return 0;
 	}
 	return 1;

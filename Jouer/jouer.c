@@ -9,7 +9,7 @@
 void Jouer_init_temporaire(int *eJoueur){
 	*eJoueur = 1;
 	Grille_init();
-	Grille_ecrire_torpilleur(1,1, *eJoueur, Present);
+	Grille_ecrire_torpilleur(0,0, *eJoueur, Present);
 	Grille_ecrire_torpilleur(7,7, *eJoueur, Present);
 	Grille_ecrire_obstacle(7,6, *eJoueur, Oui);
 	Grille_ecrire_obstacle(5,5, 2, Oui);
@@ -30,7 +30,7 @@ void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 		bValide = Jouer_Deplacement_Valide(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur);
 		//printf("\n bValide =%i", bValide);
 		if(!bValide){
-			printf("\nDirection invalide (Presence d'un torpilleur ou d'un obstacle)");
+			printf("\nDirection invalide (Presence d'un torpilleur ou d'un obstacle ou hors carte)");
 		}
 	}
 	Jouer_Deplacer_Torpilleur(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur);
