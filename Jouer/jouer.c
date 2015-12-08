@@ -9,7 +9,7 @@
 void Jouer_init_temporaire(int *eJoueur){
 	*eJoueur = 1;
 	Grille_init();
-	Grille_ecrire_torpilleur(5,5, *eJoueur, Present);
+	Grille_ecrire_torpilleur(1,1, *eJoueur, Present);
 	Grille_ecrire_torpilleur(7,7, *eJoueur, Present);
 	Grille_ecrire_obstacle(7,6, *eJoueur, Oui);
 	Grille_ecrire_obstacle(5,5, 2, Oui);
@@ -67,7 +67,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 		
 	}
 	else{
-		printf("\nAttaque impossible va te faire foutre HAHAHAHAHAH");
+		printf("\nAttaque impossible HAHAHAHAHAH");
 	}
 }
 

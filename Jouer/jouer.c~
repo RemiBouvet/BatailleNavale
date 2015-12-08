@@ -9,7 +9,7 @@
 void Jouer_init_temporaire(int *eJoueur){
 	*eJoueur = 1;
 	Grille_init();
-	Grille_ecrire_torpilleur(5,5, *eJoueur, Present);
+	Grille_ecrire_torpilleur(1,1, *eJoueur, Present);
 	Grille_ecrire_torpilleur(7,7, *eJoueur, Present);
 	Grille_ecrire_obstacle(7,6, *eJoueur, Oui);
 	Grille_ecrire_obstacle(5,5, 2, Oui);
@@ -51,7 +51,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 		eJoueurAdverse = 1;
 	}
 	
-	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee);
+	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee); // /!\Limites !!!!
 	Jouer_Afficher_Portee(gPortee);
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){

@@ -16,11 +16,15 @@ void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[N_Torpil
 	int x = cTorpilleur[eNumero_Torpilleur].x;
 	int y = cTorpilleur[eNumero_Torpilleur].y;
 	for(i = x - 1; i < x +2; i++){
-		for(j = y - 1; j < y +2; j++){
-			Grille_lire_obstacle(i, j, eJoueurAdverse, &eObstacle);
-			Grille_lire_toucher(i, j, eJoueurAdverse, &eToucher);
-			if(eObstacle == 0 && eToucher == 0){
-				gPortee[i][j] = Portee;
+		if(i >= 0 && i < N){
+			for(j = y - 1; j < y +2; j++){
+				if(j >= 0 && j < M){
+					Grille_lire_obstacle(i, j, eJoueurAdverse, &eObstacle);
+					Grille_lire_toucher(i, j, eJoueurAdverse, &eToucher);
+					if(eObstacle == 0 && eToucher == 0){
+						gPortee[i][j] = Portee;
+					}
+				}
 			}
 		}
 	}

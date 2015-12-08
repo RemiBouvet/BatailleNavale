@@ -81,7 +81,6 @@ void Jouer_Deplacer_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 		printf("%i", x);
 		while(gPortee[x][y] == Hors_Portee && x > 0){
 			x--;
-			printf("coucou");
 		}
 	}
 	if(dDirection == Bas){
