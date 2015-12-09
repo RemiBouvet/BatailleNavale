@@ -31,6 +31,6 @@ main.o : main.c
 	gcc -c main.c $(FLAG)
 
 clean : 
-	rm -rf *o
-	rm -rf *gch
-	rm -rf *~
+	rm -r -f *o
+	rm -r -f *gch
+	rm -r -f *~
