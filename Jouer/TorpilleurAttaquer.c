@@ -3,6 +3,8 @@
 #include "TorpilleurAttaquer.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[N_Torpilleur], int eNumero_Torpilleur,t_portee gPortee[N][M]){
 	int eObstacle;
@@ -110,3 +112,47 @@ void Jouer_Deplacer_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 		cCurseur->y = y;
 	}
 }
+
+int Jouer_Stringtonum(char *v,int *res){
+    int bNum=1;
+    int i;
+    *res=0;
+    for(i=0;i<strlen(v);i++)
+        bNum=bNum && isdigit(v[i]);
+    if(bNum==1){
+        *res=atoi(v);
+    }
+    return bNum;
+}
+
+void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur){
+	char sx[20], sy[20];
+	int x, y;
+	int bCoordonneValide = 0;
+	cCurseur->x = x;
+	cCurseur->y = y;
+	printf("\nVeuillez saisir les coordonnées x et y de votre attaque :");
+        scanf("%s",sx);
+        scanf("%s",sy);
+	while(!bCoordonneValide){
+		if(Jouer_Stringtonum(sx,&x) && Jouer_Stringtonum(sy,&y)){
+			if(gPortee[x][y] == Portee){
+				cCurseur->x = x;
+				cCurseur->y = y;
+				bCoordonneValide = 1;
+			}
+		}
+		if(!bCoordonneValide){
+			printf("\nCoordonnes invalides, veuillez saisir les coordonnées x et y de votre attaque :");
+      			scanf("%s",sx);
+  		      	scanf("%s",sy);
+		}
+	}
+}
+
+
+
+
+
+
+

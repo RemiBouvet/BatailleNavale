@@ -37,7 +37,6 @@ void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	while(!bValide){
 		Jouer_Choisir_Direction(&dDirection);
 		bValide = Jouer_Deplacement_Valide(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur);
-		//printf("\n bValide =%i", bValide);
 		if(!bValide){
 			printf("\nDirection invalide (Presence d'un torpilleur ou d'un obstacle ou hors carte)");
 		}
@@ -51,7 +50,6 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	t_portee gPortee[N][M];
 	t_coordonnee cCurseur;
 	int bAttaque_Possible;
-	int bValiderCurseur = 0;
 	int eJoueurAdverse = eJoueur;
 	Jouer_Changer_Joueur(&eJoueurAdverse);
 	
@@ -59,14 +57,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	Jouer_Afficher_Portee(gPortee);
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){
-		Jouer_Init_Curseur(gPortee, &cCurseur);
-		printf("\nbAttaque_Possible, cCurseur : x = %i y = %i", cCurseur.x+1, cCurseur.y+1);
-		while(!bValiderCurseur){
-			Jouer_Deplacer_Curseur(gPortee, &cCurseur);
-			printf("\nbAttaque_Possible, cCurseur : x = %i y = %i", cCurseur.x+1, cCurseur.y+1);
-			printf("\nValider curseur :");
-			scanf("%i", &bValiderCurseur);
-		}
+		Jouer_Choisir_Attaque(gPortee, &cCurseur);
 		Grille_ecrire_toucher(cCurseur.x,cCurseur.y, eJoueurAdverse, Oui);
 		
 	}
@@ -101,7 +92,6 @@ void Jouer_Partie(){
 	
 	while(!bGagnant){
 		Jouer_Changer_Joueur(&eJoueur);
-		printf("\nAu joueur %i de jouer :", eJoueur);
 		Jouer_Choisir(eJoueur, cTorpilleur, &eNumero_Torpilleur);
 		Jouer_Deplacer(eJoueur, cTorpilleur, &eNumero_Torpilleur);
 		Jouer_Attaquer(eJoueur, cTorpilleur, &eNumero_Torpilleur);
