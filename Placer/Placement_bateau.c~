@@ -81,6 +81,7 @@ void Enlever_grillebateau(t_bateau bateau, int i,int j,int num_grille,int choix_
 			Grille_lire_bateau(i,j+compteur,num_grille,&bat);
  			Grille_lire_obstacle(i,j+compteur,num_grille,&obs);
 			if(bat==0 && obs==0)Grille_ecrire_bateau(i,j+compteur,num_grille,Aucun_b);
+			printf("%i %i \n",i,j+compteur);
 			compteur++;
 		}
 	}else if(choix_sens==2){
@@ -88,16 +89,18 @@ void Enlever_grillebateau(t_bateau bateau, int i,int j,int num_grille,int choix_
 			Grille_lire_bateau(i+compteur,j,num_grille,&bat);
  			Grille_lire_obstacle(i+compteur,j,num_grille,&obs);
 			if(bat==0 && obs==0)Grille_ecrire_bateau(i+compteur,j,num_grille,Aucun_b);
-			
+						printf("%i %i \n",i+compteur,j);
 			compteur++;
 		}
 	}
 }
-void Enlever_grillebateau2(){
-	int i,j;
+
+void Enlever_grillebateau2(int num_grille){
+	int i,j,obs;
 	for(i=0;i<N;i++){
 		for(j=0;j<M;j++){
-			if(grille[i][j].bateau==Sous_Marin || grille[i][j].bateau==Destroyer || grille[i][j].bateau==Porte_Avion || grille[i][j].torpilleur==Present){
+			Grille_lire_obstacle(i,j,num_grille,&obs);
+			if((grille[i][j].bateau==Sous_Marin || grille[i][j].bateau==Destroyer || grille[i][j].bateau==Porte_Avion || grille[i][j].torpilleur==Present) && !obs){
 		 grille[i][j].bateau=Aucun_b; 
 			grille[i][j].torpilleur=0;
 			}
@@ -206,15 +209,18 @@ void Placer_bateau_auto(int num_grille,int nb_torpilleur){
                 if(Choix==1)valide=1; 
 		else{
 			valide=0;
-Enlever_grillebateau2();
+Enlever_grillebateau2(num_grille);
 
 
 		}
-            }else  Enlever_grillebateau2();
+            }else  Enlever_grillebateau2(num_grille);
 	}while(!valide);
 }
 
 /****************************************************************************/
+/****************************************************************************/
+/****************************************************************************/
+
 void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){
     int compteur=0,choix_sens,i,j,ok=0,Choix=0,valide=0,nb=0;
     char sI[20];
@@ -247,6 +253,7 @@ void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){
 		else{
 			valide=0;
 			Enlever_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
+			printf("gsfgfdsgdfg");
 		}
             }else  Enlever_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
 	printf("ok :%i Choix: %i\n",ok,Choix);
@@ -387,8 +394,8 @@ int main(void){
 	Grille_init();
 	int i,j;
 	placer_obstacle(1);
-  printf("\n");
-  printf("\n");
+	printf("\n");
+	printf("\n");
 	for(i=0;i<N;i++){
 		for(j=0;j<M;j++){
 		    printf("%i  ",grille[i][j].obstacle);
@@ -397,9 +404,6 @@ int main(void){
     	}
   printf("\n");
   printf("\n");
-	Placer_bateau_auto(1,1);
-
-	printf("\n");
-	
+	Placer_bateau_manuelle(1,2);
 	return 0;
 }
