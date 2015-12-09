@@ -12,8 +12,8 @@ t_plateau grille; //structure qui prend 2 grille
 int main(){
 	Grille_init();
 	//placer_obstacle(1);
-	Placer_bateau(1,1);
+	//Placer_bateau(1,1);
 	//Grille_masque_afficher(1);
-	Grille_perso_afficher(2);
+	Grille_perso_afficher(1);
 	return 0;
 }
