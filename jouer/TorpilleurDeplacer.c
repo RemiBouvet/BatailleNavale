@@ -8,6 +8,7 @@
 
 
 int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[N_Torpilleur]){
+	//Fonction qui permet de vérifier si le déplacement demande est valide en fonction des obstacles et des bordures de la grille
 	int eTorpilleur;
 	int eObstacle;
 	int x = 0, y = 0;
@@ -35,6 +36,7 @@ int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Tor
 }
 
 void Jouer_Deplacer_Torpilleur(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[N_Torpilleur]){
+	//Fonction qui permet de mettre a jour les coordonne du torpilleur en fonction du déplacement demandé.
 	int x = 0, y = 0;
 	if(direction == Haut){
 		x = -1;
@@ -66,6 +68,7 @@ int Jouer_Deplacer_Stringtonum(char *v,int *res){
 }
 
 void Jouer_Choisir_Direction(t_direction *dDirection){
+	//Fonction qui permet de saisir une direction manuellement
 	char sSaisie[20];
 	int eSaisie;
 	int bCoordonneValide = 0;

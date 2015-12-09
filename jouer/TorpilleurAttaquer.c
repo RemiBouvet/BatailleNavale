@@ -7,6 +7,7 @@
 #include <ctype.h>
 
 void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[N_Torpilleur], int eNumero_Torpilleur,t_portee gPortee[N][M]){
+	//Fonction qui permet de stocker dans la grille gPortee[N][M] les cases où le torpilleur selectionne a la possibilite d'attaquer
 	int eObstacle;
 	int eToucher;
 	int i, j;
@@ -45,6 +46,7 @@ void Jouer_Afficher_Portee(t_portee gPortee[N][M]){
 }
 
 int Jouer_Attaque_Possible(t_portee gPortee[N][M]){
+	//Fonction qui permmet de determiner si l'attaque est possible c'est à dire si le torpilleur a bien une case où il peut attaquer
 	int i, j;	
 	for(i = 0; i < N; i++){
 		for(j = 0; j < M; j++){
@@ -126,6 +128,7 @@ int Jouer_Stringtonum(char *v,int *res){
 }
 
 void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur){
+	//Fonction qui permet de choisir les coordonne a attaquer manuellement.
 	char sx[20], sy[20];
 	int x, y;
 	int bCoordonneValide = 0;
