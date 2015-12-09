@@ -1,3 +1,6 @@
+#ifndef PLACEMENT_BATEAU
+#define PLACEMENT_BATEAU
+
 #include "../grille/Outil.h"
 #include "../grille/Grille.h"
 #include "../grille/Struct.h"
@@ -16,3 +19,4 @@ void Enlever_grillebateau2(int num_grille);
 void Placer_bateau_auto(int num_grille,int nb_torpilleur);
 void Placer_bateau_manuelle(int num_grille,int nb_torpilleur);
 
+#endif
