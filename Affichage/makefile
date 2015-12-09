@@ -1,6 +1,6 @@
 FLAG= -g -Wall
 
-prog : Grille.o afficher.o Outil.o Placement_bateau.o Placement_obstacle.o main.o 
+prog : Grille.o afficher.o Outil.o Placement_bateau.o Placement_obstacle.o terminal.o main.o 
 	gcc -o prog $^ $(FLAG)
 	
 Outil.o : Outil.c Outil.h
@@ -17,6 +17,9 @@ Placement_bateau.o : Placement_bateau.c Placement_bateau.h
 
 Placement_obstacle.o : Placement_obstacle.c
 	gcc -c Placement_obstacle.c $(FLAG)
+
+terminal.o : terminal.c terminal.h
+	gcc -c terminal.c $(FLAG)
 
 main.o : main.c 
 	gcc -c main.c $(FLAG)
