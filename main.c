@@ -1,11 +1,7 @@
 #include "jouer/jouer.h"
-
+#include "Placer/Placement_bateau.h"
 int main(void){
-	Grille_init();
-	Placer_bateau_auto(1,2);
-	Placer_bateau_auto(2,2);
-	placer_obstacle(1);
-	placer_obstacle(2);
+	init_grille();
 	Jouer_Partie();
 	return 1;
 }

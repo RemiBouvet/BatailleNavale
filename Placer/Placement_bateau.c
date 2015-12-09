@@ -9,6 +9,7 @@
 #include "../grille/Grille.h"
 #include "../grille/Struct.h"
 #include "Placement_obstacle.h"
+
 #define nb_bateau 4
 #define N_Torpilleur 2
 
@@ -25,6 +26,9 @@ int bStringtonum(char *v,int *res){
     }
     return bNum;
 }
+
+
+
 
 int verif_presence(t_bateau bateau,int i,int j,int choix_sens,int num_grille){
     int compteur=0,resultat_b=0,resultat_o=0,resultat_t=0;
@@ -388,4 +392,28 @@ void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){
         printf("\n");
     }
     
+}
+void init_grille(){
+	char choix[20];
+	int Choix=0,valide=0;
+	Grille_init();
+	placer_obstacle(1);
+	placer_obstacle(2);
+	do{
+		printf("Placé automatique : 1 \n Placé manuelle : 2\n");
+		scanf("%s",choix);
+		if(bStringtonum(choix,&Choix)){
+			if(Choix==1){
+				Placer_bateau_auto(1,2);
+				Placer_bateau_auto(2,2);
+				valide=1;
+			}
+			else if(Choix==2){
+				Placer_bateau_manuelle(1,2);
+				Placer_bateau_manuelle(2,2);
+				valide=1;
+			}
+		}
+	}while(!valide);
+
 }
