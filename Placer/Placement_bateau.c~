@@ -5,14 +5,7 @@
 //  Created by Zerbane Mehdi on 27/11/2015.
 //
 //
-#include "Outil.h"
-#include "Grille.h"
-#include "Struct.h"
-#include "Placement_obstacle.h"
-#define nb_bateau 4
-#define N_Torpilleur 2
 
-t_case grille[N][M];
 
 int bStringtonum(char *v,int *res){
     int bNum=1;
