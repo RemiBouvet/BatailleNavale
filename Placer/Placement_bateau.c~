@@ -80,7 +80,7 @@ void Enlever_grillebateau(t_bateau bateau, int i,int j,int num_grille,int choix_
 		while(compteur<bateau){
 			Grille_lire_bateau(i,j+compteur,num_grille,&bat);
  			Grille_lire_obstacle(i,j+compteur,num_grille,&obs);
-			if(bat==0 && obs==0)Grille_ecrire_bateau(i,j+compteur,num_grille,Aucun_b);
+			if(bat==bateau && obs==0)Grille_ecrire_bateau(i,j+compteur,num_grille,Aucun_b);
 			printf("%i %i \n",i,j+compteur);
 			compteur++;
 		}
@@ -88,7 +88,7 @@ void Enlever_grillebateau(t_bateau bateau, int i,int j,int num_grille,int choix_
 		while(compteur<bateau){
 			Grille_lire_bateau(i+compteur,j,num_grille,&bat);
  			Grille_lire_obstacle(i+compteur,j,num_grille,&obs);
-			if(bat==0 && obs==0)Grille_ecrire_bateau(i+compteur,j,num_grille,Aucun_b);
+			if(bat==bateau && obs==0)Grille_ecrire_bateau(i+compteur,j,num_grille,Aucun_b);
 						printf("%i %i \n",i+compteur,j);
 			compteur++;
 		}
@@ -388,22 +388,4 @@ void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){
         printf("\n");
     }
     
-}
-
-int main(void){
-	Grille_init();
-	int i,j;
-	placer_obstacle(1);
-	printf("\n");
-	printf("\n");
-	for(i=0;i<N;i++){
-		for(j=0;j<M;j++){
-		    printf("%i  ",grille[i][j].obstacle);
-		}
-        printf("\n");
-    	}
-  printf("\n");
-  printf("\n");
-	Placer_bateau_manuelle(1,2);
-	return 0;
 }

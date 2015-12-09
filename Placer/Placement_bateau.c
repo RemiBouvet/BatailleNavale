@@ -5,14 +5,7 @@
 //  Created by Zerbane Mehdi on 27/11/2015.
 //
 //
-#include "Outil.h"
-#include "Grille.h"
-#include "Struct.h"
-#include "Placement_obstacle.h"
-#define nb_bateau 4
-#define N_Torpilleur 2
 
-t_case grille[N][M];
 
 int bStringtonum(char *v,int *res){
     int bNum=1;
@@ -388,22 +381,4 @@ void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){
         printf("\n");
     }
     
-}
-
-int main(void){
-	Grille_init();
-	int i,j;
-	placer_obstacle(1);
-	printf("\n");
-	printf("\n");
-	for(i=0;i<N;i++){
-		for(j=0;j<M;j++){
-		    printf("%i  ",grille[i][j].obstacle);
-		}
-        printf("\n");
-    	}
-  printf("\n");
-  printf("\n");
-	Placer_bateau_manuelle(1,2);
-	return 0;
 }
