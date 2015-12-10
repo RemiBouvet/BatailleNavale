@@ -27,14 +27,14 @@ void Grille_perso_afficher(int num_grille){
 						printf(" X ");
 					}
 					else if (grille.grille1[i][j].obstacle == Aucun_o){
-						if(grille.grille1[i][j].torpilleur==Present ||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present) ){
-							printf("t");
+						if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present) ){
+							printf(" TP ");
 						}
 						/*else if((grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present))
-							printf("TPB");*/
+							printf("TPB");
 						if(grille.grille1[i][j].bateau == Aucun_b){
 							printf("    ");
-						}
+						}*/
 						else if(grille.grille1[i][j].bateau == Sous_Marin){
 							if(grille.grille1[i][j].toucher == Oui)
 								printf("SM_T");
@@ -55,7 +55,8 @@ void Grille_perso_afficher(int num_grille){
 							else{
 								printf(" PA ");
 							}
-						}	
+						}
+						else {printf("    ");}
 					}
 					printf("|");
 				}
@@ -79,11 +80,12 @@ void Grille_perso_afficher(int num_grille){
 					if(grille.grille2[i][j].obstacle == Obstacle )
 						printf(" X ");
 					else if (grille.grille2[i][j].obstacle == Aucun_o){
-						if(grille.grille2[i][j].torpilleur==Present)
-							printf("t");
-						if(grille.grille2[i][j].bateau == Aucun_b){
-							printf("    ");
+						if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present) ){
+							printf(" TP ");
 						}
+						/*if(grille.grille2[i][j].bateau == Aucun_b){
+							printf("    ");
+						}*/
 						else if(grille.grille2[i][j].bateau == Sous_Marin){
 							if(grille.grille2[i][j].toucher == Oui)
 								printf("SM_T");
@@ -104,7 +106,7 @@ void Grille_perso_afficher(int num_grille){
 							else{
 								printf(" PA ");
 							}
-						}	
+						}else {printf("    ");}	
 					}
 					printf("|");
 				}

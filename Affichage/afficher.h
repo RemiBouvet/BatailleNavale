@@ -1,6 +1,6 @@
 #ifndef AFFICHER
 #define AFFICHER
-#include "Struct.h"
+#include "../grille/Struct.h"
 #define N 10
 #define M 10
 

@@ -1,4 +1,4 @@
-#include "Grille.h"
+#include "../grille/Grille.h"
 #include "Struct.h"
 #include "Outil.h"
 #include "afficher.h"
