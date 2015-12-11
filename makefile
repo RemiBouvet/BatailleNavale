@@ -1,6 +1,6 @@
 FLAG= -g -Wall
 
-prog : Grille.o Outil.o TorpilleurDeplacer.o TorpilleurChoisir.o TorpilleurAttaquer.o jouer.o Placement_bateau.o Placement_obstacle.o main.o
+prog : Grille.o Outil.o TorpilleurDeplacer.o TorpilleurChoisir.o TorpilleurAttaquer.o jouer.o Placement_bateau.o Placement_obstacle.o afficher.o main.o
 	gcc -o prog $^ $(FLAG)
 	
 Outil.o : grille/Outil.c grille/Outil.h
@@ -26,6 +26,9 @@ Placement_bateau.o: Placer/Placement_bateau.c grille/Struct.h
 
 Placement_obstacle.o: Placer/Placement_obstacle.c grille/Struct.h Placer/Placement_obstacle.h grille/Outil.h
 	gcc -c Placer/Placement_obstacle.c $(FLAG)
+
+afficher.o : Affichage/src/afficher.c Affichage/include/afficher.h 
+	gcc -c Affichage/src/afficher.c $(FLAG)
 
 main.o : main.c
 	gcc -c main.c $(FLAG)

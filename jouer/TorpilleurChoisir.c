@@ -26,7 +26,7 @@ void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[N_Torpilleur]){
 void Jouer_Afficher_Torpilleur(t_coordonnee cTorpilleur[N_Torpilleur]){
 	int i;
 	for(i=0; i < N_Torpilleur; i++){
-		printf("\nTorpilleur %i : x = %i y = %i", i+1, cTorpilleur[i].x+1, cTorpilleur[i].y+1);
+		printf("\nTorpilleur %i : x = %i y = %i", i+1, cTorpilleur[i].x, cTorpilleur[i].y);
 	}
 }
 
@@ -51,7 +51,7 @@ void Jouer_Selectionner_Torpilleur(int *peNumero_Torpilleur){
         scanf("%s",sSaisie);
 	while(!bCoordonneValide){
 		if(Jouer_Choisir_Stringtonum(sSaisie,&eSaisie) != 0){
-			if(eSaisie > 0 && eSaisie < N_Torpilleur){
+			if(eSaisie > 0 && eSaisie <= N_Torpilleur){
 				*peNumero_Torpilleur = eSaisie - 1;
 				bCoordonneValide = 1;
 			}

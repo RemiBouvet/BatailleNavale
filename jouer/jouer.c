@@ -2,6 +2,7 @@
 #include "TorpilleurDeplacer.h"
 #include "TorpilleurChoisir.h"
 #include "TorpilleurAttaquer.h"
+#include "../Affichage/include/afficher.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -57,7 +58,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	int eJoueurAdverse = eJoueur;
 	Jouer_Changer_Joueur(&eJoueurAdverse);
 	
-	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee); // /!\Limites !!!!
+	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee); 
 	Jouer_Afficher_Portee(gPortee);
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){
@@ -97,7 +98,9 @@ void Jouer_Partie(){
 	int bGagnant = 0;
 	
 	while(!bGagnant){
+		Grille_masque_afficher(eJoueur);
 		Jouer_Changer_Joueur(&eJoueur);
+		Grille_perso_afficher(eJoueur);
 		Jouer_Choisir(eJoueur, cTorpilleur, &eNumero_Torpilleur);
 		Jouer_Deplacer(eJoueur, cTorpilleur, &eNumero_Torpilleur);
 		Jouer_Attaquer(eJoueur, cTorpilleur, &eNumero_Torpilleur);

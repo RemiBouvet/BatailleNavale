@@ -132,8 +132,6 @@ void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	char sx[20], sy[20];
 	int x, y;
 	int bCoordonneValide = 0;
-	cCurseur->x = x;
-	cCurseur->y = y;
 	printf("\nVeuillez saisir les coordonnées x et y de votre attaque :");
         scanf("%s",sx);
         scanf("%s",sy);
