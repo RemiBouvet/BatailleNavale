@@ -1,8 +1,7 @@
-#include "../grille/Grille.h"
-#include "../grille/Struct.h"
-#include "../grille/Outil.h"
+#include "../../grille/Grille.h"
+#include "../../grille/Struct.h"
+#include "../../grille/Outil.h"
 #include "../include/afficher.h"
-#include "couleur.h"
 
 t_plateau grille;
 
@@ -24,7 +23,7 @@ void Grille_perso_afficher(int num_grille){
 	                Grille_lire_case(i, j,num_grille,*(grille.grille1));
 					
 					if(grille.grille1[i][j].obstacle == Obstacle){
-						printf(" X ");
+						printf(" XX ");
 					}
 					else if (grille.grille1[i][j].obstacle == Aucun_o){
 						if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present) ){
@@ -129,7 +128,7 @@ void Grille_perso_afficher(int num_grille){
 	    	printf("\n\n");
 		}
     	printf("CORRESPONDANCE DES SYMBOLES :\n");
-    	printf("TP = torpilleur");
+    	printf("TP = torpilleur seul ou sur un bateau");
     	printf("\n");
     	printf("SM = sous-matin");
     	printf("\n");
@@ -137,11 +136,11 @@ void Grille_perso_afficher(int num_grille){
     	printf("\n");
     	printf("PA = porte-avion");
     	printf("\n");
-    	printf("'nom'_T = torpilleur sur 'bateau' touché");
+    	printf("'nom'_T ='bateau' touché");
     	printf("\n");
-    	printf("T'nom'T ='bateau' touché");
+    	printf("T'nom'T =torpilleur sur 'bateau' touché");
     	printf("\n");
-    	printf("X = obstacle");
+    	printf("XX = obstacle");
     	printf("\n\n");
 }
 
@@ -169,25 +168,25 @@ void Grille_masque_afficher(int num_grille){
 						printf("    ");
 					else if(grille.grille1[i][j].bateau == Sous_Marin){
 						if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present)
-							printf(" T ");
+							printf(" BT ");
 						else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
-							printf(" T ");
+							printf(" BT ");
 						else
 							printf("    ");
 					}
 					else if(grille.grille1[i][j].bateau == Destroyer ){
 						if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present)
-							printf(" T ");
+							printf(" BT ");
 						else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
-							printf(" T ");
+							printf(" BT ");
 						else
 							printf("    ");
 					}
 					else if(grille.grille1[i][j].bateau == Porte_Avion){
 						if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present )
-							printf(" T ");
+							printf(" BT ");
 						else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
-							printf(" T ");
+							printf(" BT ");
 						else
 							printf("    ");
 					}	
@@ -200,7 +199,7 @@ void Grille_masque_afficher(int num_grille){
 		for(k=0;k < N ; k++)
 			printf("-----");
     	printf("\n\n");
-    }else {
+    }else if(num_grille==1){
     	printf("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n\n");
 	 	printf("           A    B    C    D    E    F    G    H    I    J \n");
 		for(i=0;i < N ; i++){
@@ -220,19 +219,19 @@ void Grille_masque_afficher(int num_grille){
 						printf("    ");
 					else if(grille.grille2[i][j].bateau == Sous_Marin){
 						if((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" T ");
+							printf(" BT ");
 						else
 							printf("    ");
 					}
 					else if(grille.grille2[i][j].bateau == Destroyer){
 						if((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" T ");
+							printf(" BT ");
 						else
 							printf("    ");
 					}
 					else if(grille.grille2[i][j].bateau == Porte_Avion){
 						if((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" T ");
+							printf(" BT ");
 						else
 							printf("    ");
 					}	
@@ -247,7 +246,7 @@ void Grille_masque_afficher(int num_grille){
     	printf("\n\n");
     }
     	printf("CORRESPONDANCE DES SYMBOLES :\n");
-    	printf("T = touché");
+    	printf("BT = bateau touché");
     	printf("\n");
     	printf("X = obstacle");
     	printf("\n\n");
