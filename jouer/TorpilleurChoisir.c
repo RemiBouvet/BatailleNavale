@@ -6,7 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[N_Torpilleur]){
+void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpilleur){
 	//Fonction qui permet de trouver tous les torpilleurs du joueur et les stockes dans le tableau de coordonne cBateau
 	int i, j;
 	int n = 0;
@@ -23,7 +23,7 @@ void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[N_Torpilleur]){
 	}
 }
 
-void Jouer_Afficher_Torpilleur(t_coordonnee cTorpilleur[N_Torpilleur]){
+void Jouer_Afficher_Torpilleur(t_coordonnee cTorpilleur[], int N_Torpilleur){
 	int i;
 	for(i=0; i < N_Torpilleur; i++){
 		printf("\nTorpilleur %i : x = %i y = %i", i+1, cTorpilleur[i].x, cTorpilleur[i].y);
@@ -42,7 +42,7 @@ int Jouer_Choisir_Stringtonum(char *v,int *res){
     return bNum;
 }
 
-void Jouer_Selectionner_Torpilleur(int *peNumero_Torpilleur){
+void Jouer_Selectionner_Torpilleur(int *peNumero_Torpilleur, int N_Torpilleur){
 	//Fonction qui permet de selectionner a jouer
 	char sSaisie[20];
 	int eSaisie;

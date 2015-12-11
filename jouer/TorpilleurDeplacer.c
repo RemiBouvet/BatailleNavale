@@ -7,7 +7,7 @@
 #include <ctype.h>
 
 
-int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[N_Torpilleur]){
+int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[], int N_Torpilleur){
 	//Fonction qui permet de vérifier si le déplacement demande est valide en fonction des obstacles et des bordures de la grille
 	int eTorpilleur;
 	int eObstacle;
@@ -35,7 +35,7 @@ int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Tor
 	return 1;
 }
 
-void Jouer_Deplacer_Torpilleur(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[N_Torpilleur]){
+void Jouer_Deplacer_Torpilleur(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[], int N_Torpilleur){
 	//Fonction qui permet de mettre a jour les coordonne du torpilleur en fonction du déplacement demandé.
 	int x = 0, y = 0;
 	if(direction == Haut){

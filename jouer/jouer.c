@@ -26,31 +26,31 @@ void Jouer_Changer_Joueur(int *eJoueur){
 	}
 }
 
-void Jouer_Choisir(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur){
+void Jouer_Choisir(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur){
 	//Fonction qui gère le fait de trouver et de choisir le torpilleur a jouer
-	Jouer_Trouver_Torpilleur(eJoueur, pcTorpilleur);
-	Jouer_Afficher_Torpilleur(pcTorpilleur);
-	Jouer_Selectionner_Torpilleur(peNumero_Torpilleur);
+	Jouer_Trouver_Torpilleur(eJoueur, pcTorpilleur, N_Torpilleur);
+	Jouer_Afficher_Torpilleur(pcTorpilleur, N_Torpilleur);
+	Jouer_Selectionner_Torpilleur(peNumero_Torpilleur, N_Torpilleur);
 	Jouer_Afficher_Torpilleur_Selectionne(*peNumero_Torpilleur);
 }
 
-void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur){
+void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur){
 	//Fonction qui permet de gérer le deplacement du torpilleur
 	t_direction dDirection;
 	int bValide = 0;
 	while(!bValide){
 		Jouer_Choisir_Direction(&dDirection);
-		bValide = Jouer_Deplacement_Valide(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur);
+		bValide = Jouer_Deplacement_Valide(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur, N_Torpilleur);
 		if(!bValide){
 			printf("\nDirection invalide (Presence d'un torpilleur ou d'un obstacle ou hors carte)");
 		}
 	}
-	Jouer_Deplacer_Torpilleur(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur);
-	Jouer_Trouver_Torpilleur(eJoueur, pcTorpilleur);
-	Jouer_Afficher_Torpilleur(pcTorpilleur);
+	Jouer_Deplacer_Torpilleur(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur, N_Torpilleur);
+	Jouer_Trouver_Torpilleur(eJoueur, pcTorpilleur, N_Torpilleur);
+	Jouer_Afficher_Torpilleur(pcTorpilleur, N_Torpilleur);
 }
 
-void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur){
+void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur){
 	//Fonction qui permet de gérer l'attaque du torpilleur
 	t_portee gPortee[N][M];
 	t_coordonnee cCurseur;
@@ -58,11 +58,11 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	int eJoueurAdverse = eJoueur;
 	Jouer_Changer_Joueur(&eJoueurAdverse);
 	
-	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee); 
+	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee, N_Torpilleur); 
 	Jouer_Afficher_Portee(gPortee);
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){
-		Jouer_Choisir_Attaque(gPortee, &cCurseur);
+		Jouer_Choisir_Attaque(gPortee, &cCurseur, N_Torpilleur);
 		Grille_ecrire_toucher(cCurseur.x,cCurseur.y, eJoueurAdverse, Oui);
 		
 	}
@@ -102,9 +102,9 @@ void Jouer_Partie(int N_Torpilleur){
 		Grille_masque_afficher(eJoueur);
 		Jouer_Changer_Joueur(&eJoueur);
 		Grille_perso_afficher(eJoueur);
-		Jouer_Choisir(eJoueur, cTorpilleur, &eNumero_Torpilleur);
-		Jouer_Deplacer(eJoueur, cTorpilleur, &eNumero_Torpilleur);
-		Jouer_Attaquer(eJoueur, cTorpilleur, &eNumero_Torpilleur);
+		Jouer_Choisir(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur);
+		Jouer_Deplacer(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur);
+		Jouer_Attaquer(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur);
 		bGagnant = Jouer_Gagnant(eJoueur);
 	}
 	printf("\nLe joueur %i a gagne !", eJoueur);

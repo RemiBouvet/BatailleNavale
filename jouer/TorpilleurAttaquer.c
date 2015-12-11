@@ -6,7 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[N_Torpilleur], int eNumero_Torpilleur,t_portee gPortee[N][M]){
+void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int eNumero_Torpilleur,t_portee gPortee[N][M], int N_Torpilleur){
 	//Fonction qui permet de stocker dans la grille gPortee[N][M] les cases où le torpilleur selectionne a la possibilite d'attaquer
 	int eObstacle;
 	int eToucher;
@@ -127,7 +127,7 @@ int Jouer_Stringtonum(char *v,int *res){
     return bNum;
 }
 
-void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur){
+void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
 	//Fonction qui permet de choisir les coordonne a attaquer manuellement.
 	char sx[20], sy[20];
 	int x, y;
