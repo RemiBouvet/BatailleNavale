@@ -162,34 +162,35 @@ void Grille_masque_afficher(int num_grille){
 				if(grille.grille1[i][j].obstacle == Obstacle )
 					printf(" X ");
 				else if (grille.grille1[i][j].obstacle == Aucun_o){
-					if(grille.grille1[i][j].bateau == Aucun_b)
+					if(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
 						printf("    ");
-					else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present))
+					else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
 						printf("    ");
 					else if(grille.grille1[i][j].bateau == Sous_Marin){
-						if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present)
+						if((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t))
 							printf(" BT ");
-						else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
+						/*else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
 							printf(" BT ");
 						else
-							printf("    ");
+							printf("    ");*/
 					}
 					else if(grille.grille1[i][j].bateau == Destroyer ){
-						if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present)
+						if((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t)|| (grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t))
 							printf(" BT ");
-						else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
+						/*else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
 							printf(" BT ");
 						else
-							printf("    ");
+							printf("    ");*/
 					}
 					else if(grille.grille1[i][j].bateau == Porte_Avion){
-						if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present )
+						if((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t) || (grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t))
 							printf(" BT ");
-						else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
+						/*else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
 							printf(" BT ");
 						else
-							printf("    ");
-					}	
+							printf("    ");*/
+					}
+					else printf("TP");	
 				}
 				printf("|");
 			}

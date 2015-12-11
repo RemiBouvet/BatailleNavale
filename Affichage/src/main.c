@@ -11,7 +11,7 @@ int main(){
 	Grille_init();
 	//Placement_obstacle(1);
 	//Placement_bateau(1,1);
-	//Grille_masque_afficher(1);
+	Grille_masque_afficher(2);
 	Grille_perso_afficher(1);
 	return 0;
 }

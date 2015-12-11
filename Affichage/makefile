@@ -1,6 +1,6 @@
 FLAG= -g -Wall
 
-prog : Grille.o afficher_2.o Outil.o Placement_bateau.o Placement_obstacle.o main.o 
+prog : Grille.o afficher.o Outil.o Placement_bateau.o Placement_obstacle.o main.o 
 	gcc -o prog $^ $(FLAG)
 	
 Outil.o : ../grille/Outil.c ../grille/Outil.h
