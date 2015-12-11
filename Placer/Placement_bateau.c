@@ -270,7 +270,7 @@ void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){ /*Fonction qui pl
 		    if(sJ=='A')j=0;
 		    if(sJ=='B')j=1;
 		    if(sJ=='C')j=2;
-	            if(sJ=='D')j=3;
+	        if(sJ=='D')j=3;
 		    if(sJ=='E')j=4;
 		    if(sJ=='F')j=5;
 		    if(sJ=='G')j=6;
@@ -430,7 +430,6 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 	int Choix=0,valide=0,nb_torpilleurs;
 	Grille_init();
 	placer_obstacle(); //On place les obstacles sur les grilles
-
 	do{
 		printf("Placé automatique : 1 \nPlacé manuelle : 2\n");
 		printf("Choix : ");
