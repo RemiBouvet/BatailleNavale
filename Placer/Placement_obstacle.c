@@ -9,7 +9,6 @@
 #include "../grille/Outil.h"
 #include "../grille/Grille.h"
 #define nb_obstacle 5
-t_case grille[N][M];
 void placer_obstacle(){
 	int compteur_o=0,i=0,j=0,res,res2;	
 	srand(time(NULL));

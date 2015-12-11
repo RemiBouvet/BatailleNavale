@@ -9,6 +9,7 @@
 #include "../grille/Grille.h"
 #include "../grille/Struct.h"
 #include "Placement_obstacle.h"
+#include "../Affichage/include/afficher.h"
 
 #define nb_bateau 4
 
@@ -22,6 +23,7 @@ int bStringtonum(char *v,int *res){ /*Fonction qui convertis une chaine de carac
         bNum=bNum && isdigit(v[i]);
     if(bNum==1){
         *res=atoi(v); //On convertis la chaine en int
+        printf("valeur de i : %i\n",*res);
     }
     return bNum;
 }
@@ -202,38 +204,7 @@ void Placer_bateau_auto(int num_grille,int nb_torpilleur){ /*Fonction qui place 
 			nb++;	
 		}
 	 }
-		if(num_grille==1){
-			for(i=0;i<N;i++){
-			    for(j=0;j<M;j++){
-				printf("%i  ",grille.grille1[i][j].bateau);
-			    }
-			    printf("\n");
-			}
-			printf("\n");
-			printf("\n");
-		    	for(i=0;i<N;i++){
-				for(j=0;j<M;j++){
-			    		printf("%i  ",grille.grille1[i][j].torpilleur);
-				}
-		       		 printf("\n");
-		    	}
-		}
-		else if(num_grille==2){
-			for(i=0;i<N;i++){
-			    for(j=0;j<M;j++){
-				printf("%i  ",grille.grille2[i][j].bateau);
-			    }
-			    printf("\n");
-			}
-			printf("\n");
-			printf("\n");
-		    	for(i=0;i<N;i++){
-				for(j=0;j<M;j++){
-			    		printf("%i  ",grille.grille2[i][j].torpilleur);
-				}
-		       		 printf("\n");
-		    	}
-		}
+		Grille_perso_afficher(num_grille);
 		    printf("Etes vous satisfait de vos bateaux ?? (Oui:1) : ");
 		    scanf("%s",sC);
 		    if(bStringtonum(sC,&Choix)){
@@ -251,37 +222,41 @@ void Placer_bateau_auto(int num_grille,int nb_torpilleur){ /*Fonction qui place 
 /****************************************************************************/
 
 void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){ /*Fonction qui place manuellement des bateaux*/
-    int compteur=0,choix_sens,i,j,ok=0,Choix=0,valide=0;
+    int compteur=0,choix_sens=0,i=0,j=0,ok=0,Choix=0,valide=0,nb=0;
     char sI[20];
     char sJ;
     char sC[20];
+    Grille_perso_afficher(num_grille);
     for(compteur=0;compteur!=1;compteur++){
-	printf("Vous allez rentrer le Sous_Marin\n");
+		printf("Vous allez rentrer le Sous_Marin\n");
         do{
-	    ok=0;
-	    Choix=0;
+	    	ok=0;
+	    	Choix=0;
             printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
             scanf("%s",sI);
+            //printf("chaine : %s\n",sI);
             scanf("%c",&sJ);
-             if(bStringtonum(sI,&i) && sJ>='A' && sJ<='J'){
-                 if(bCroit(0,i,M)){
+            printf("zfezefzfezf     %c\n",sJ);
+             if(bStringtonum(sI,&i)){ // && sJ>='A' && sJ<='J'
+             	printf("i=========%i",i);
+                 if(bCroit(0,i,N)){
                     printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                     scanf("%i",&choix_sens);
-		    if(sJ=='A')j=0;
-		    if(sJ=='B')j=1;
-		    if(sJ=='C')j=2;
-	        if(sJ=='D')j=3;
-		    if(sJ=='E')j=4;
-		    if(sJ=='F')j=5;
-		    if(sJ=='G')j=6;
-		    if(sJ=='H')j=7;
-		    if(sJ=='I')j=8;
-	            if(sJ=='J')j=9;
+				    if(sJ=='A')j=0;
+				    if(sJ=='B')j=1;
+				    if(sJ=='C')j=2;
+			        if(sJ=='D')j=3;
+				    if(sJ=='E')j=4;
+				    if(sJ=='F')j=5;
+				    if(sJ=='G')j=6;
+				    if(sJ=='H')j=7;
+				    if(sJ=='I')j=8;
+	           		if(sJ=='J')j=9;
                     if(bCroit(1,choix_sens,2)){         
-			if(verif_presence(Sous_Marin,i,j,choix_sens,num_grille) && Assez_de_place(Sous_Marin,i,j,choix_sens,num_grille)){
-				Placer_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
-				ok=1;
-			}
+						if(verif_presence(Sous_Marin,i,j,choix_sens,num_grille) && Assez_de_place(Sous_Marin,i,j,choix_sens,num_grille)){
+							Placer_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
+							ok=1;
+						}
                     }
             	}
              }
@@ -289,136 +264,132 @@ void Placer_bateau_manuelle(int num_grille,int nb_torpilleur){ /*Fonction qui pl
             scanf("%s",sC);
             if(bStringtonum(sC,&Choix)){
                 if(Choix==1 && ok==1)valide=1; 
-		else{
-			valide=0;
-			Enlever_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
-		}
+				else{
+					valide=0;
+					Enlever_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
+				}
             }else  Enlever_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
-        }while(!valide);/*
-        for(i=0;i<N;i++){
-            for(j=0;j<M;j++){
-                printf("%i  ",grille.grille2[i][j].bateau);
-            }
-            printf("\n");
-        }
- 	 ok=0;
-	printf("Vous allez placer le Destroyer\n");
+        }while(!valide);
+		Grille_perso_afficher(num_grille);
+	 	ok=0;
+		printf("Vous allez placer le Destroyer\n");
         do{
             printf("Veuillez rentrer les coordonnées i et j pour placer le bateau : ");
             scanf("%s",sI);
-            scanf("%s",sJ);
-            if(bStringtonum(sI,&i) && bStringtonum(sJ,&j)){
-                if(bCroit(0,i,N) && bCroit(0,j,M)){
+            scanf("%s",&sJ);
+            if(bStringtonum(sI,&i) && sJ>='A' && sJ<='J'){
+                if(bCroit(0,i,N)){
                     printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                     scanf("%i",&choix_sens);
+                    if(sJ=='A')j=0;
+				    if(sJ=='B')j=1;
+				    if(sJ=='C')j=2;
+			        if(sJ=='D')j=3;
+				    if(sJ=='E')j=4;
+				    if(sJ=='F')j=5;
+				    if(sJ=='G')j=6;
+				    if(sJ=='H')j=7;
+				    if(sJ=='I')j=8;
+	           		if(sJ=='J')j=9;
                     if(bCroit(1,choix_sens,2)){
-				if(verif_presence(Destroyer,i,j,choix_sens,num_grille)&& Assez_de_place(Destroyer,i,j,choix_sens,num_grille)){
-		                        Placer_grillebateau(Destroyer, i,j,num_grille,choix_sens);
-					ok=1;
+                    	printf("%i pour i et %i pour j \n",i,j);
+						if(verif_presence(Destroyer,i,j,choix_sens,num_grille) && Assez_de_place(Destroyer,i,j,choix_sens,num_grille)){
+				            Placer_grillebateau(Destroyer, i,j,num_grille,choix_sens);
+							ok=1;
+						}
+		  			 }
 				}
-		    }
-		}
-	    }  
-	printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
+	    	}  
+			printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
             scanf("%s",sC);
             if(bStringtonum(sC,&Choix)){
                 if(Choix==1 && ok==1)valide=1; //dfswgsgdudsygfdhsffhdjsdsfhjdfsjhfdshj CORRECT
-		else{
-			valide=0;
-			Enlever_grillebateau(Destroyer, i,j,num_grille,choix_sens);
-		}
+				else{
+					valide=0;
+					Enlever_grillebateau(Destroyer, i,j,num_grille,choix_sens);
+				}
             }else  Enlever_grillebateau(Destroyer, i,j,num_grille,choix_sens);
         }while(!valide);
-        for(i=0;i<N;i++){
-            for(j=0;j<M;j++){
-                printf("%i  ",grille.grille2[i][j].bateau);
-            }
-            printf("\n");
-        }                  
+        	Grille_perso_afficher(num_grille);         
         ok=0;
         do{
             printf("Vous allez placer le Porte_Avion\n");
             printf("Veuillez rentrer les coordonnées i et j pour placer le bateau : ");
             scanf("%s",sI);
-            scanf("%s",sJ);
-            if(bStringtonum(sI,&i) && bStringtonum(sJ,&j)){
-                if(bCroit(0,i,N) && bCroit(0,j,M)){
+            scanf("%s",&sJ);
+            if(bStringtonum(sI,&i) && sJ>='A' && sJ<='J'){
+                if(bCroit(0,i,N)){
                     printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
                     scanf("%i",&choix_sens);
+                    if(sJ=='A')j=0;
+				    if(sJ=='B')j=1;
+				    if(sJ=='C')j=2;
+			        if(sJ=='D')j=3;
+				    if(sJ=='E')j=4;
+				    if(sJ=='F')j=5;
+				    if(sJ=='G')j=6;
+				    if(sJ=='H')j=7;
+				    if(sJ=='I')j=8;
+	           		if(sJ=='J')j=9;
                     if(bCroit(1,choix_sens,2)){
-				if(verif_presence(Porte_Avion,i,j,choix_sens,num_grille)&& Assez_de_place(Porte_Avion,i,j,choix_sens,num_grille)){
-		                        Placer_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
-					ok=1;
-				}
+						if(verif_presence(Porte_Avion,i,j,choix_sens,num_grille)&& Assez_de_place(Porte_Avion,i,j,choix_sens,num_grille)){
+				            Placer_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
+							ok=1;
+						}
                      }
                 }
             }
-	printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
+			printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
             scanf("%s",sC);
             if(bStringtonum(sC,&Choix)){
                 if(Choix==1 && ok==1)valide=1; //dfswgsgdudsygfdhsffhdjsdsfhjdfsjhfdshj CORRECT
-		else{
-			valide=0;
-			Enlever_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
-		}
+				else{
+					valide=0;
+					Enlever_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
+				}
             }else  Enlever_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
         }while(!valide);
-        for(i=0;i<N;i++){
-            for(j=0;j<M;j++){
-                printf("%i  ",grille.grille1[i][j].bateau);
-            }
-            printf("\n");
-        }
-       
-	for(i=0;i<N;i++){
-		for(j=0;j<M;j++){
-		    printf("%i  ",grille.grille1[i][j].bateau);
-		}
-        printf("\n");
-    	}
-	ok=0;
-	printf("Vous allez rentrer le torpilleur\n");
-	while(nb!=nb_torpilleur){
-		do{
-		    printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
-		    scanf("%s",sI);
-		    scanf("%s",sJ);
-		    if(bStringtonum(sI,&i) && bStringtonum(sJ,&j)){
-		        if(bCroit(0,i,N) && bCroit(0,j,M)){
-				if(verif_presence(Present,i,j,choix_sens,num_grille)){
-					Grille_ecrire_torpilleur(i,j,num_grille,Present);
+        Grille_perso_afficher(num_grille);
+		ok=0;
+		printf("Vous allez rentrer le torpilleur\n");
+		while(nb!=nb_torpilleur){
+			do{
+			    printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
+			    scanf("%s",sI);
+			    scanf("%s",&sJ);
+			    if(bStringtonum(sI,&i) && sJ>='A' && sJ<='J'){
+			    		if(sJ=='A')j=0;
+					    if(sJ=='B')j=1;
+					    if(sJ=='C')j=2;
+				        if(sJ=='D')j=3;
+					    if(sJ=='E')j=4;
+					    if(sJ=='F')j=5;
+					    if(sJ=='G')j=6;
+					    if(sJ=='H')j=7;
+					    if(sJ=='I')j=8;
+		           		if(sJ=='J')j=9;
+				        if(bCroit(0,i,N)){
+							if(verif_presence(Present,i,j,choix_sens,num_grille)){
+								Grille_ecrire_torpilleur(i,j,num_grille,Present);
 
-					ok=1;
-				}
-		        }
-		    }
-		printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
-            	scanf("%s",sC);
-            if(bStringtonum(sC,&Choix)){
-                if(Choix==1 && ok==1)valide=1; //dfswgsgdudsygfdhsffhdjsdsfhjdfsjhfdshj CORRECT
-		else{
-			valide=0;
-			Enlever_grillebateau(Present, i,j,num_grille,choix_sens);
+								ok=1;
+							}
+				        }
+			    }
+				printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
+	            scanf("%s",sC);
+	            if(bStringtonum(sC,&Choix)){
+	                if(Choix==1 && ok==1)valide=1; //dfswgsgdudsygfdhsffhdjsdsfhjdfsjhfdshj CORRECT
+					else{
+						valide=0;
+						Enlever_grillebateau(Present, i,j,num_grille,choix_sens);
+					}
+	            }else  Enlever_grillebateau(Present, i,j,num_grille,choix_sens);
+	        }while(!valide);
+			nb++;	
 		}
-            }else  Enlever_grillebateau(Present, i,j,num_grille,choix_sens);
-        }while(!valide);
-		nb++;	
-	}*/
     }
-	for(i=0;i<N;i++){
-            for(j=0;j<M;j++){
-                printf("%i  ",grille.grille2[i][j].bateau);
-            }
-            printf("\n");
-        }
-            printf("\n");
-        printf("\n");
-    for(i=0;i<N;i++){
-        for(j=0;j<M;j++){
-            printf("%i  ",grille.grille2[i][j].torpilleur);
-        }
-        printf("\n");
-    }
+	Grille_perso_afficher(num_grille);
     
 }
 /****************************************************************************/
@@ -450,7 +421,7 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 					scanf("%s",T);
 				}while(!bStringtonum(T,&nb_torpilleurs));
 				Placer_bateau_manuelle(1,nb_torpilleurs);
-				Placer_bateau_manuelle(2,nb_torpilleurs);
+				//Placer_bateau_manuelle(2,nb_torpilleurs);
 				valide=1;
 			}
 		}
