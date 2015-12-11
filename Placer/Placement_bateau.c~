@@ -147,7 +147,7 @@ void Placer_bateau_auto(int num_grille,int nb_torpilleur){ /*Fonction qui place 
 		    ok=0;
 			i=uHasard(N);
 			j=uHasard(M);
-		         if(bCroit(0,i,N) && bCroit(0,j,M)){
+		         if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
 				choix_sens=uHasard(2);
 				if(verif_presence(Sous_Marin,i,j,choix_sens,num_grille) && Assez_de_place(Sous_Marin,i,j,choix_sens,num_grille)){
 					Placer_grillebateau(Sous_Marin, i,j,num_grille,choix_sens);
@@ -161,7 +161,7 @@ void Placer_bateau_auto(int num_grille,int nb_torpilleur){ /*Fonction qui place 
 			ok=0;
 			i=uHasard(N);
 			j=uHasard(M);
-		         if(bCroit(0,i,N) && bCroit(0,j,M)){
+		         if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
 		                choix_sens=uHasard(2);
 				if(verif_presence(Destroyer,i,j,choix_sens,num_grille) && Assez_de_place(Destroyer,i,j,choix_sens,num_grille)){
 					Placer_grillebateau(Destroyer, i,j,num_grille,choix_sens);
@@ -175,7 +175,7 @@ void Placer_bateau_auto(int num_grille,int nb_torpilleur){ /*Fonction qui place 
 			ok=0;
 			i=uHasard(N);
 			j=uHasard(M);
-		         if(bCroit(0,i,N) && bCroit(0,j,M)){
+		         if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
 		                choix_sens=uHasard(2);
 				if(verif_presence(Porte_Avion,i,j,choix_sens,num_grille) && Assez_de_place(Porte_Avion,i,j,choix_sens,num_grille)){
 					Placer_grillebateau(Porte_Avion, i,j,num_grille,choix_sens);
