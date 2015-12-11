@@ -1,3 +1,32 @@
-*.o
-*.gch
-*~
+# Les fichiers objets
+* .o
+* .ko
+* .obj
+*.elfe
+
+# Têtes précompilés
+* .gch
+* .pch
+
+# Bibliothèques
+* .lib
+*.un
+*.la
+* .lo
+
+# Shared objets (inc. DLL de Windows)
+* .dll
+*.ainsi
+*.ainsi.*
+* .dylib
+
+# Exécutables
+*.exe
+*.dehors
+* .app
+* .i * 86
+* .x86_64
+* .hex
+
+# Les fichiers de débogage
+* .dSYM /
