@@ -1,6 +1,6 @@
-#include "../../grille/Grille.h"
-#include "../../grille/Struct.h"
-#include "../../grille/Outil.h"
+#include "../grille/Grille.h"
+#include "../grille/Struct.h"
+#include "../grille/Outil.h"
 #include "../include/afficher.h"
 #include "couleur.h"
 
