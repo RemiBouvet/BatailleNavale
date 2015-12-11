@@ -16,6 +16,7 @@ void Jouer_init_temporaire(){
 }
 
 void Jouer_Changer_Joueur(int *eJoueur){
+	//Fonction qui permet de changer de joueur
 	if(*eJoueur == 1){
 		*eJoueur = 2;
 	}
@@ -25,6 +26,7 @@ void Jouer_Changer_Joueur(int *eJoueur){
 }
 
 void Jouer_Choisir(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur){
+	//Fonction qui gère le fait de trouver et de choisir le torpilleur a jouer
 	Jouer_Trouver_Torpilleur(eJoueur, pcTorpilleur);
 	Jouer_Afficher_Torpilleur(pcTorpilleur);
 	Jouer_Selectionner_Torpilleur(peNumero_Torpilleur);
@@ -32,6 +34,7 @@ void Jouer_Choisir(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpille
 }
 
 void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur){
+	//Fonction qui permet de gérer le deplacement du torpilleur
 	t_direction dDirection;
 	int bValide = 0;
 	while(!bValide){
@@ -47,6 +50,7 @@ void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 }
 
 void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur){
+	//Fonction qui permet de gérer l'attaque du torpilleur
 	t_portee gPortee[N][M];
 	t_coordonnee cCurseur;
 	int bAttaque_Possible;
@@ -67,6 +71,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 }
 
 int Jouer_Gagnant(int eJoueur){
+	//Fonction qui permet de déterminer si le joueur adverse a perdu à la fin du tour
 	Jouer_Changer_Joueur(&eJoueur);
 	int eBateau, eToucher;
 	int bGagnant = 1;
@@ -85,6 +90,7 @@ int Jouer_Gagnant(int eJoueur){
 
 
 void Jouer_Partie(){
+	//Fonction qui définie la routine de la Partie
 	int eJoueur = 0;
 	t_coordonnee cTorpilleur[N_Torpilleur];
 	int eNumero_Torpilleur;

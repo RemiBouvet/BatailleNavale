@@ -7,6 +7,7 @@
 #include <ctype.h>
 
 void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[N_Torpilleur]){
+	//Fonction qui permet de trouver tous les torpilleurs du joueur et les stockes dans le tableau de coordonne cBateau
 	int i, j;
 	int n = 0;
 	int eResultat;
@@ -42,6 +43,7 @@ int Jouer_Choisir_Stringtonum(char *v,int *res){
 }
 
 void Jouer_Selectionner_Torpilleur(int *peNumero_Torpilleur){
+	//Fonction qui permet de selectionner a jouer
 	char sSaisie[20];
 	int eSaisie;
 	int bCoordonneValide = 0;
