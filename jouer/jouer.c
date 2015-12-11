@@ -90,10 +90,11 @@ int Jouer_Gagnant(int eJoueur){
 }
 
 
-void Jouer_Partie(){
+void Jouer_Partie(int N_Torpilleur){
 	//Fonction qui définie la routine de la Partie
 	int eJoueur = 0;
-	t_coordonnee cTorpilleur[N_Torpilleur];
+
+	t_coordonnee* cTorpilleur = malloc(N_Torpilleur * sizeof(t_coordonnee)); // tableau de n entiers
 	int eNumero_Torpilleur;
 	int bGagnant = 0;
 	
