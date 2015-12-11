@@ -18,5 +18,5 @@ void Enlever_grillebateau(t_bateau bateau, int i,int j,int num_grille,int choix_
 void Enlever_grillebateau2(int num_grille);
 void Placer_bateau_auto(int num_grille,int nb_torpilleur);
 void Placer_bateau_manuelle(int num_grille,int nb_torpilleur);
-void init_grille();
+int init_grille();
 #endif
