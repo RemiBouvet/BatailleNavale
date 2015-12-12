@@ -11,8 +11,6 @@
 #include "Placement_obstacle.h"
 #include "../Affichage/include/afficher.h"
 
-#define nb_bateau 4
-
 t_plateau grille;
 
 int bStringtonum(char *v,int *res){ /*Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int*/
@@ -275,7 +273,7 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
     for(eCompteur=0;eCompteur!=1;eCompteur++){
 		printf("Vous allez rentrer le Sous_Marin\n");
         do{
-	    	eOk=0;
+	    	eOk=0; //Variable qui vérifie si le bateau a été placer
 	    	eChoix=0;
             printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
             scanf("%s",sI); //On entre les coordonnées en chaine de caractères
@@ -295,7 +293,7 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
             printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
             scanf("%s",sC);
             if(bStringtonum(sC,&eChoix)){ //On convertie en int sC si dans la chaine de caractères il y a que un entier
-                if(eChoix==1 && eOk==1)eValide=1; 
+                if(eChoix==1 && eOk==1)eValide=1;  //Variable qui vérifie si l'utilisateur est d'accord avec sa position et si le bateau a été placé
 				else{
 					eValide=0;
 					Enlever_grillebateau(Sous_Marin, i,j,eNum_grille,eChoix_sens); //Sinon on supprime le bateau 
@@ -400,7 +398,7 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 	char sChoix[20];
 	char sT[20];
 	int eChoix=0,eValide=0,eNb_torpilleurs;
-	Grille_init();
+	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
 	do{
 		printf("Placé automatique : 1 \nPlacé manuelle : 2\n");
@@ -411,8 +409,8 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 				do{
 					printf("Combien de Torpilleur souhaitez-vous ?");
 					scanf("%s",sT);
-				}while(!bStringtonum(sT,&eNb_torpilleurs) && eNb_torpilleurs>=1 && eNb_torpilleurs <=5); //Tant qu'on a pas un nombres de torpilleurs en int on continue
-				Placer_bateau_auto(1,eNb_torpilleurs);
+				}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
+				Placer_bateau_auto(1,eNb_torpilleurs); //On place automatique les bateaux sur les grilles des joueurs
 				Placer_bateau_auto(2,eNb_torpilleurs);
 				eValide=1;
 			}
@@ -420,8 +418,8 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 				do{
 					printf("Combien de Torpilleur souhaitez-vous ?");
 					scanf("%s",sT);
-				}while(!bStringtonum(sT,&eNb_torpilleurs) && eNb_torpilleurs>=1);
-				Placer_bateau_manuelle(1,eNb_torpilleurs);
+				}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5));
+				Placer_bateau_manuelle(1,eNb_torpilleurs); //Chaque joueur place manuellement chaque bateaux
 				Placer_bateau_manuelle(2,eNb_torpilleurs);
 				eValide=1;
 			}
