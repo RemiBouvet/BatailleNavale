@@ -86,7 +86,7 @@ void Grille_lire_torpilleur(int i,int j, int num_grille,int *peResultat){
 
 
 void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
-    if(i>=0 && i<=N && j>0 && j<=M){
+    if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
             if(choix==Sous_Marin){
                 if(num_grille==1)grille.grille1[i][j].bateau=Sous_Marin;
@@ -142,7 +142,7 @@ void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix){
 
 
 void Grille_ecrire_torpilleur(int i,int j, int num_grille,t_torpilleur choix){
-    if(i>0 && i<=N && j>0 && j<=M){
+    if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
             if(choix==Aucun_t){
                 if(num_grille==1)grille.grille1[i][j].torpilleur=Aucun_t;
