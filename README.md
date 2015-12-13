@@ -1,5 +1,7 @@
 # BatailleNavale
 
+[![Join the chat at https://gitter.im/RemiBouvet/BatailleNavale](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/RemiBouvet/BatailleNavale?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 ```
   enum (Aucun, Torpilleur, Sous-Marin, Destroyer, Porte-Avion) t_bateau
