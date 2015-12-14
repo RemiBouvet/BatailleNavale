@@ -464,7 +464,7 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
 	do{
-		printw("\n\nPlacé automatique (J%i) : 1 \n\nPlacé manuelle (J%i): 2\n\n",eNumJ,eNumJ);
+		printw("\n\nPlacé automatique (J%i) : 1 \n\n\t\tPlacé manuelle (J%i): 2\n\n",eNumJ,eNumJ);
 		printw("Choix : ");
 		refresh();
 		echo();
