@@ -131,7 +131,7 @@ int Jouer_Stringtonum(char *v,int *res){
     return bNum;
 }
 
-void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
+/*void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
 	//Fonction qui permet de choisir les coordonne a attaquer manuellement.
 	char sx[20], sy[20];
 	int x, y;
@@ -155,10 +155,54 @@ void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_
   		      	scanw("%s",sy);
 		}
 	}
+}*/
+
+
+void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
+	int ech;
+	int bValider = 0;
+	printw("\nVeuillez selectionner votre torpilleur a l'aide des fleches haut, bas, gauche et droite :");
+	refresh();
+	clear();
+	//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+	while(bValider == 0){
+		timeout(-1);
+		ech = getch();
+		switch(ech){
+			case 68:
+				if(gPortee[cCurseur->x][cCurseur->y-1] == Portee){
+					cCurseur->y--;
+				}
+				clear();
+				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				break;
+			case 67:
+				if(gPortee[cCurseur->x][cCurseur->y+1] == Portee){
+					cCurseur->y++;
+				}
+				clear();
+				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				break;
+			case 65:
+				if(gPortee[cCurseur->x-1][cCurseur->y] == Portee){
+					cCurseur->x--;
+				}
+				clear();
+				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				break;
+			case 66:
+				if(gPortee[cCurseur->x+1][cCurseur->y] == Portee){
+					cCurseur->x++;
+				}
+				clear();
+				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				break;
+			case 10:
+				bValider = 1;
+				break;
+		}
+	}
 }
-
-
-
 
 
 

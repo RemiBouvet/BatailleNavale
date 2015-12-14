@@ -28,7 +28,7 @@ void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpille
 void Jouer_Afficher_Torpilleur(t_coordonnee cTorpilleur[], int N_Torpilleur){
 	int i;
 	for(i=0; i < N_Torpilleur; i++){
-		printw("\nTorpilleur %i : x = %i y = %i", i+1, cTorpilleur[i].x, cTorpilleur[i].y);
+		printw("\n Torpilleur %i : x = %i y = %i", i+1, cTorpilleur[i].x, cTorpilleur[i].y);
 		refresh();
 	}
 }
@@ -52,7 +52,9 @@ int Jouer_Choisir_Stringtonum(char *v,int *res){
 	int bCoordonneValide = 0;
 	printw("\nVeuillez selectionner votre torpilleur :");
 	refresh();
+		echo();
         scanw("%s",sSaisie);
+        noecho();
 	while(!bCoordonneValide){
 		if(Jouer_Choisir_Stringtonum(sSaisie,&eSaisie) != 0){
 			if(eSaisie > 0 && eSaisie <= N_Torpilleur){
@@ -63,7 +65,9 @@ int Jouer_Choisir_Stringtonum(char *v,int *res){
 		if(!bCoordonneValide){
 			printw("\nNumero de torpilleur incorrect, veuiller entrez un numero a nouveau :");
 			refresh();
+				echo();
       			scanw("%s",sSaisie);
+      			noecho();
 		}
 	}
 }*/
@@ -73,30 +77,34 @@ void Jouer_Afficher_Torpilleur_Selectionne(int eNumero_Torpilleur){
 	refresh();
 }
 
-void Jouer_Selectionner_Torpilleur(int *peNumero_Torpilleur, int N_Torpilleur){
+void Jouer_Selectionner_Torpilleur(int eJoueur, t_coordonnee cTorpilleur[], int *peNumero_Torpilleur, int N_Torpilleur){
 	int ech;
 	int eNumero_Torpilleur = 0;
 	int bValider = 0;
-
-	while(!bValider){
+	printw("\nVeuillez selectionner votre torpilleur a l'aide des fleches gauche et droite :");
+	refresh();
+	clear();
+	torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+	while(bValider == 0){
+		timeout(-1);
 		ech = getch();
 		switch(ech){
-			case KEY_LEFT:
+			case 68:
 				if(eNumero_Torpilleur >= 1)
 					eNumero_Torpilleur--;
-				Jouer_Afficher_Torpilleur_Selectionne(eNumero_Torpilleur);
+				clear();
+				torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
 				break;
-			case KEY_RIGHT:
-				if(eNumero_Torpilleur <= N_Torpilleur - 1)
+			case 67:
+				if(eNumero_Torpilleur < N_Torpilleur - 1)
 					eNumero_Torpilleur++;
-				Jouer_Afficher_Torpilleur_Selectionne(eNumero_Torpilleur);
+				clear();
+				torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
 				break;
-			case KEY_ENTER:
+			case 10:
 				*peNumero_Torpilleur = eNumero_Torpilleur;
 				bValider = 1;
 				break;
 		}
 	}
-
-
 }

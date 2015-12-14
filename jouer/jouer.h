@@ -9,6 +9,6 @@ void Jouer_Choisir(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpille
 void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur);
 void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur);
 int Jouer_Gagnant(int eJoueur);
-void Jouer_Partie(int N_Torpilleur);
+void Jouer_Partie(int N_Torpilleur, WINDOW *win);
 
 #endif
