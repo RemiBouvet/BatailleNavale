@@ -285,7 +285,7 @@ int Changement_colonne(char * v,int *pRes){
 /****************************************************************************/
 
 void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest){ /*Fonction qui place manuellement des bateaux*/
-    int eCompteur=0,eChoix_sens=0,i=0,j=0,eOk=0,eChoix=0,eValide=0,eNb_t=0;
+    int eCompteur=0,eChoix_sens=0,i=0,j=0,eOk=0,eChoix=0,eValide=0;
     char sI[20];
     char sJ[20];
     char sC[20];
@@ -300,7 +300,7 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,in
 		    eChoix=0;
 		    printw("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau n°%i: ",eCompteur+1);
 		    refresh();
-			echo();
+		    echo();
 		    scanw("%s",sI); //On entre les coordonnées en chaine de caractères
 		    scanw("%s",sJ);
 			noecho();

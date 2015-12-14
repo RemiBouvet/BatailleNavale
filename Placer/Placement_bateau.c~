@@ -285,7 +285,7 @@ int Changement_colonne(char * v,int *pRes){
 /****************************************************************************/
 
 void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest){ /*Fonction qui place manuellement des bateaux*/
-    int eCompteur=0,eChoix_sens=0,i=0,j=0,eOk=0,eChoix=0,eValide=0,eNb_t=0;
+    int eCompteur=0,eChoix_sens=0,i=0,j=0,eOk=0,eChoix=0,eValide=0;
     char sI[20];
     char sJ[20];
     char sC[20];
@@ -500,7 +500,7 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 		scanw("%s",sT);
 		noecho();
 	}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
-	printw("Configuration de la partie :\n\n\t Configuration de base (1 bateau de chaque) : 1\n\t Choisir son nombre de bateaux : 2\n");
+	printw("Configuration de la partie :\n\n\t 1 bateau de chaque : 1\n\t Choisir son nombre de bateaux : 2\n");
 	refresh();
 	echo();
 	scanw("%s",sConfig);
