@@ -4,7 +4,7 @@
 
 
 int main(void){
-	init_grille();
-	Jouer_Partie();
+	int taille=init_grille();
+	Jouer_Partie(taille);
 	return 1;
 }

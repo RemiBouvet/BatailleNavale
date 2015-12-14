@@ -21,7 +21,7 @@ TorpilleurAttaquer.o : jouer/TorpilleurAttaquer.c jouer/TorpilleurAttaquer.h jou
 jouer.o : jouer/jouer.c 
 	gcc -c jouer/jouer.c $(FLAG)
 
-Placement_bateau.o: Placer/Placement_bateau.c grille/Struct.h
+Placement_bateau.o: Placer/Placement_bateau.c grille/Struct.h grille/Outil.h Placer/Placement_bateau.h
 	gcc -c Placer/Placement_bateau.c $(FLAG)
 
 Placement_obstacle.o: Placer/Placement_obstacle.c grille/Struct.h Placer/Placement_obstacle.h grille/Outil.h
