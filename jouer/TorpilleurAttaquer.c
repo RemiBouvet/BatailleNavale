@@ -158,13 +158,13 @@ int Jouer_Stringtonum(char *v,int *res){
 }*/
 
 
-void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
+void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
 	int ech;
 	int bValider = 0;
 	printw("\nVeuillez selectionner votre torpilleur a l'aide des fleches haut, bas, gauche et droite :");
 	refresh();
 	clear();
-	//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+	Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
 	while(bValider == 0){
 		timeout(-1);
 		ech = getch();
@@ -174,28 +174,28 @@ void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_
 					cCurseur->y--;
 				}
 				clear();
-				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
 				break;
 			case 67:
 				if(gPortee[cCurseur->x][cCurseur->y+1] == Portee){
 					cCurseur->y++;
 				}
 				clear();
-				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
 				break;
 			case 65:
 				if(gPortee[cCurseur->x-1][cCurseur->y] == Portee){
 					cCurseur->x--;
 				}
 				clear();
-				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
 				break;
 			case 66:
 				if(gPortee[cCurseur->x+1][cCurseur->y] == Portee){
 					cCurseur->x++;
 				}
 				clear();
-				//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
 				break;
 			case 10:
 				bValider = 1;
