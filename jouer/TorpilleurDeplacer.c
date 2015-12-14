@@ -72,8 +72,9 @@ void Jouer_Choisir_Direction(t_direction *dDirection){
 	char sSaisie[20];
 	int eSaisie;
 	int bCoordonneValide = 0;
-	printf("\nVeuillez selectionner la direction dans laquelle deplacer le Torpilleur (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
-        scanf("%s",sSaisie);
+	printw("\nVeuillez selectionner la direction dans laquelle deplacer le Torpilleur (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
+    refresh();
+        scanw("%s",sSaisie);
 	while(!bCoordonneValide){
 		if(Jouer_Deplacer_Stringtonum(sSaisie,&eSaisie) != 0){
 			if(eSaisie >= 0 && eSaisie <= 3){
@@ -82,8 +83,9 @@ void Jouer_Choisir_Direction(t_direction *dDirection){
 			}
 		}
 		if(!bCoordonneValide){
-			printf("\nNumero de direction incorrect, veuiller entrez un numero a nouveau (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
-      			scanf("%s",sSaisie);
+			printw("\nNumero de direction incorrect, veuiller entrez un numero a nouveau (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
+      		refresh();
+      			scanw("%s",sSaisie);
 		}
 	}
 }

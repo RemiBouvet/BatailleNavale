@@ -1,13 +1,13 @@
-FLAG= -g -Wall
+FLAG= -g -Wall -lncurses -ltinfo
 
 prog : Grille.o Outil.o TorpilleurDeplacer.o TorpilleurChoisir.o TorpilleurAttaquer.o jouer.o 
 	gcc -o prog $^ $(FLAG)
 	
-Outil.o : include/Outil.c include/Outil.h
-	gcc -c include/Outil.c include/Outil.h $(FLAG)
+Outil.o : ../grille/Outil.c ../grille/Outil.h
+	gcc -c ../grille/Outil.c ../grille/Outil.h $(FLAG)
 	
-Grille.o : include/Grille.c 
-	gcc -c include/Grille.c $(FLAG)
+Grille.o : ../grille/Grille.c 
+	gcc -c ../grille/Grille.c $(FLAG)
 
 TorpilleurDeplacer.o : TorpilleurDeplacer.c TorpilleurDeplacer.h JouerStruct.h
 	gcc -c TorpilleurDeplacer.c TorpilleurDeplacer.h JouerStruct.h $(FLAG)

@@ -3,6 +3,8 @@
 
 #define N 10
 #define M 10
+#include <ncurses.h>
+
 typedef enum{Aucun_b=0,Sous_Marin=3,Destroyer=4,Porte_Avion=5}t_bateau;
 typedef enum{Aucun_o=0,Obstacle=1}t_obstacle;
 typedef enum{Non=0,Oui=1}t_toucher;

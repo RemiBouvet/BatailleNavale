@@ -42,7 +42,8 @@ void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 		Jouer_Choisir_Direction(&dDirection);
 		bValide = Jouer_Deplacement_Valide(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur, N_Torpilleur);
 		if(!bValide){
-			printf("\nDirection invalide (Presence d'un torpilleur ou d'un obstacle ou hors carte)");
+			printw("\nDirection invalide (Presence d'un torpilleur ou d'un obstacle ou hors carte)");
+			refresh();
 		}
 	}
 	Jouer_Deplacer_Torpilleur(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur, N_Torpilleur);
@@ -67,7 +68,8 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 		
 	}
 	else{
-		printf("\nAttaque impossible HAHAHAHAHAH");
+		printw("\nAttaque impossible HAHAHAHAHAH");
+		refresh();
 	}
 }
 
@@ -107,14 +109,15 @@ void Jouer_Partie(int N_Torpilleur){
 		Jouer_Attaquer(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur);
 		bGagnant = Jouer_Gagnant(eJoueur);
 	}
-	printf("\nLe joueur %i a gagne !", eJoueur);
+	printw("\nLe joueur %i a gagne !", eJoueur);
+	refresh();
 }
 
 /*int main(){
 	Jouer_init_temporaire(); //Temporaire
 
 	Jouer_Partie();
-	printf("\n");
+	printw("\n");
 	
 	return 1;
 }*/

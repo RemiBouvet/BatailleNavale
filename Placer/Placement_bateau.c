@@ -201,8 +201,9 @@ void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur){ /*Fonction qui plac
 		}
 	 }
 		Grille_perso_afficher(eNum_grille);
-		    printf("Etes vous satisfait de vos bateaux ?? (Oui:1) : ");
-		    scanf("%s",sC);
+		    printw("Etes vous satisfait de vos bateaux ?? (Oui:1) : ");
+		    refresh();
+		    scanw("%s",sC);
 		    if(bStringtonum(sC,&eChoix)){
 		        if(eChoix==1)eValide=1; 
 				else{
@@ -271,17 +272,20 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
     char sC[20];
     Grille_perso_afficher(eNum_grille);
     for(eCompteur=0;eCompteur!=1;eCompteur++){
-		printf("Vous allez rentrer le Sous_Marin\n");
+		printw("Vous allez rentrer le Sous_Marin\n");
+		refresh();
         do{
 	    	eOk=0; //Variable qui vérifie si le bateau a été placer
 	    	eChoix=0;
-            printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
-            scanf("%s",sI); //On entre les coordonnées en chaine de caractères
-            scanf("%s",sJ);
+            printw("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
+            refresh();
+            scanw("%s",sI); //On entre les coordonnées en chaine de caractères
+            scanw("%s",sJ);
              if(bStringtonum(sI,&i) && Changement_colonne(sJ,&j)){ //On transforme la chaine sI en int sur la variable i, et on entre une colonne en lettre et on la renvoi en int sur j
                  if(bCroit(0,i,N)){
-                    printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
-                    scanf("%i",&eChoix_sens);
+                    printw("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
+                    refresh();
+                    scanw("%i",&eChoix_sens);
                     if(bCroit(1,eChoix_sens,2)){         
 						if(verif_presence(Sous_Marin,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Sous_Marin,i,j,eChoix_sens,eNum_grille)){ //On vérifié si il y a dejà un bateau à l'endroit ou on va placer notre bateau, et on vérifie si il y a la place pour le mettre
 							Placer_grillebateau(Sous_Marin, i,j,eNum_grille,eChoix_sens); //Si oui on place le bateau
@@ -290,8 +294,9 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
                     }
             	}
              }
-            printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
-            scanf("%s",sC);
+            printw("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
+            refresh();
+            scanw("%s",sC);
             if(bStringtonum(sC,&eChoix)){ //On convertie en int sC si dans la chaine de caractères il y a que un entier
                 if(eChoix==1 && eOk==1)eValide=1;  //Variable qui vérifie si l'utilisateur est d'accord avec sa position et si le bateau a été placé
 				else{
@@ -302,17 +307,21 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
         }while(!eValide);
 		Grille_perso_afficher(eNum_grille); //On affiche la grille pour visualiser notre bateau
 	 	eOk=0;
-		printf("Vous allez placer le Destroyer\n");
+		printw("Vous allez placer le Destroyer\n");
+		refresh();
         do{
-            printf("Veuillez rentrer les coordonnées i et j pour placer le bateau : ");
-            scanf("%s",sI);
-            scanf("%s",sJ);
+            printw("Veuillez rentrer les coordonnées i et j pour placer le bateau : ");
+            refresh();
+            scanw("%s",sI);
+            scanw("%s",sJ);
             if(bStringtonum(sI,&i) && Changement_colonne(sJ,&j)){ //On transforme la chaine sI en int sur la variable i, et on entre une colonne en lettre et on la renvoi en int sur j
                 if(bCroit(0,i,N)){
-                    printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
-                    scanf("%i",&eChoix_sens);
+                    printw("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
+                    refresh();
+                    scanw("%i",&eChoix_sens);
                     if(bCroit(1,eChoix_sens,2)){
-                    	printf("%i pour i et %i pour j \n",i,j);
+                    	printw("%i pour i et %i pour j \n",i,j);
+                    	refresh();
 						if(verif_presence(Destroyer,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Destroyer,i,j,eChoix_sens,eNum_grille)){ //On vérifié si il y a dejà un bateau à l'endroit ou on va placer notre bateau, et on vérifie si il y a la place pour le mettre
 				            Placer_grillebateau(Destroyer, i,j,eNum_grille,eChoix_sens); //On place le bateau sur la grille si les conditions sont validées
 							eOk=1;
@@ -320,8 +329,9 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
 		  			 }
 				}
 	    	}  
-			printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
-            scanf("%s",sC);
+			printw("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
+			refresh();
+            scanw("%s",sC);
             if(bStringtonum(sC,&eChoix)){
                 if(eChoix==1 && eOk==1)eValide=1; 
 				else{
@@ -333,14 +343,17 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
         Grille_perso_afficher(eNum_grille);         
         eOk=0;
         do{
-            printf("Vous allez placer le Porte_Avion\n");
-            printf("Veuillez rentrer les coordonnées i et j pour placer le bateau : ");
-            scanf("%s",sI);
-            scanf("%s",sJ);
+            printw("Vous allez placer le Porte_Avion\n");
+            refresh();
+            printw("Veuillez rentrer les coordonnées i et j pour placer le bateau : ");
+            refresh();
+            scanw("%s",sI);
+            scanw("%s",sJ);
             if(bStringtonum(sI,&i) && Changement_colonne(sJ,&j)){
                 if(bCroit(0,i,N)){
-                    printf("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
-                    scanf("%i",&eChoix_sens);
+                    printw("Dans quelle sens souhaitez vous le placé ? 1 Horizontal , 2 Vertical\t : ");
+                    refresh();
+                    scanw("%i",&eChoix_sens);
                     if(bCroit(1,eChoix_sens,2)){
 						if(verif_presence(Porte_Avion,i,j,eChoix_sens,eNum_grille)&& Assez_de_place(Porte_Avion,i,j,eChoix_sens,eNum_grille)){//On vérifié si il y a dejà un bateau à l'endroit ou on va placer notre bateau, et on vérifie si il y a la place pour le mettre
 				            Placer_grillebateau(Porte_Avion,i,j,eNum_grille,eChoix_sens); //Si les conditions sont validées on place le bateau
@@ -349,8 +362,9 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
                      }
                 }
             }
-			printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
-            scanf("%s",sC);
+			printw("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
+			refresh();
+            scanw("%s",sC);
             if(bStringtonum(sC,&eChoix)){
                 if(eChoix==1 && eOk==1)eValide=1;
 				else{
@@ -361,13 +375,15 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
         }while(!eValide);
         Grille_perso_afficher(eNum_grille);
 		eOk=0;
-		printf("Vous allez rentrer le torpilleur\n");
+		printw("Vous allez rentrer le torpilleur\n");
+		refresh();
 		while(eNb_t!=eNb_torpilleur){ //Tant qu'on a pas le nombre de torpilleur souhaiter
 			do{
 				eOk=0;
-			    printf("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
-			    scanf("%s",sI);
-			    scanf("%s",sJ);
+			    printw("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau : ");
+			    refresh();
+			    scanw("%s",sI);
+			    scanw("%s",sJ);
 			    if(bStringtonum(sI,&i) && Changement_colonne(sJ,&j)){
 				    if(bCroit(0,i,N)){
 						if(verif_presence(Present,i,j,eChoix_sens,eNum_grille)){
@@ -376,8 +392,9 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui 
 						}
 				    }
 			    }
-				printf("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
-	            scanf("%s",sC);
+				printw("Etes vous satisfait de votre choix ? Oui:1 \t Non:0 \n");
+				refresh();
+	            scanw("%s",sC);
 	            if(bStringtonum(sC,&eChoix)){
 	                if(eChoix==1 && eOk==1)eValide=1;
 					else{
@@ -401,14 +418,17 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
 	do{
-		printf("Placé automatique : 1 \nPlacé manuelle : 2\n");
-		printf("Choix : ");
-		scanf("%s",sChoix);
+		printw("Placé automatique : 1 \nPlacé manuelle : 2\n");
+		refresh();
+		printw("Choix : ");
+		refresh();
+		scanw("%s",sChoix);
 		if(bStringtonum(sChoix,&eChoix)){ //Si dans choix on a seulement 1 entier on renvoie l'entier dans Choix
 			if(eChoix==1){
 				do{
-					printf("Combien de Torpilleur souhaitez-vous ?");
-					scanf("%s",sT);
+					printw("Combien de Torpilleur souhaitez-vous ?");
+					refresh();
+					scanw("%s",sT);
 				}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
 				Placer_bateau_auto(1,eNb_torpilleurs); //On place automatique les bateaux sur les grilles des joueurs
 				Placer_bateau_auto(2,eNb_torpilleurs);
@@ -416,8 +436,9 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 			}
 			else if(eChoix==2){
 				do{
-					printf("Combien de Torpilleur souhaitez-vous ?");
-					scanf("%s",sT);
+					printw("Combien de Torpilleur souhaitez-vous ?");
+					refresh();
+					scanw("%s",sT);
 				}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5));
 				Placer_bateau_manuelle(1,eNb_torpilleurs); //Chaque joueur place manuellement chaque bateaux
 				Placer_bateau_manuelle(2,eNb_torpilleurs);

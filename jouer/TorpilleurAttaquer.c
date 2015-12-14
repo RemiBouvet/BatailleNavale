@@ -34,15 +34,16 @@ void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int e
 }
 
 void Jouer_Afficher_Portee(t_portee gPortee[N][M]){
-	printf("\n");
+	printw("\n");
 	int i, j;	
 	for(i = 0; i < N; i++){
-		printf("\n");
+		printw("\n");
 		for(j = 0; j < M; j++){
-				printf("%i ", gPortee[i][j]);
+				printw("%i ", gPortee[i][j]);
 		}
 	}
-	printf("\n");
+	printw("\n");
+	refresh();
 }
 
 int Jouer_Attaque_Possible(t_portee gPortee[N][M]){
@@ -76,17 +77,20 @@ void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 void Jouer_Deplacer_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	int eSaisie;
 	t_direction dDirection;
-	printf("\nVeuillez selectionner la direction dans laquelle deplacer le curseur (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
-	scanf("%i", &eSaisie);
+	printw("\nVeuillez selectionner la direction dans laquelle deplacer le curseur (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
+	refresh();
+	scanw("%i", &eSaisie);
 	while(eSaisie < 0 || eSaisie > 3){
-		printf("\nNumero de direction incorrect, veuiller entrez un numero a nouveau (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
-		scanf("%i", &eSaisie);
+		printw("\nNumero de direction incorrect, veuiller entrez un numero a nouveau (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
+		refresh();
+		scanw("%i", &eSaisie);
 	}
 	int x = cCurseur->x, y = cCurseur->y;
 	dDirection = eSaisie;
 	if(dDirection == Haut){
 		x--;
-		printf("%i", x);
+		printw("%i", x);
+		refresh();
 		while(gPortee[x][y] == Hors_Portee && x > 0){
 			x--;
 		}
@@ -132,9 +136,10 @@ void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_
 	char sx[20], sy[20];
 	int x, y;
 	int bCoordonneValide = 0;
-	printf("\nVeuillez saisir les coordonnées x et y de votre attaque :");
-        scanf("%s",sx);
-        scanf("%s",sy);
+	printw("\nVeuillez saisir les coordonnées x et y de votre attaque :");
+	refresh();
+        scanw("%s",sx);
+        scanw("%s",sy);
 	while(!bCoordonneValide){
 		if(Jouer_Stringtonum(sx,&x) && Jouer_Stringtonum(sy,&y)){
 			if(gPortee[x][y] == Portee){
@@ -144,9 +149,10 @@ void Jouer_Choisir_Attaque(t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_
 			}
 		}
 		if(!bCoordonneValide){
-			printf("\nCoordonnes invalides, veuillez saisir les coordonnées x et y de votre attaque :");
-      			scanf("%s",sx);
-  		      	scanf("%s",sy);
+			printw("\nCoordonnes invalides, veuillez saisir les coordonnées x et y de votre attaque :");
+			refresh();
+      			scanw("%s",sx);
+  		      	scanw("%s",sy);
 		}
 	}
 }

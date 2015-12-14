@@ -4,6 +4,7 @@
 //#define N_Torpilleur 2
 
 #include "../grille/Grille.h"
+#include <ncurses.h>
 
 typedef struct {int x;int y;} t_coordonnee;
 typedef enum{Haut, Bas, Gauche, Droite}t_direction;

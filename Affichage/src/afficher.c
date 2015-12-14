@@ -142,6 +142,7 @@ void Grille_perso_afficher(int num_grille){
     	printf("\n");
     	printf("XX = obstacle");
     	printf("\n\n");
+    	refresh();
 }
 
 void Grille_masque_afficher(int num_grille){
@@ -251,4 +252,5 @@ void Grille_masque_afficher(int num_grille){
     	printf("\n");
     	printf("X = obstacle");
     	printf("\n\n");
+    	refresh();
 }
