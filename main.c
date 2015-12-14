@@ -18,7 +18,7 @@ int main(void){
 	printw("******************************** Bienvenue sur le jeu de la Bataille Navale *********************************\n");
 	printw("*************************************************************************************************************\n");
 	int taille=init_grille();
-	Jouer_Partie(taille);
+	Jouer_Partie(taille, win);
 	endwin();
 	return 1;
 }

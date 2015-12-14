@@ -2,7 +2,6 @@
 #include "../../grille/Struct.h"
 #include "../../grille/Outil.h"
 #include "../include/afficher.h"
-#include "../../jouer/JouerStruct.h"
 
 t_plateau grille;
 

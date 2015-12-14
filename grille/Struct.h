@@ -14,4 +14,6 @@ typedef struct {t_bateau bateau;t_obstacle obstacle;t_toucher toucher;t_torpille
 
 typedef struct{t_case grille1[N][M];t_case grille2[N][M];}t_plateau;
 
+typedef enum{Hors_Portee, Portee} t_portee;
+
 #endif

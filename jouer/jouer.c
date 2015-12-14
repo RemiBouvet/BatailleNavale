@@ -65,7 +65,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee, N_Torpilleur); 
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){
-		Portee_torpilleur_afficher(gPortee, eJoueur);
+		Portee_torpilleur_afficher(gPortee, eJoueur, cCurseur.x, cCurseur.y);
 		Jouer_Choisir_Attaque(eJoueur, *peNumero_Torpilleur, gPortee, &cCurseur, N_Torpilleur);
 		Grille_ecrire_toucher(cCurseur.x,cCurseur.y, eJoueurAdverse, Oui);
 		
