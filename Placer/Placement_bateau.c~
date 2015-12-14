@@ -504,8 +504,7 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 	echo();
 	scanw("%s",sConfig);
 	noecho();
-	while(bStringtonum(sConfig,&eConfig)){
-		while(eValide==1){
+	while(bStringtonum(sConfig,&eConfig) && eValide){
 			if(eConfig==1){
 				eNb_sous_m=1;
 				eNb_Dest=1;
@@ -531,12 +530,12 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 			}
 			else{
 				echo();				
-				printw("Merci d'entrer un chiffre correct\n");
+								scanw("%s",&sConfig);
 				noecho();
+				printw("Merci d'entrer un chiffre correct\n");
 			}
 
-			 printw("Merci d'entrer un chiffre correct\n");	
-		}
+		
 	}
 
 	do{

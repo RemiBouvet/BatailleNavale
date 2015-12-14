@@ -529,13 +529,14 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 				eValide=0;
 			}
 			else{
-				echo();				
-
+				echo();		
+				printw("Merci d'entrer un chiffre correct\n");		
+				scanw("%s",&sConfig);
 				noecho();
-				printw("Merci d'entrer un chiffre correct\n");
+
 			}
 
-		}
+		
 	}
 
 	do{
