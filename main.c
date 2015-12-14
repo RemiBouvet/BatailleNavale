@@ -2,20 +2,23 @@
 #include "Placer/Placement_bateau.h"
 #include "Affichage/include/afficher.h"
 
-#define WIDTH 200
-#define HEIGHT 200
+#define WIDTH 30
+#define HEIGHT 10
 
 int main(void){
 	WINDOW *win;
-
 	initscr();
 	clear();
-	echo();
+	noecho();
+	
 	cbreak();	/* Line buffering disabled. pass on everything */
-		
 	win = newwin(HEIGHT, WIDTH, 0, 0);
 	keypad(win, TRUE);
 	refresh();
+	printw("*************************************************************************************************************\n");
+	printw("****************************************** Jeu de la Bataille Navale ****************************************\n");
+	printw("*************************************************************************************************************\n");
+	
 	int taille=init_grille();
 	Jouer_Partie(taille);
 	endwin();
