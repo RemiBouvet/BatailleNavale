@@ -55,6 +55,9 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	//Fonction qui permet de gérer l'attaque du torpilleur
 	t_portee gPortee[N][M];
 	t_coordonnee cCurseur;
+	cCurseur.x = pcTorpilleur[*peNumero_Torpilleur].x;
+	cCurseur.y = pcTorpilleur[*peNumero_Torpilleur].y;
+
 	int bAttaque_Possible;
 	int eJoueurAdverse = eJoueur;
 	Jouer_Changer_Joueur(&eJoueurAdverse);

@@ -164,7 +164,9 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 	printw("\nVeuillez selectionner votre torpilleur a l'aide des fleches haut, bas, gauche et droite :");
 	refresh();
 	clear();
-	Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
+	Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
+	printw("\nx = %i, y = %i",cCurseur->x, cCurseur->y );
+	refresh();
 	while(bValider == 0){
 		timeout(-1);
 		ech = getch();
@@ -174,28 +176,28 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 					cCurseur->y--;
 				}
 				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 67:
 				if(gPortee[cCurseur->x][cCurseur->y+1] == Portee){
 					cCurseur->y++;
 				}
 				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 65:
 				if(gPortee[cCurseur->x-1][cCurseur->y] == Portee){
 					cCurseur->x--;
 				}
 				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 66:
 				if(gPortee[cCurseur->x+1][cCurseur->y] == Portee){
 					cCurseur->x++;
 				}
 				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur[eNumero_Torpilleur].x, cCurseur[eNumero_Torpilleur].y);
+				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 10:
 				bValider = 1;
