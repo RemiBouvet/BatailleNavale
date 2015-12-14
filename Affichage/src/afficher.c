@@ -9,7 +9,7 @@ t_plateau grille;
 void Grille_perso_afficher(int num_grille){
 /* Fonction permettant d'afficher la grille du joueur qui contient ses bateaux, les obstacles, les cibles touchées et les torpilleurs*/
 	 int i,j, k;
-	 int nL=0;
+	 int nL=0; // numero de ligne
 	 if(num_grille==1){
 		 printf("***********************************  GRILLE JOUEUR 1  *********************************** \n \n");
 		 printf("            A    B    C    D    E    F    G    H    I    J \n");
@@ -510,7 +510,7 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 
 void torpilleur_selection_afficher(int x,int y, int num_grille){
 /* Fonction qui permet d'afficher la selection du torpilleur */
-int i,j, k;
+	int i,j, k;
 	int nL=0;
 	if(num_grille==2){
 	 	printf("*********************************** GRILLE ATTAQUE  JOUEUR 2 *********************************** \n\n");
