@@ -472,13 +472,15 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 		noecho();
 		if(eNumJ==2)clear();
 		if(bStringtonum(sChoix,&eChoix)){ //Si dans choix on a seulement 1 entier on renvoie l'entier dans Choix
-				do{
-					printw("\nCombien de Torpilleur souhaitez-vous (J%i) ?",eNumJ);
-					refresh();
-					echo();
-					scanw("%s",sT);
-					noecho();
-				}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
+				if(eNumJ==1){				
+					do{
+						printw("\nCombien de Torpilleur souhaitez-vous (J%i) et (J%i) ?",eNumJ,eNumJ+1);
+						refresh();
+						echo();
+						scanw("%s",sT);
+						noecho();
+					}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
+				}
 				if(eChoix==1)Placer_bateau_auto(eNumJ,eNb_torpilleurs); //On place automatique les bateaux sur les grilles des joueurs
 				else if(eChoix==2)Placer_bateau_manuelle(eNumJ,eNb_torpilleurs);
 				clear();
