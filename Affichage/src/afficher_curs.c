@@ -346,7 +346,7 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 					printw(" XX ");
 				// si il n'y pas d'obstacle 
 				else if (grille.grille1[i][j].obstacle == Aucun_o){
-					if(gPortee[i][j]==1)
+					if(gPortee[i][j]==1 && (i!=x || j!=y))
 						printw(" PJ ");
 					else if((gPortee[i][j]==1)&&(i==x && j==y))
 						printw("TIRE");
@@ -431,7 +431,7 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 					printw(" XX ");
 				// si il n'y pas d'obstacle 
 				else if (grille.grille2[i][j].obstacle == Aucun_o){
-					if(gPortee[i][j]==1)
+					if(gPortee[i][j]==1 && (i!=x || j!=y))
 						printw(" PJ ");
 					else if((gPortee[i][j]==1)&&(i==x && j==y))
 						printw("TIRE");
