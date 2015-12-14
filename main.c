@@ -10,15 +10,13 @@ int main(void){
 	initscr();
 	clear();
 	noecho();
-	
 	cbreak();	/* Line buffering disabled. pass on everything */
 	win = newwin(HEIGHT, WIDTH, 0, 0);
 	keypad(win, TRUE);
 	refresh();
 	printw("*************************************************************************************************************\n");
-	printw("****************************************** Jeu de la Bataille Navale ****************************************\n");
+	printw("******************************** Bienvenue sur le jeu de la Bataille Navale *********************************\n");
 	printw("*************************************************************************************************************\n");
-	
 	int taille=init_grille();
 	Jouer_Partie(taille);
 	endwin();

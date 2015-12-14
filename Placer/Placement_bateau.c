@@ -134,53 +134,66 @@ void Enlever_grillebateau2(int eNum_grille){ /*Fonction qui supprime des bateaux
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
-void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur){ /*Fonction qui place aléatoirement des bateaux*/
-	int eCompteur=0,eChoix_sens,i,j,eOk=0,eNb=0,eValide=0,eChoix;
+void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest){ /*Fonction qui place aléatoirement des bateaux*/
+	int eCompteur=0,eChoix_sens,i,j,eOk=0,eNb=0,eValide=0,eChoix,compteur=0;
 	char sC[20];
 	clear();
 	srand(time(NULL));
 	do{
+	    compteur=0;
 	    for(eCompteur=0;eCompteur!=1;eCompteur++){
 		//Sous_Marin
 		do{
-		    eOk=0;
-			i=uHasard(N);
-			j=uHasard(M);
-		    	if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
-					eChoix_sens=uHasard(2);
-					if(verif_presence(Sous_Marin,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Sous_Marin,i,j,eChoix_sens,eNum_grille)){
-						Placer_grillebateau(Sous_Marin, i,j,eNum_grille,eChoix_sens);
-						eOk=1;
-					}            
-		    	}
+			while(compteur!=eNb_sous_m){
+			    	eOk=0;
+				i=uHasard(N);
+				j=uHasard(M);
+			    	if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
+						eChoix_sens=uHasard(2);
+						if(verif_presence(Sous_Marin,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Sous_Marin,i,j,eChoix_sens,eNum_grille)){
+							Placer_grillebateau(Sous_Marin, i,j,eNum_grille,eChoix_sens);
+							eOk=1;
+							compteur++;
+						}            
+			    	}
+
+			}
        		}while(!eOk);
 	 	eOk=0;
+		compteur=0;
 		//Destroyer
 		do{
-			eOk=0;
-			i=uHasard(N);
-			j=uHasard(M);
-		    if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
-		        eChoix_sens=uHasard(2);
-				if(verif_presence(Destroyer,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Destroyer,i,j,eChoix_sens,eNum_grille)){
-					Placer_grillebateau(Destroyer, i,j,eNum_grille,eChoix_sens);
-					eOk=1;
-				}
-		    }
+			while(compteur!=eNb_Dest){
+				eOk=0;
+				i=uHasard(N);
+				j=uHasard(M);
+			    if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
+				eChoix_sens=uHasard(2);
+					if(verif_presence(Destroyer,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Destroyer,i,j,eChoix_sens,eNum_grille)){
+						Placer_grillebateau(Destroyer, i,j,eNum_grille,eChoix_sens);
+						eOk=1;
+						compteur++;
+					}
+			    }
+			}
 		}while(!eOk);
-        eOk=0;
+        	eOk=0;
+		compteur=0;
 		//Porte_Avion
 		do{
-			eOk=0;
-			i=uHasard(N);
-			j=uHasard(M);
-		    if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
-		        eChoix_sens=uHasard(2);
-				if(verif_presence(Porte_Avion,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Porte_Avion,i,j,eChoix_sens,eNum_grille)){
-					Placer_grillebateau(Porte_Avion, i,j,eNum_grille,eChoix_sens);
-					eOk=1;
-				}                    
-		    }
+			while(compteur!=eNb_Port_A){
+				eOk=0;
+				i=uHasard(N);
+				j=uHasard(M);
+			    if(bCroit(0,i,N-1) && bCroit(0,j,M-1)){
+				eChoix_sens=uHasard(2);
+					if(verif_presence(Porte_Avion,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Porte_Avion,i,j,eChoix_sens,eNum_grille)){
+						Placer_grillebateau(Porte_Avion, i,j,eNum_grille,eChoix_sens);
+						eOk=1;
+						compteur++;
+					}                    
+			    }
+			}
 		}while(!eOk);
 		eOk=0;
 		eNb=0;
@@ -195,10 +208,11 @@ void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur){ /*Fonction qui plac
 					if(verif_presence(Present,i,j,eChoix_sens,eNum_grille) && Assez_de_place(Present,i,j,eChoix_sens,eNum_grille)){
 						Grille_ecrire_torpilleur(i,j,eNum_grille,Present);
 						eOk=1;
+						eNb++;	
 					}		            
-			    }
+			    	}
 			}while(!eOk);
-			eNb++;	
+
 		}
 	 }
 		Grille_perso_afficher(eNum_grille);
@@ -270,7 +284,7 @@ int Changement_colonne(char * v,int *pRes){
 /****************************************************************************/
 /****************************************************************************/
 
-void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur){ /*Fonction qui place manuellement des bateaux*/
+void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest){ /*Fonction qui place manuellement des bateaux*/
     int eCompteur=0,eChoix_sens=0,i=0,j=0,eOk=0,eChoix=0,eValide=0,eNb_t=0;
     char sI[20];
     char sJ[20];
@@ -460,9 +474,41 @@ clear();
 int init_grille(void){ /*Fonction qui initialise completement la grille et qui demande à l'utilisateur de placé les bateaux*/
 	char sChoix[20];
 	char sT[20];
-	int eChoix=0,eValide=0,eNb_torpilleurs=0,eNumJ=1;
+	char sConfig[20];
+	int eChoix=0,eValide=0,eNb_torpilleurs=0,eNumJ=1,eConfig=1,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1;
 	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
+	do{
+		printw("\nCombien de Torpilleur souhaitez-vous (J%i) et (J%i) ?",eNumJ,eNumJ+1);
+		refresh();
+		echo();
+		scanw("%s",sT);
+		noecho();
+	}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
+	printw("Configuration de la partie :\n\n\t Configuration de base (1 bateau de chaque) : 1\n\t Choix en configuration : 2\n");
+	echo();
+	scanw("%s",sConfig);
+	noecho();
+	if(bStringtonum(sConfig,&eConfig)){
+		switch(eConfig){
+			case 2:
+			clear();
+			printw("Choix en configuration : \n");
+			printw("Combien de Sous-Marin souhaitez vous ? ");
+			echo();
+			scanw("%i",&eNb_sous_m);
+			noecho();
+			printw("Combien de Destroyer souhaitez vous ? ");
+			echo();
+			scanw("%i",&eNb_Dest);
+			noecho();
+			printw("Combien de Porte-Avion souhaitez vous ? ");
+			echo();
+			scanw("%i",&eNb_Port_A);
+			noecho();
+			break;
+		}
+	}
 	do{
 		printw("\n\nPlacé automatique (J%i) : 1 \n\nPlacé manuelle (J%i): 2\n\n",eNumJ,eNumJ);
 		printw("Choix : ");
@@ -472,17 +518,8 @@ int init_grille(void){ /*Fonction qui initialise completement la grille et qui d
 		noecho();
 		if(eNumJ==2)clear();
 		if(bStringtonum(sChoix,&eChoix)){ //Si dans choix on a seulement 1 entier on renvoie l'entier dans Choix
-				if(eNumJ==1){				
-					do{
-						printw("\nCombien de Torpilleur souhaitez-vous (J%i) et (J%i) ?",eNumJ,eNumJ+1);
-						refresh();
-						echo();
-						scanw("%s",sT);
-						noecho();
-					}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
-				}
-				if(eChoix==1)Placer_bateau_auto(eNumJ,eNb_torpilleurs); //On place automatique les bateaux sur les grilles des joueurs
-				else if(eChoix==2)Placer_bateau_manuelle(eNumJ,eNb_torpilleurs);
+				if(eChoix==1)Placer_bateau_auto(eNumJ,eNb_torpilleurs,eNb_sous_m,eNb_Port_A,eNb_Dest); //On place automatique les bateaux sur les grilles des joueurs
+				else if(eChoix==2)Placer_bateau_manuelle(eNumJ,eNb_torpilleurs,eNb_sous_m,eNb_Port_A,eNb_Dest);
 				clear();
 				eValide=1;
 				eNumJ++;
