@@ -2,8 +2,8 @@
 #include "../../grille/Struct.h"
 #include "../../grille/Outil.h"
 #include "../include/afficher.h"
+#include "../../jouer/JouerStruct.h"
 
-t_portee gPortee[N][M];
 t_plateau grille;
 /* FAIRE UNE FONCTION POUR AFFICHER LA PORTE D'UN TORPILLEUR+SELECTION CASE A VISER  ET UNE FONCTION POUR LA SELECTION DE TORPILLEUR */
 
