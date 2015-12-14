@@ -10,138 +10,138 @@ void Grille_perso_afficher(int num_grille){
 	 int i,j, k;
 	 int nL=0;
 	 if(num_grille==1){
-		 printf("***********************************  GRILLE JOUEUR 1  *********************************** \n \n");
-		 printf("            A    B    C    D    E    F    G    H    I    J \n");
+		 printw("***********************************  GRILLE JOUEUR 1  *********************************** \n \n");
+		 printw("            A    B    C    D    E    F    G    H    I    J \n");
 			for(i=0;i < N ; i++){
-				printf("\t");
+				printw("\t");
 				for(k=0;k < N ; k++){
-					printf("-----");
+					printw("-----");
 				}
-				printf("-\n\t%i |",nL);
+				printw("-\n\t%i |",nL);
 				nL++;
 				for(j=0; j < M ; j++){
 	                Grille_lire_case(i, j,num_grille,*(grille.grille1));
 					
 					if(grille.grille1[i][j].obstacle == Obstacle){
-						printf(" XX ");
+						printw(" XX ");
 					}
 					else if (grille.grille1[i][j].obstacle == Aucun_o){
 						if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present) ){
-							printf(" TP ");
+							printw(" TP ");
 						}
 						/*else if((grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present))
-							printf("TPB");
+							printw("TPB");
 						if(grille.grille1[i][j].bateau == Aucun_b){
-							printf("    ");
+							printw("    ");
 						}*/
 						else if(grille.grille1[i][j].bateau == Sous_Marin){
 							if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
-								printf("SM_T");
+								printw("SM_T");
 							else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present)
-								printf("TSMT");
+								printw("TSMT");
 							else{
-								printf(" SM ");
+								printw(" SM ");
 							}
 						}
 						else if(grille.grille1[i][j].bateau == Destroyer){
 							if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
-								printf("DE_T");
+								printw("DE_T");
 							else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present)
-								printf("TDET");
+								printw("TDET");
 							else{
-								printf(" DE ");
+								printw(" DE ");
 							}
 						}
 						else if(grille.grille1[i][j].bateau == Porte_Avion ){
 							if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t)
-								printf("PA_T");
+								printw("PA_T");
 							else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present)
-								printf("TPAT");
+								printw("TPAT");
 							else{
-								printf(" PA ");
+								printw(" PA ");
 							}
 						}
-						else {printf("    ");}
+						else {printw("    ");}
 					}
-					printf("|");
+					printw("|");
 				}
-				printf("\n");
+				printw("\n");
 			}
-			printf("\t");
-			for(k=0;k < N ; k++) printf("-----");
-	    	printf("\n\n");
+			printw("\t");
+			for(k=0;k < N ; k++) printw("-----");
+	    	printw("\n\n");
 		} else {
-			printf("***********************************  GRILLE JOUEUR 2  *********************************** \n \n");
-		 	printf("           A    B    C    D    E    F    G    H    I    J \n");
+			printw("***********************************  GRILLE JOUEUR 2  *********************************** \n \n");
+		 	printw("           A    B    C    D    E    F    G    H    I    J \n");
 			for(i=0;i < N ; i++){
-				printf("\t");
+				printw("\t");
 				for(k=0;k < N ; k++)
-					printf("-----");
-				printf("-\n\t%i |",nL);
+					printw("-----");
+				printw("-\n\t%i |",nL);
 				nL++;
 				for(j=0; j < M ; j++){
 	                Grille_lire_case(i, j,num_grille,*(grille.grille2));
 					
 					if(grille.grille2[i][j].obstacle == Obstacle )
-						printf(" X ");
+						printw(" X ");
 					else if (grille.grille2[i][j].obstacle == Aucun_o){
 						if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].bateau == Sous_Marin && grille.grille2[i][j].torpilleur==Present) || (grille.grille2[i][j].bateau == Destroyer && grille.grille2[i][j].torpilleur==Present) || (grille.grille2[i][j].bateau == Porte_Avion && grille.grille2[i][j].torpilleur==Present) ){
-							printf(" TP ");
+							printw(" TP ");
 						}
 						/*if(grille.grille2[i][j].bateau == Aucun_b){
-							printf("    ");
+							printw("    ");
 						}*/
 						else if(grille.grille2[i][j].bateau == Sous_Marin){
 							if(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t)
-								printf("SM_T");
+								printw("SM_T");
 							else if(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)
-								printf("TSMT");
+								printw("TSMT");
 							else{
-								printf(" SM ");
+								printw(" SM ");
 							}
 						}
 						else if(grille.grille2[i][j].bateau == Destroyer){
 							if(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t)
-								printf("DE_T");
+								printw("DE_T");
 							else if(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)
-								printf("TDET");
+								printw("TDET");
 							else{
-								printf(" DE ");
+								printw(" DE ");
 							}
 						}
 						else if(grille.grille2[i][j].bateau == Porte_Avion){
 							if(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t)
-								printf("PA_T");
+								printw("PA_T");
 							else if(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)
-								printf("TPAT");
+								printw("TPAT");
 							else{
-								printf(" PA ");
+								printw(" PA ");
 							}
-						}else {printf("    ");}	
+						}else {printw("    ");}	
 					}
-					printf("|");
+					printw("|");
 				}
-				printf("\n");
+				printw("\n");
 			}
-			printf("\t");
-			for(k=0;k < N ; k++) printf("-----");
-	    	printf("\n\n");
+			printw("\t");
+			for(k=0;k < N ; k++) printw("-----");
+	    	printw("\n\n");
 		}
-    	printf("CORRESPONDANCE DES SYMBOLES :\n");
-    	printf("TP = torpilleur seul ou sur un bateau");
-    	printf("\n");
-    	printf("SM = sous-matin");
-    	printf("\n");
-    	printf("DE = destroyer");
-    	printf("\n");
-    	printf("PA = porte-avion");
-    	printf("\n");
-    	printf("'nom'_T ='bateau' touché");
-    	printf("\n");
-    	printf("T'nom'T =torpilleur sur 'bateau' touché");
-    	printf("\n");
-    	printf("XX = obstacle");
-    	printf("\n\n");
+    	printw("CORRESPONDANCE DES SYMBOLES :\n");
+    	printw("TP = torpilleur seul ou sur un bateau");
+    	printw("\n");
+    	printw("SM = sous-matin");
+    	printw("\n");
+    	printw("DE = destroyer");
+    	printw("\n");
+    	printw("PA = porte-avion");
+    	printw("\n");
+    	printw("'nom'_T ='bateau' touché");
+    	printw("\n");
+    	printw("T'nom'T =torpilleur sur 'bateau' touché");
+    	printw("\n");
+    	printw("XX = obstacle");
+    	printw("\n\n");
     	refresh();
 }
 
@@ -150,107 +150,107 @@ void Grille_masque_afficher(int num_grille){
 	int i,j, k;
 	int nL=0;
 	if(num_grille==2){
-	 	printf("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n\n");
-	 	printf("           A    B    C    D    E    F    G    H    I    J \n");
+	 	printw("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n\n");
+	 	printw("           A    B    C    D    E    F    G    H    I    J \n");
 		for(i=0;i < N ; i++){
-			printf("\t");
+			printw("\t");
 			for(k=0;k < N ; k++)
-				printf("-----");
-			printf("-\n\t%i |",nL);
+				printw("-----");
+			printw("-\n\t%i |",nL);
 				nL++;
 			for(j=0; j < M ; j++){
 				Grille_lire_case(i, j,num_grille,*(grille.grille1));
 				if(grille.grille1[i][j].obstacle == Obstacle )
-					printf(" X ");
+					printw(" X ");
 				else if (grille.grille1[i][j].obstacle == Aucun_o){
 					if(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
-						printf("    ");
+						printw("    ");
 					else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].bateau == Sous_Marin && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t) || (grille.grille1[i][j].bateau == Destroyer && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t) || (grille.grille1[i][j].bateau == Porte_Avion && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
-						printf("    ");
+						printw("    ");
 					else if(grille.grille1[i][j].bateau == Sous_Marin){
 						if((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" BT ");
+							printw(" BT ");
 						/*else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
-							printf(" BT ");
+							printw(" BT ");
 						else
-							printf("    ");*/
+							printw("    ");*/
 					}
 					else if(grille.grille1[i][j].bateau == Destroyer ){
 						if((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t)|| (grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" BT ");
+							printw(" BT ");
 						/*else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
-							printf(" BT ");
+							printw(" BT ");
 						else
-							printf("    ");*/
+							printw("    ");*/
 					}
 					else if(grille.grille1[i][j].bateau == Porte_Avion){
 						if((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t) || (grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" BT ");
+							printw(" BT ");
 						/*else if(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)
-							printf(" BT ");
+							printw(" BT ");
 						else
-							printf("    ");*/
+							printw("    ");*/
 					}
-					else printf("TP");	
+					else printw("TP");	
 				}
-				printf("|");
+				printw("|");
 			}
-			printf("\n");
+			printw("\n");
 		}
-		printf("\t");
+		printw("\t");
 		for(k=0;k < N ; k++)
-			printf("-----");
-    	printf("\n\n");
+			printw("-----");
+    	printw("\n\n");
     }else if(num_grille==1){
-    	printf("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n\n");
-	 	printf("           A    B    C    D    E    F    G    H    I    J \n");
+    	printw("***********************************  GRILLE ADVERSE CACHEE  *********************************** \n\n");
+	 	printw("           A    B    C    D    E    F    G    H    I    J \n");
 		for(i=0;i < N ; i++){
-			printf("\t");
+			printw("\t");
 			for(k=0;k < N ; k++)
-				printf("-----");
-			printf("-\n\t%i |",nL);
+				printw("-----");
+			printw("-\n\t%i |",nL);
 				nL++;
 			for(j=0; j < M ; j++){
 				Grille_lire_case(i, j,num_grille,*(grille.grille2));
 				if(grille.grille2[i][j].obstacle == Obstacle )
-					printf(" X ");
+					printw(" X ");
 				else if (grille.grille2[i][j].obstacle == Aucun_o){
 					if(grille.grille2[i][j].bateau == Aucun_b)
-						printf("    ");
+						printw("    ");
 					else if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].bateau == Sous_Marin && grille.grille2[i][j].torpilleur==Present) || (grille.grille2[i][j].bateau == Destroyer && grille.grille2[i][j].torpilleur==Present) || (grille.grille2[i][j].bateau == Porte_Avion && grille.grille2[i][j].torpilleur==Present))
-						printf("    ");
+						printw("    ");
 					else if(grille.grille2[i][j].bateau == Sous_Marin){
 						if((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" BT ");
+							printw(" BT ");
 						else
-							printf("    ");
+							printw("    ");
 					}
 					else if(grille.grille2[i][j].bateau == Destroyer){
 						if((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" BT ");
+							printw(" BT ");
 						else
-							printf("    ");
+							printw("    ");
 					}
 					else if(grille.grille2[i][j].bateau == Porte_Avion){
 						if((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Present)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].torpilleur==Aucun_t))
-							printf(" BT ");
+							printw(" BT ");
 						else
-							printf("    ");
+							printw("    ");
 					}	
 				}
-				printf("|");
+				printw("|");
 			}
-			printf("\n");
+			printw("\n");
 		}
-		printf("\t");
+		printw("\t");
 		for(k=0;k < N ; k++)
-			printf("-----");
-    	printf("\n\n");
+			printw("-----");
+    	printw("\n\n");
     }
-    	printf("CORRESPONDANCE DES SYMBOLES :\n");
-    	printf("BT = bateau touché");
-    	printf("\n");
-    	printf("X = obstacle");
-    	printf("\n\n");
+    	printw("CORRESPONDANCE DES SYMBOLES :\n");
+    	printw("BT = bateau touché");
+    	printw("\n");
+    	printw("X = obstacle");
+    	printw("\n\n");
     	refresh();
 }
