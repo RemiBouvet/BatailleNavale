@@ -832,7 +832,7 @@ void torpilleur_selection_afficher(int x,int y, int num_grille){
 			printf("-----");
     	printf("\n\n");
     }
-
+}
     	printf("CORRESPONDANCE DES SYMBOLES :\n");
     	printf("BT = bateau touché");
     	printf("\n");
