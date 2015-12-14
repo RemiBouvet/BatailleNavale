@@ -8,6 +8,7 @@
 #include "../grille/Outil.h"
 #include "../grille/Grille.h"
 #include "../grille/Struct.h"
+#include "../grille/Socket.h"
 #include "Placement_obstacle.h"
 #include "../Affichage/include/afficher.h"
 
