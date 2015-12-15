@@ -10,7 +10,7 @@
 #include "../grille/Struct.h"
 #include "Placement_obstacle.h"
 #include "../Affichage/include/afficher.h"
-
+#include "serveur.h"
 t_plateau grille;
 
 int bStringtonum(char *v,int *res){ /*Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int*/
@@ -300,7 +300,7 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,in
 		    eChoix=0;
 		    printw("Veuillez rentrer les coordonnées i et j de depart pour placer le bateau n°%i: ",eCompteur+1);
 		    refresh();
-			echo();
+		    echo();
 		    scanw("%s",sI); //On entre les coordonnées en chaine de caractères
 		    scanw("%s",sJ);
 			noecho();

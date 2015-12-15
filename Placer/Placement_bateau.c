@@ -10,7 +10,8 @@
 #include "../grille/Struct.h"
 #include "Placement_obstacle.h"
 #include "../Affichage/include/afficher.h"
-
+#include "serveur.h"
+#include "client.h"
 t_plateau grille;
 
 int bStringtonum(char *v,int *res){ /*Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int*/

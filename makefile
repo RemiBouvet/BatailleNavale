@@ -1,6 +1,6 @@
 FLAG= -g -Wall -lncurses
 
-prog : Grille.o Outil.o TorpilleurDeplacer.o TorpilleurChoisir.o TorpilleurAttaquer.o jouer.o Placement_bateau.o Placement_obstacle.o afficher.o main.o
+prog : Grille.o Outil.o TorpilleurDeplacer.o TorpilleurChoisir.o TorpilleurAttaquer.o jouer.o Placement_bateau.o Placement_obstacle.o afficher.o serveur.o client.o main.o
 	gcc -o prog $^ $(FLAG)
 	
 Outil.o : grille/Outil.c grille/Outil.h
@@ -21,7 +21,7 @@ TorpilleurAttaquer.o : jouer/TorpilleurAttaquer.c jouer/TorpilleurAttaquer.h jou
 jouer.o : jouer/jouer.c 
 	gcc -c jouer/jouer.c $(FLAG)
 
-Placement_bateau.o: Placer/Placement_bateau.c grille/Struct.h grille/Outil.h Placer/Placement_bateau.h
+Placement_bateau.o: Placer/Placement_bateau.c grille/Struct.h grille/Outil.h Placer/Placement_bateau.h Placer/serveur.h Placer/client.h
 	gcc -c Placer/Placement_bateau.c $(FLAG)
 
 Placement_obstacle.o: Placer/Placement_obstacle.c grille/Struct.h Placer/Placement_obstacle.h grille/Outil.h
@@ -29,6 +29,12 @@ Placement_obstacle.o: Placer/Placement_obstacle.c grille/Struct.h Placer/Placeme
 
 afficher.o : Affichage/src/afficher.c Affichage/include/afficher.h 
 	gcc -c Affichage/src/afficher.c $(FLAG)
+
+client.o: Placer/client.c Placer/client.h
+	gcc -c Placer/client.c $(FLAG)
+
+serveur.o: Placer/serveur.c Placer/serveur.h
+	gcc -c Placer/serveur.c $(FLAG)
 
 main.o : main.c
 	gcc -c main.c $(FLAG)
