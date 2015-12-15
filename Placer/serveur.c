@@ -1,4 +1,5 @@
 #include "../grille/Socket.h"
+    SOCKET sock;
 void serveur(void){
 	 #if defined (WIN32)
         WSADATA WSAData;
@@ -9,17 +10,14 @@ void serveur(void){
     
     /* Socket et contexte d'adressage du serveur */
     SOCKADDR_IN sin;
-    SOCKET sock;
+
     socklen_t recsize = sizeof(sin);
     
     /* Socket et contexte d'adressage du client */
     SOCKADDR_IN csin;
     SOCKET csock;
     socklen_t crecsize = sizeof(csin);
-    
-    int sock_err;
-    
-    
+    int sock_err;    
     if(!erreur)
     {
         /* Création d'une socket */
@@ -57,12 +55,12 @@ void serveur(void){
             else
                 perror("bind");
             
-            /* Fermeture de la socket client et de la socket serveur */
+            /* Fermeture de la socket client et de la socket serveur 
             printw("Fermeture de la socket client\n");
             closesocket(csock);
             printw("Fermeture de la socket serveur\n");
             closesocket(sock);
-            printw("Fermeture du serveur terminée\n");
+            printw("Fermeture du serveur terminée\n");*/
         }
         else
             perror("socket");
