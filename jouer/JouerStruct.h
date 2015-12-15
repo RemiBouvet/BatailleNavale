@@ -8,6 +8,6 @@
 #include <ncurses.h>
 
 typedef struct {int x;int y;} t_coordonnee;
-typedef enum{Haut, Bas, Gauche, Droite}t_direction;
+typedef enum{Aucune, Haut, Bas, Gauche, Droite}t_direction;
 
 #endif
