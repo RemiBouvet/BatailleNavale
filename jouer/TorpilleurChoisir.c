@@ -33,45 +33,6 @@ void Jouer_Afficher_Torpilleur(t_coordonnee cTorpilleur[], int N_Torpilleur){
 	}
 }
 
-int Jouer_Choisir_Stringtonum(char *v,int *res){
-    int bNum=1;
-    int i;
-    *res=0;
-    for(i=0;i<strlen(v);i++)
-        bNum=bNum && isdigit(v[i]);
-    if(bNum==1){
-        *res=atoi(v);
-    }
-    return bNum;
-}
-
-/*void Jouer_Selectionner_Torpilleur(int *peNumero_Torpilleur, int N_Torpilleur){
-	//Fonction qui permet de selectionner a jouer
-	char sSaisie[20];
-	int eSaisie;
-	int bCoordonneValide = 0;
-	printw("\nVeuillez selectionner votre torpilleur :");
-	refresh();
-		echo();
-        scanw("%s",sSaisie);
-        noecho();
-	while(!bCoordonneValide){
-		if(Jouer_Choisir_Stringtonum(sSaisie,&eSaisie) != 0){
-			if(eSaisie > 0 && eSaisie <= N_Torpilleur){
-				*peNumero_Torpilleur = eSaisie - 1;
-				bCoordonneValide = 1;
-			}
-		}
-		if(!bCoordonneValide){
-			printw("\nNumero de torpilleur incorrect, veuiller entrez un numero a nouveau :");
-			refresh();
-				echo();
-      			scanw("%s",sSaisie);
-      			noecho();
-		}
-	}
-}*/
-
 void Jouer_Afficher_Torpilleur_Selectionne(int eNumero_Torpilleur){
 	printw("\nLe Torpilleur selectionne est le numero %i", eNumero_Torpilleur + 1);
 	refresh();

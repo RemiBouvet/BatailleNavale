@@ -103,8 +103,9 @@ void Jouer_Partie(int N_Torpilleur, WINDOW *win){
 	t_coordonnee* cTorpilleur = malloc(N_Torpilleur * sizeof(t_coordonnee)); // tableau de n entiers
 	int eNumero_Torpilleur;
 	int bGagnant = 0;
+	int bQuitter = 0;
 
-	while(!bGagnant){
+	while(!bGagnant && !bQuitter){
 		clear();
 		Jouer_Changer_Joueur(&eJoueur);
 		Jouer_Choisir(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur, win);
@@ -117,12 +118,3 @@ void Jouer_Partie(int N_Torpilleur, WINDOW *win){
 	refresh();
 	echo();
 }
-
-/*int main(){
-	Jouer_init_temporaire(); //Temporaire
-
-	Jouer_Partie();
-	printw("\n");
-	
-	return 1;
-}*/

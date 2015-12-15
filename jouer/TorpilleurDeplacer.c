@@ -58,41 +58,6 @@ void Jouer_Deplacer_Torpilleur(int eJoueur, t_direction direction, int eNumero_T
 }
 
 
-/*int Jouer_Deplacer_Stringtonum(char *v,int *res){
-    int bNum=1;
-    int i;
-    *res=0;
-    for(i=0;i<strlen(v);i++)
-        bNum=bNum && isdigit(v[i]);
-    if(bNum==1){
-        *res=atoi(v);
-    }
-    return bNum;
-}*/
-
-/*void Jouer_Choisir_Direction(t_direction *dDirection){
-	//Fonction qui permet de saisir une direction manuellement
-	char sSaisie[20];
-	int eSaisie;
-	int bCoordonneValide = 0;
-	printw("\nVeuillez selectionner la direction dans laquelle deplacer le Torpilleur (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
-    refresh();
-        scanw("%s",sSaisie);
-	while(!bCoordonneValide){
-		if(Jouer_Deplacer_Stringtonum(sSaisie,&eSaisie) != 0){
-			if(eSaisie >= 0 && eSaisie <= 3){
-				*dDirection = eSaisie;
-				bCoordonneValide = 1;
-			}
-		}
-		if(!bCoordonneValide){
-			printw("\nNumero de direction incorrect, veuiller entrez un numero a nouveau (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
-      		refresh();
-      			scanw("%s",sSaisie);
-		}
-	}
-}*/
-
 void Jouer_Choisir_Direction(t_direction *dDirection){
 	int ech;
 	int bValider = 0;
