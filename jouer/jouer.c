@@ -48,7 +48,6 @@ void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	}
 	Jouer_Deplacer_Torpilleur(eJoueur,dDirection,*peNumero_Torpilleur, pcTorpilleur, N_Torpilleur);
 	Jouer_Trouver_Torpilleur(eJoueur, pcTorpilleur, N_Torpilleur);
-	clear();
 }
 
 void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur, WINDOW *win){
@@ -66,14 +65,16 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	Jouer_Init_Curseur(gPortee,&cCurseur);
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){
+		clear();
 		Portee_torpilleur_afficher(gPortee, eJoueur, cCurseur.x, cCurseur.y);
 		Jouer_Choisir_Attaque(eJoueur, *peNumero_Torpilleur, gPortee, &cCurseur, N_Torpilleur);
 		Grille_ecrire_toucher(cCurseur.x,cCurseur.y, eJoueurAdverse, Oui);
 		
 	}
 	else{
-		printw("\nAttaque impossible HAHAHAHAHAH");
+		printw("\nDesole aucune attaque n'est possible, appuyez sur une touche pour continuer.");
 		refresh();
+		getch();
 	}
 }
 
@@ -96,25 +97,48 @@ int Jouer_Gagnant(int eJoueur){
 }
 
 
+void Jouer_Quitter_Continuer(int *bQuitter){
+	int ech;
+	int bContinuer = 0;
+	while(*bQuitter == 0 && bContinuer == 0){
+		timeout(-1);
+		ech = getch();
+		switch(ech){
+			case 32:
+				bContinuer = 1;
+				break;
+			case 27:
+				printw("\nEchap");
+				refresh();
+				*bQuitter = 1;
+				break;
+		}
+	}
+}
+
 void Jouer_Partie(int N_Torpilleur, WINDOW *win){
 	//Fonction qui définie la routine de la Partie
-	int eJoueur = 0;
+	int eJoueur = 1;
 
 	t_coordonnee* cTorpilleur = malloc(N_Torpilleur * sizeof(t_coordonnee)); // tableau de n entiers
 	int eNumero_Torpilleur;
 	int bGagnant = 0;
 	int bQuitter = 0;
 
-	while(!bGagnant && !bQuitter){
+	while(bGagnant == 0 && bQuitter == 0){
 		clear();
-		Jouer_Changer_Joueur(&eJoueur);
 		Jouer_Choisir(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur, win);
 		Jouer_Deplacer(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur, win);
-		clear(); 
 		Jouer_Attaquer(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur, win);
 		bGagnant = Jouer_Gagnant(eJoueur);
+		clear();
+		Jouer_Changer_Joueur(&eJoueur);
+		printw("\nJoueur %i a vous de jouer !\nAppuyez sur espace pour continuer ou echap pour quitter la partie", eJoueur);
+		Jouer_Quitter_Continuer(&bQuitter);
 	}
-	printw("\nLe joueur %i a gagne !\n Appuyez sur une touche pour continuer !", eJoueur);
-	refresh();
-	echo();
+	if(bGagnant){
+		printw("\nLe joueur %i a gagne !\n Appuyez sur une touche pour continuer !", eJoueur);
+		refresh();
+		echo();
+	}
 }
