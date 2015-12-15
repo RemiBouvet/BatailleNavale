@@ -107,8 +107,7 @@ void Jouer_Quitter_Continuer(int *bQuitter){
 			case 32:
 				bContinuer = 1;
 				break;
-			case 27:
-				printw("\nEchap");
+			case 113:
 				refresh();
 				*bQuitter = 1;
 				break;
@@ -133,7 +132,7 @@ void Jouer_Partie(int N_Torpilleur, WINDOW *win){
 		bGagnant = Jouer_Gagnant(eJoueur);
 		clear();
 		Jouer_Changer_Joueur(&eJoueur);
-		printw("\nJoueur %i a vous de jouer !\nAppuyez sur espace pour continuer ou echap pour quitter la partie", eJoueur);
+		printw("\nJoueur %i a vous de jouer !\nAppuyez sur espace pour continuer ou q pour quitter la partie", eJoueur);
 		Jouer_Quitter_Continuer(&bQuitter);
 	}
 	if(bGagnant){

@@ -144,7 +144,7 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 				bValider = 1;
 				break;
 		}
-		if(gPortee[x][y] == Portee){
+		if(gPortee[x][y] == Portee && x >= 0 && x < N && y >= 0 && y < M){
 			cCurseur->x = x;
 			cCurseur->y = y;
 		}
