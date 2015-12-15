@@ -186,69 +186,39 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 				while(gPortee[x][y] == Hors_Portee && y > 0){
 					y--;
 				}
-				if(gPortee[x][y] == Portee){
-					cCurseur->x = x;
-					cCurseur->y = y;
-				}
-				else{
-					x = cCurseur->x;
-					y = cCurseur->y;
-				}
-				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 67:
 				y++;
 				while(gPortee[x][y] == Hors_Portee && y < M - 1){
 					y++;
 				}
-				if(gPortee[x][y] == Portee){
-					cCurseur->x = x;
-					cCurseur->y = y;
-				}
-				else{
-					x = cCurseur->x;
-					y = cCurseur->y;
-				}
-				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 65:
 				x--;
 				while(gPortee[x][y] == Hors_Portee && x > 0){
 					x--;
 				}
-				if(gPortee[x][y] == Portee){
-					cCurseur->x = x;
-					cCurseur->y = y;
-				}
-				else{
-					x = cCurseur->x;
-					y = cCurseur->y;
-				}
-				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 66:
 				x++;
 				while(gPortee[x][y] == Hors_Portee && x < N - 1){
 					x++;
 				}
-				if(gPortee[x][y] == Portee){
-					cCurseur->x = x;
-					cCurseur->y = y;
-				}
-				else{
-					x = cCurseur->x;
-					y = cCurseur->y;
-				}
-				clear();
-				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 10:
 				bValider = 1;
 				break;
 		}
+		if(gPortee[x][y] == Portee){
+			cCurseur->x = x;
+			cCurseur->y = y;
+		}
+		else{
+			x = cCurseur->x;
+			y = cCurseur->y;
+		}
+		clear();
+		Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 	}
 }
 

@@ -24,6 +24,9 @@ int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Tor
 	if(direction == Gauche){
 		y--;
 	}
+	if(direction == Aucune){
+		return 1;
+	}
 	if( x < 0 || x >= N || y < 0 || y >= M){
 		return 0;
 	}
@@ -55,7 +58,7 @@ void Jouer_Deplacer_Torpilleur(int eJoueur, t_direction direction, int eNumero_T
 }
 
 
-int Jouer_Deplacer_Stringtonum(char *v,int *res){
+/*int Jouer_Deplacer_Stringtonum(char *v,int *res){
     int bNum=1;
     int i;
     *res=0;
@@ -65,7 +68,7 @@ int Jouer_Deplacer_Stringtonum(char *v,int *res){
         *res=atoi(v);
     }
     return bNum;
-}
+}*/
 
 /*void Jouer_Choisir_Direction(t_direction *dDirection){
 	//Fonction qui permet de saisir une direction manuellement
@@ -93,7 +96,7 @@ int Jouer_Deplacer_Stringtonum(char *v,int *res){
 void Jouer_Choisir_Direction(t_direction *dDirection){
 	int ech;
 	int bValider = 0;
-	printw("\nVeuillez selectionner la direction dans laquelle deplacer le Torpilleur (Haut, Bas, Gauche, Droite):");
+	printw("\nVeuillez selectionner la direction dans laquelle deplacer le Torpilleur (Haut, Bas, Gauche, Droite, Aucune = entree):");
 	refresh();
 	//torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
 	while(bValider == 0){
@@ -114,6 +117,10 @@ void Jouer_Choisir_Direction(t_direction *dDirection){
 				break;
 			case 66:
 				*dDirection = Bas;
+				bValider = 1;
+				break;
+			case 10:
+				*dDirection = Aucune;
 				bValider = 1;
 				break;
 		}
