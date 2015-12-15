@@ -186,11 +186,25 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 				while(gPortee[x][y] == Hors_Portee && y > 0){
 					y--;
 				}
+				if(gPortee[x][y] == Hors_Portee){
+					y = cCurseur->y - 1;
+					x = 0;
+					while(gPortee[x][y] == Hors_Portee && x <= N - 1){
+						x++;
+					}
+				}
 				break;
 			case 67:
 				y++;
 				while(gPortee[x][y] == Hors_Portee && y < M - 1){
 					y++;
+				}
+				if(gPortee[x][y] == Hors_Portee){
+					y = cCurseur->y + 1;
+					x = 0;
+					while(gPortee[x][y] == Hors_Portee && x <= N - 1){
+						x++;
+					}
 				}
 				break;
 			case 65:
@@ -198,11 +212,25 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 				while(gPortee[x][y] == Hors_Portee && x > 0){
 					x--;
 				}
+				if(gPortee[x][y] == Hors_Portee){
+					x = cCurseur->x - 1;
+					y = 0;
+					while(gPortee[x][y] == Hors_Portee && y <= M - 1){
+						y++;
+					}
+				}
 				break;
 			case 66:
 				x++;
 				while(gPortee[x][y] == Hors_Portee && x < N - 1){
 					x++;
+				}
+				if(gPortee[x][y] == Hors_Portee){
+					x = cCurseur->x + 1;
+					y = 0;
+					while(gPortee[x][y] == Hors_Portee && x <= M - 1){
+						y++;
+					}
 				}
 				break;
 			case 10:
