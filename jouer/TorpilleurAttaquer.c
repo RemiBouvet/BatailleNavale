@@ -62,12 +62,14 @@ int Jouer_Attaque_Possible(t_portee gPortee[N][M]){
 void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	int i, j;
 	int bPortee;
-	for(i = 0; i < N ; i++){
-		for(j = 0; j < M; j++){
-			bPortee = gPortee[i][j];
-			if(bPortee){
-				cCurseur->x = i;
-				cCurseur->y = j;
+	if(gPortee[cCurseur->x][cCurseur->y] == Hors_Portee){
+		for(i = 0; i < N ; i++){
+			for(j = 0; j < M; j++){
+				bPortee = gPortee[i][j];
+				if(bPortee){
+					cCurseur->x = i;
+					cCurseur->y = j;
+				}
 			}
 		}
 	}

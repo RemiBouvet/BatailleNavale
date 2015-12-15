@@ -63,6 +63,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	Jouer_Changer_Joueur(&eJoueurAdverse);
 	
 	Jouer_Calculer_Portee(eJoueurAdverse, pcTorpilleur, *peNumero_Torpilleur, gPortee, N_Torpilleur);
+	Jouer_Init_Curseur(gPortee,&cCurseur);
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){
 		Portee_torpilleur_afficher(gPortee, eJoueur, cCurseur.x, cCurseur.y);
@@ -112,8 +113,9 @@ void Jouer_Partie(int N_Torpilleur, WINDOW *win){
 		Jouer_Attaquer(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur, win);
 		bGagnant = Jouer_Gagnant(eJoueur);
 	}
-	printw("\nLe joueur %i a gagne !", eJoueur);
+	printw("\nLe joueur %i a gagne !\n Appuyez sur une touche pour continuer !", eJoueur);
 	refresh();
+	echo();
 }
 
 /*int main(){

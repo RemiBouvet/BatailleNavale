@@ -24,7 +24,7 @@ int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Tor
 	if(direction == Gauche){
 		y--;
 	}
-	if( x < 0 || x > N || y < 0 || y > M){
+	if( x < 0 || x >= N || y < 0 || y >= M){
 		return 0;
 	}
 	Grille_lire_torpilleur(x, y, eJoueur, &eTorpilleur);
