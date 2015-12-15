@@ -355,7 +355,7 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 					}
 					else{
 						if ((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
-							printw("RATE");
+							printw(" ** ");
 						else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
 							printw("    ");
 						else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Present))
@@ -447,7 +447,7 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 					}
 					else{
 						if ((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Aucun_t)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Aucun_t))
-							printw("RATE");
+							printw(" ** ");
 						else if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Aucun_t)||(grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Aucun_t))
 							printw("    ");
 						else if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Present)||(grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Present))
@@ -519,6 +519,8 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
     	printw("\n");
     	printw("PJ = portee torpilleur");
     	printw("\n");
+    	printw("RATE = tir dans le vide");
+    	printw("\n");
     	printw("XX = obstacle");
     	printw("\n\n");
     	refresh();
@@ -548,7 +550,7 @@ int i,j, k;
 						printw("PLAY");
 					else{
 						if ((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
-							printw("RATE");
+							printw(" ** ");
 						else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
 							printw("    ");
 						else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Present))
@@ -634,7 +636,7 @@ int i,j, k;
 						printw("PLAY");
 					else{
 						if ((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Aucun_t)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Aucun_t))
-							printw("RATE");
+							printw(" ** ");
 						else if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Aucun_t)||(grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Aucun_t))
 							printw("    ");
 						else if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Present)||(grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Present))
@@ -704,6 +706,8 @@ int i,j, k;
     	printw("BT = bateau touché");
     	printw("\n");
     	printw("PLAY = torpilleur selectionne");
+    	printw("\n");
+    	printw("** = tir dans le vide");
     	printw("\n");
     	printw("XX = obstacle");
     	printw("\n\n");
