@@ -1,29 +1,28 @@
-//Si nous sommes sous Windows
-#if defined (WIN32)
 
-    #include <winsock2.h>
+#ifdef WIN32 /* si vous êtes sous Windows */
 
-    // typedef, qui nous serviront par la suite
-    typedef int socklen_t;
+#include <winsock2.h> 
 
-// Sinon, si nous sommes sous Linux
-#elif defined (linux)
+#elif defined (linux) /* si vous êtes sous Linux */
 
-    #include <sys/types.h>
-    #include <sys/socket.h>
-    #include <netinet/in.h>
-    #include <arpa/inet.h>
-    #include <unistd.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h> /* close */
+#include <netdb.h> /* gethostbyname */
+#define INVALID_SOCKET -1
+#define SOCKET_ERROR -1
+#define PORT 1234
+#define closesocket(s) close(s)
+typedef int SOCKET;
+typedef struct sockaddr_in SOCKADDR_IN;
+typedef struct sockaddr SOCKADDR;
+typedef struct in_addr IN_ADDR;
 
-    // Define, qui nous serviront par la suite
-    #define INVALID_SOCKET -1
-    #define PORT 1025
-    #define SOCKET_ERROR -1
-    #define closesocket(s) close (s)
-	
-    // De même
-    typedef int SOCKET;
-    typedef struct sockaddr_in SOCKADDR_IN;
-    typedef struct sockaddr SOCKADDR;
+#else /* sinon vous êtes sur une plateforme non supportée */
+
+#error not defined for this platform
 
 #endif
+
