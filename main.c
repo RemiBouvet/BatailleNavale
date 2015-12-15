@@ -2,8 +2,8 @@
 #include "Placer/Placement_bateau.h"
 #include "Affichage/include/afficher.h"
 
-#define WIDTH 30
-#define HEIGHT 10
+#define WIDTH 50
+#define HEIGHT 200
 
 int main(void){
 	WINDOW *win;
