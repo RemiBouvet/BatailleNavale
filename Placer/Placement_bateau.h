@@ -5,8 +5,6 @@
 #include "../grille/Grille.h"
 #include "../grille/Struct.h"
 #include "Placement_obstacle.h"
-#define eNb_bateau 4
-#define eN_Torpilleur 2
 
 t_case grille[N][M];
 
@@ -19,5 +17,5 @@ void Enlever_grillebateau2(int eNum_grille);
 int Changement_colonne(char * v,int *pRes);
 void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur);
 void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur);
-int init_grille(void);
+int Commencer_jeu_placement_bateau(void);
 #endif

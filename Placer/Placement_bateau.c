@@ -216,20 +216,21 @@ void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eN
 		}
 	 }
 		Grille_perso_afficher(eNum_grille);
-		    printw("Etes vous satisfait de vos bateaux ?? (Oui:1) : ");
-		    refresh();
-		    echo();
-		    scanw("%s",sC);
-		   noecho();
-		    if(bStringtonum(sC,&eChoix)){
+		do{
+			printw("Etes vous satisfait de vos bateaux ?? (Oui:1) : ");
+			refresh();
+			echo();
+			scanw("%s",sC);
+			noecho();
+		}while(!bStringtonum(sC,&eChoix));
+		if(bStringtonum(sC,&eChoix)){
 		        if(eChoix==1)eValide=1; 
 				else{
 					eValide=0;
 					Enlever_grillebateau2(eNum_grille);
 					clear();
 				}
-		    }else  Enlever_grillebateau2(eNum_grille);
-		
+		}else  Enlever_grillebateau2(eNum_grille);
 	}while(!eValide);
 }
 
@@ -486,87 +487,129 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,in
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
-int init_grille(void){ /*Fonction qui initialise completement la grille et qui demande à l'utilisateur de placé les bateaux*/
+int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement la grille et qui demande à l'utilisateur de placé les bateaux*/
 	char sChoix[20];
 	char sT[20];
-	char sConfig[20];
-	int eChoix=0,eValide=1,eNb_torpilleurs=0,eNumJ=1,eConfig=1,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1;
+	char sNb_sous_m[20];
+	char sNb_Dest[20];
+	char sNb_Port_A[20];
+	int eChoix=0,eValide=1,eNb_torpilleurs=0,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,ch,i=0,eConfig=0;
+	WINDOW *w;
+	char list[3][70] = { "Un seul bateau de même type : 1","Choisir son nombre de bateaux : 2"};
+	char item[7];
+	w = newwin( 5, 50, 8, 2 ); // create a new window
+	box( w, 0, 0 ); // sets default borders for the window
 	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
 	do{
-		printw("\nCombien de Torpilleur souhaitez-vous (J%i) et (J%i) ?",eNumJ,eNumJ+1);
-		refresh();
-		echo();
+		printw("\nCombien de Torpilleur souhaitez-vous (J%i) et (J%i) (5 maximum) ?",eNumJ+1,eNumJ+2);
+		refresh(); //On envoie notre printw
+		echo(); 
 		scanw("%s",sT);
 		noecho();
-	}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<=0 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
-	printw("Configuration de la partie :\n\n\t 1 bateau de chaque : 1\n\t Choisir son nombre de bateaux : 2\n");
-	refresh();
-	echo();
-	scanw("%s",sConfig);
-	noecho();
-	while(bStringtonum(sConfig,&eConfig) && eValide){
-			if(eConfig==1){
-				eNb_sous_m=1;
-				eNb_Dest=1;
-				eNb_Port_A=1;
-				eValide=0;
-			}
-			else if(eConfig==2){
-				clear();
-				printw("Choix en configuration : \n");
-				printw("Combien de Sous-Marin souhaitez vous ? ");
-				refresh();
-				echo();
-				scanw("%i",&eNb_sous_m);
-				noecho();
-				printw("Combien de Destroyer souhaitez vous ? ");
-				refresh();
-				echo();
-				scanw("%i",&eNb_Dest);
-				noecho();
-				printw("Combien de Porte-Avion souhaitez vous ? ");
-				refresh();
-				echo();
-				scanw("%i",&eNb_Port_A);
-				noecho();
-				eValide=0;
-			}
-			else{
-				printw("Merci d'entrer un chiffre correct\n");	
-				refresh();
-				echo();			
-				scanw("%s",&sConfig);
-				noecho();
+	}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<1 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
+	
+	for( i=0; i<2; i++ ) { //On a deux items donc on met i<2
+		if( i == 0 )   
+			wattron( w, A_STANDOUT ); // On met l'item sur laquelle on est positionner en lumineux.
+		else
+			wattroff( w, A_STANDOUT );
+		sprintf(item, "%-7s",  list[i]);
+		mvwprintw( w, i+1, 2, "%s", item );
+	}
+	wrefresh( w ); // update the terminal screen
+	i = 0;
+	noecho(); // disable echoing of characters on the screen
+	keypad( w, TRUE ); // enable keyboard input for the window.
+	curs_set( 0 ); // hide the default screen cursor.
+       // get the input
+       printw("\n\nChoix des bateaux : ");
+       refresh();
+	while(((ch=wgetch(w)) != 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0) || ((ch=wgetch(w)) != 10 && (strcmp(list[i],"Un seul bateau de même type : 1")==0))){ //Tant qu'on a pas appuyé sur entrer sur l'un des deux items
+         
+		// right pad with spaces to make the items appear with even width.
+		sprintf(item, "%-7s",  list[i]); 
+		mvwprintw( w, i+1, 2, "%s", item ); 
+              	// use a variable to increment or decrement the value based on the input.
+            	switch( ch ) {
+                	case KEY_UP:
+                	            i--;
+                	            i = ( i<0 ) ? 1 : i;
+                	            break;
+                	case KEY_DOWN:
+                	            i++;
+                	            i = ( i>1 ) ? 0 : i;
+                	            break;
+            	}	
+            	// now highlight the next item in the list.
+            	wattron( w, A_STANDOUT );
+            	sprintf(item, "%-7s",  list[i]);
+		mvwprintw( w, i+1, 2, "%s", item);
+		wattroff( w, A_STANDOUT );
+		if((ch=wgetch(w)) == 10 && strcmp(list[i],"Un seul bateau de même type : 1")==0){
+			eConfig=1;
+			wrefresh(w); // Refresh it (to leave it blank)
+			delwin(w); // and delete
+            	}else if((ch=wgetch(w)) == 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0){
+			eConfig=2;
+			wrefresh(w); // Refresh it (to leave it blank)
+			delwin(w); // and delete
+            	}
+    	}
 
-			}
+	if(eConfig==1){
+		eNb_sous_m=1;
+		eNb_Dest=1;
+		eNb_Port_A=1;
+	}else if(eConfig==2){
+		clear();
+		printw("Choix en configuration : \n");
+		do{
+			printw("Combien de Sous-Marin souhaitez vous (4 maximum) ? ");
+			refresh();
+			echo();
+			scanw("%s",sNb_sous_m);
+			noecho();
+		}while(!bStringtonum(sNb_sous_m,&eNb_sous_m)||eNb_sous_m<1 || eNb_sous_m>4);
+		do{
+			printw("Combien de Destroyer souhaitez vous (4 maximum) ? ");
+			refresh();
+			echo();
+			scanw("%s",sNb_Dest);
+			noecho();
+		}while(!bStringtonum(sNb_Dest,&eNb_Dest)||eNb_Dest<1 || eNb_Dest>4);
+		do{
+			printw("Combien de Porte-Avion souhaitez vous (4 maximum) ? ");
+			refresh();
+			echo();
+			scanw("%s",sNb_Port_A);
+			noecho();
+		}while(!bStringtonum(sNb_Port_A,&eNb_Port_A)||eNb_Port_A<1 || eNb_Port_A>4);
 	}
 	clear();
-	while(!eValide || eNumJ!=3){
-		clear();
-		printw("\n\nPlacé automatique (J%i) : 1 \n\nPlacé manuelle (J%i): 2\n\n",eNumJ,eNumJ);
-		printw("Choix : ");
-		refresh();
-		echo();
-		scanw("%s",sChoix);
-		noecho();
-
-
-		if(bStringtonum(sChoix,&eChoix)){ //Si dans choix on a seulement 1 entier on renvoie l'entier dans Choix
-				if(eChoix==1){
-					Placer_bateau_auto(eNumJ,eNb_torpilleurs,eNb_sous_m,eNb_Port_A,eNb_Dest); //On place automatique les bateaux sur les grilles des joueurs
-					clear();
-					eValide=1;
-					eNumJ++;
-				}
-				else if(eChoix==2){
-					Placer_bateau_manuelle(eNumJ,eNb_torpilleurs,eNb_sous_m,eNb_Port_A,eNb_Dest);
-					clear();
-					eValide=1;
-					eNumJ++;
-				}					
+	while(!eValide || eNumJ!=2){
+		eChoix=0;
+		do{
+			clear();
+			printw("\n\nPlacé automatique (J%i) : 1 \n\nPlacé manuelle (J%i): 2\n\n",eNumJ+1,eNumJ+1);
+			printw("Choix : ");
+			refresh();
+			echo();
+			scanw("%s",sChoix);
+			noecho();
+		}while(!bStringtonum(sChoix,&eChoix) || eChoix<1 || eChoix>2);
+		if(eChoix==1){
+			Placer_bateau_auto(eNumJ+1,eNb_torpilleurs,eNb_sous_m,eNb_Port_A,eNb_Dest); //On place automatique les bateaux sur les grilles des joueurs
+			clear();
+			eValide=1;
+			eNumJ++;
 		}
+		else if(eChoix==2){
+			Placer_bateau_manuelle(eNumJ+1,eNb_torpilleurs,eNb_sous_m,eNb_Port_A,eNb_Dest);
+			clear();
+			eValide=1;
+			eNumJ++;
+		}						
 	}
-
-	return eNb_torpilleurs;
+	return eNb_torpilleurs; //On retourne le nombre de torpilleurs car ce nombre est nécéssaire pour la partie jouer
 }

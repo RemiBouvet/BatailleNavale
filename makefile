@@ -1,4 +1,4 @@
-FLAG= -g -Wall -lncurses
+FLAG= -g -Wall -lmenu -lncurses
 
 prog : Grille.o Outil.o TorpilleurDeplacer.o TorpilleurChoisir.o TorpilleurAttaquer.o jouer.o Placement_bateau.o Placement_obstacle.o afficher.o main.o
 	gcc -o prog $^ $(FLAG)
