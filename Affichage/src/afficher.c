@@ -348,16 +348,18 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 					if(i == x && j == y)
 						printw("TIRE");
 					else if((gPortee[i][j]==1)){
-						if(grille.grille2[i][j].toucher == Non)
+						if(grille.grille1[i][j].toucher == Non)
 							printw(" PJ ");
-						else if (grille.grille2[i][j].toucher == Oui)
+						else 
 							printw(" BT ");
 					}
 					else{
 						if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
 							printw("    ");
 						else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Present))
-							printw(" TP ");
+							printw(" TP ");	
+						/*else if ((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
+							printw("RATE");*/
 						// si le joueur 1 a un sous marin
 						else if(grille.grille1[i][j].bateau == Sous_Marin){
 							// si le joueur adverse a un sous marin touche et un torpilleur ou non on affiche BT
@@ -439,7 +441,7 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 					else if((gPortee[i][j]==1)){
 						if(grille.grille2[i][j].toucher == Non)
 							printw(" PJ ");
-						else if (grille.grille2[i][j].toucher == Oui)
+						else 
 							printw(" BT ");
 					}
 					else{
@@ -447,6 +449,8 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
 							printw("    ");
 						else if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Present)||(grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Present))
 							printw(" TP ");
+						/*else if ((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Aucun_t)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Aucun_t))
+							printw("RATE");*/
 						// si le joueur 1 a un sous marin
 						else if(grille.grille2[i][j].bateau == Sous_Marin){
 							// si le joueur adverse a un sous marin touche et un torpilleur ou non on affiche BT
@@ -545,6 +549,8 @@ int i,j, k;
 							printw("    ");
 						else if((grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Present)||(grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Present))
 							printw(" TP ");
+						/*else if ((grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Aucun_t && grille.grille2[i][j].torpilleur==Aucun_t)||(grille.grille1[i][j].toucher == Oui && grille.grille1[i][j].bateau == Aucun_b && grille.grille1[i][j].torpilleur==Present && grille.grille2[i][j].torpilleur==Aucun_t))
+							printw("RATE");*/
 						// si le joueur 1 a un sous marin
 						else if(grille.grille1[i][j].bateau == Sous_Marin){
 							// si le joueur adverse a un sous marin touche et un torpilleur ou non on affiche BT
@@ -628,6 +634,8 @@ int i,j, k;
 							printw("    ");
 						else if((grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Present)||(grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Present))
 							printw(" TP ");
+						/*else if ((grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Aucun_t && grille.grille1[i][j].torpilleur==Aucun_t)||(grille.grille2[i][j].toucher == Oui && grille.grille2[i][j].bateau == Aucun_b && grille.grille2[i][j].torpilleur==Present && grille.grille1[i][j].torpilleur==Aucun_t))
+							printw("RATE");*/
 						// si le joueur 1 a un sous marin
 						else if(grille.grille2[i][j].bateau == Sous_Marin){
 							// si le joueur adverse a un sous marin touche et un torpilleur ou non on affiche BT
