@@ -91,8 +91,6 @@ void Jouer_Deplacer_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	dDirection = eSaisie;
 	if(dDirection == Haut){
 		x--;
-		printw("%i", x);
-		refresh();
 		while(gPortee[x][y] == Hors_Portee && x > 0){
 			x--;
 		}
