@@ -62,7 +62,7 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	int eJoueurAdverse = eJoueur;
 	Jouer_Changer_Joueur(&eJoueurAdverse);
 	
-	Jouer_Calculer_Portee(eJoueur, pcTorpilleur, *peNumero_Torpilleur, gPortee, N_Torpilleur); 
+	Jouer_Calculer_Portee(eJoueurAdverse, pcTorpilleur, *peNumero_Torpilleur, gPortee, N_Torpilleur);
 	bAttaque_Possible = Jouer_Attaque_Possible(gPortee);
 	if(bAttaque_Possible){
 		Portee_torpilleur_afficher(gPortee, eJoueur, cCurseur.x, cCurseur.y);

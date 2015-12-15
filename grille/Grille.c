@@ -109,7 +109,7 @@ void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
 }
 
 void Grille_ecrire_toucher(int i,int j, int num_grille,t_toucher choix){
-    if(i>=0 && i<=N && j>=0 && j<=M){
+    if(i>=0 && i<N && j>=0 && j<M){
         if(bCroit(1,num_grille,2)){
             if(choix==Oui){
                 if(num_grille==1)grille.grille1[i][j].toucher=Oui;

@@ -24,7 +24,7 @@ void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int e
 				if(j >= 0 && j < M){
 					Grille_lire_obstacle(i, j, eJoueurAdverse, &eObstacle);
 					Grille_lire_toucher(i, j, eJoueurAdverse, &eToucher);
-					if(eObstacle == 0 && eToucher == 0){
+					if(eObstacle == Aucun_o && eToucher == Non){
 						gPortee[i][j] = Portee;
 					}
 				}
@@ -165,7 +165,6 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 	refresh();
 	clear();
 	Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
-	printw("\nx = %i, y = %i",cCurseur->x, cCurseur->y );
 	refresh();
 	while(bValider == 0){
 		timeout(-1);
