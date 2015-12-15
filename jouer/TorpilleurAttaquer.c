@@ -76,7 +76,7 @@ void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 }
 
 
-void Jouer_Deplacer_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
+/*void Jouer_Deplacer_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	int eSaisie;
 	t_direction dDirection;
 	printw("\nVeuillez selectionner la direction dans laquelle deplacer le curseur (Haut = 0, Bas = 1, Gauche = 2, Droite = 3):");
@@ -91,35 +91,43 @@ void Jouer_Deplacer_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	dDirection = eSaisie;
 	if(dDirection == Haut){
 		x--;
-		printw("%i", x);
-		refresh();
+		printw("x = %i", x);
+			getch();
 		while(gPortee[x][y] == Hors_Portee && x > 0){
 			x--;
+			printw("x = %i", x);
+			getch();
 		}
 	}
 	if(dDirection == Bas){
 		x++;
-		while(gPortee[x][y] == Hors_Portee && x < N){
+		while(gPortee[x][y] == Hors_Portee && x < N - 1){
 			x++;
+			printw("x = %i", x);
+			getch();
 		}
 	}
 	if(dDirection == Droite){
 		y++;
-		while(gPortee[x][y] == Hors_Portee && y < M){
+		while(gPortee[x][y] == Hors_Portee && y < M - 1){
 			y++;
+			printw("y = %i", y);
+			getch();
 		}
 	}
 	if(dDirection == Gauche){
 		y--;
 		while(gPortee[x][y] == Hors_Portee && y > 0){
 			y--;
+			printw("y = %i", y);
+			getch();
 		}
 	}
 	if(gPortee[x][y] == Portee){
 		cCurseur->x = x;
 		cCurseur->y = y;
 	}
-}
+}*/
 
 int Jouer_Stringtonum(char *v,int *res){
     int bNum=1;
@@ -163,6 +171,7 @@ int Jouer_Stringtonum(char *v,int *res){
 void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
 	int ech;
 	int bValider = 0;
+	int x = cCurseur->x, y = cCurseur->y;
 	printw("\nVeuillez selectionner votre torpilleur a l'aide des fleches haut, bas, gauche et droite :");
 	refresh();
 	clear();
@@ -173,29 +182,65 @@ void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee
 		ech = getch();
 		switch(ech){
 			case 68:
-				if(gPortee[cCurseur->x][cCurseur->y-1] == Portee){
-					cCurseur->y--;
+				y--;
+				while(gPortee[x][y] == Hors_Portee && y > 0){
+					y--;
+				}
+				if(gPortee[x][y] == Portee){
+					cCurseur->x = x;
+					cCurseur->y = y;
+				}
+				else{
+					x = cCurseur->x;
+					y = cCurseur->y;
 				}
 				clear();
 				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 67:
-				if(gPortee[cCurseur->x][cCurseur->y+1] == Portee){
-					cCurseur->y++;
+				y++;
+				while(gPortee[x][y] == Hors_Portee && y < M - 1){
+					y++;
+				}
+				if(gPortee[x][y] == Portee){
+					cCurseur->x = x;
+					cCurseur->y = y;
+				}
+				else{
+					x = cCurseur->x;
+					y = cCurseur->y;
 				}
 				clear();
 				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 65:
-				if(gPortee[cCurseur->x-1][cCurseur->y] == Portee){
-					cCurseur->x--;
+				x--;
+				while(gPortee[x][y] == Hors_Portee && x > 0){
+					x--;
+				}
+				if(gPortee[x][y] == Portee){
+					cCurseur->x = x;
+					cCurseur->y = y;
+				}
+				else{
+					x = cCurseur->x;
+					y = cCurseur->y;
 				}
 				clear();
 				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
 				break;
 			case 66:
-				if(gPortee[cCurseur->x+1][cCurseur->y] == Portee){
-					cCurseur->x++;
+				x++;
+				while(gPortee[x][y] == Hors_Portee && x < N - 1){
+					x++;
+				}
+				if(gPortee[x][y] == Portee){
+					cCurseur->x = x;
+					cCurseur->y = y;
+				}
+				else{
+					x = cCurseur->x;
+					y = cCurseur->y;
 				}
 				clear();
 				Portee_torpilleur_afficher(gPortee,eJoueur,cCurseur->x, cCurseur->y);
