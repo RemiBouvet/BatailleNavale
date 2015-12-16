@@ -31,7 +31,7 @@ afficher.o : Affichage/src/afficher.c Affichage/include/afficher.h
 	gcc -c Affichage/src/afficher.c $(FLAG)
 
 main.o : main.c
-	gcc -c main.c $(FLAG)
+	gcc -c main.c $(FLAG) 
 
 clean : 
 	rm -r -f *o

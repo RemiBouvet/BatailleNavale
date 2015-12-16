@@ -495,7 +495,7 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 	char sNb_Port_A[20];
 	int eChoix=0,eValide=1,eNb_torpilleurs=0,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,ch,i=0,eConfig=0;
 	WINDOW *w;
-	char list[3][70] = { "Un seul bateau de même type : 1","Choisir son nombre de bateaux : 2"};
+	char list[3][70] = { "1 : Un seul bateau de même type","2 : Choisir son nombre de bateaux"};
 	char item[7];
 	w = newwin( 5, 50, 8, 2 ); // create a new window
 	box( w, 0, 0 ); // sets default borders for the window
@@ -522,10 +522,10 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 	noecho(); // disable echoing of characters on the screen
 	keypad( w, TRUE ); // enable keyboard input for the window.
 	curs_set( 0 ); // hide the default screen cursor.
-       // get the input
-       printw("\n\nChoix des bateaux : ");
-       refresh();
-	while(((ch=wgetch(w)) != 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0) || ((ch!= 10 && (strcmp(list[i],"Un seul bateau de même type : 1")==0))){ //Tant qu'on a pas appuyé sur entrer sur l'un des deux items
+	// get the input
+	printw("\n\nChoix des bateaux : ");
+	refresh();
+	while(((ch=wgetch(w)) != 10 && strcmp(list[i],"2 : Choisir son nombre de bateaux")==0) || ((ch!= 10 && (strcmp(list[i],"1 : Un seul bateau de même type")==0)))){ //Tant qu'on a pas appuyé sur entrer sur l'un des deux items
          
 		// right pad with spaces to make the items appear with even width.
 		sprintf(item, "%-7s",  list[i]); 
@@ -546,17 +546,19 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
             	sprintf(item, "%-7s",  list[i]);
 		mvwprintw( w, i+1, 2, "%s", item);
 		wattroff( w, A_STANDOUT );
-		if(ch == 10 && strcmp(list[i],"Un seul bateau de même type : 1")==0){
+		if(ch == 10 || strcmp(list[i],"1 : Un seul bateau de même type")==0){
 			eConfig=1;
 			wrefresh(w); // Refresh it (to leave it blank)
 			delwin(w); // and delete
-            	}else if((ch == 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0){
+            	}else if(ch == 10 || strcmp(list[i],"2 : Choisir son nombre de bateaux")==0){
 			eConfig=2;
+			
 			wrefresh(w); // Refresh it (to leave it blank)
 			delwin(w); // and delete
             	}
     	}
-
+printw("dsfsdfds");
+		refresh();
 	if(eConfig==1){
 		eNb_sous_m=1;
 		eNb_Dest=1;
