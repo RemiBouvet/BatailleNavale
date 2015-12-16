@@ -135,7 +135,7 @@ void Enlever_grillebateau2(int eNum_grille){ /*Fonction qui supprime des bateaux
 /****************************************************************************/
 /****************************************************************************/
 void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest){ /*Fonction qui place aléatoirement des bateaux*/
-	int eCompteur=0,eChoix_sens,i,j,eOk=0,eNb=0,eValide=0,eChoix,compteur=0;
+	int eCompteur=0,eChoix_sens,i,j,eOk=0,eNb=0,eValide=0,eChoix=0,compteur=0;
 	char sC[20];
 	clear();
 	srand(time(NULL));
@@ -494,6 +494,7 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 	char sNb_Dest[20];
 	char sNb_Port_A[20];
 	int eChoix=0,eValide=1,eNb_torpilleurs=0,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,ch,i=0,eConfig=0;
+	
 	WINDOW *w;
 	char list[3][70] = { "1 : Un seul bateau de même type","2 : Choisir son nombre de bateaux"};
 	char item[7];

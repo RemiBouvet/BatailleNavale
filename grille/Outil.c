@@ -633,8 +633,8 @@ int uHasard(int uBorneMax){
 	//rend un nombre aléatoire ds [1..nBorneMax]
 	int uHasard;
 	Croit(1,uBorneMax,kuIntegerMaX);
-	uHasard=1+rand()%uBorneMax;
-	Croit(1,uHasard,uBorneMax);
+	uHasard=rand()%uBorneMax;
+	Croit(0,uHasard,uBorneMax);
 	return(uHasard);
 }//uHasard
 

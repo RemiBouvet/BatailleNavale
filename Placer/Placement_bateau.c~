@@ -494,6 +494,7 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 	char sNb_Dest[20];
 	char sNb_Port_A[20];
 	int eChoix=0,eValide=1,eNb_torpilleurs=0,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,ch,i=0,eConfig=0;
+	
 	WINDOW *w;
 	char list[3][70] = { "1 : Un seul bateau de même type","2 : Choisir son nombre de bateaux"};
 	char item[7];
@@ -552,13 +553,10 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 			delwin(w); // and delete
             	}else if(ch == 10 || strcmp(list[i],"2 : Choisir son nombre de bateaux")==0){
 			eConfig=2;
-			
 			wrefresh(w); // Refresh it (to leave it blank)
 			delwin(w); // and delete
             	}
     	}
-printw("dsfsdfds");
-		refresh();
 	if(eConfig==1){
 		eNb_sous_m=1;
 		eNb_Dest=1;
