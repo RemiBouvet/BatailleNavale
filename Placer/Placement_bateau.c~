@@ -523,9 +523,9 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 	keypad( w, TRUE ); // enable keyboard input for the window.
 	curs_set( 0 ); // hide the default screen cursor.
        // get the input
-       printw("\n\n\nChoix des bateaux : ");
+       printw("\n\nChoix des bateaux : ");
        refresh();
-	while(((ch=wgetch(w)) != 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0) || ((ch=wgetch(w)) != 10 && (strcmp(list[i],"Un seul bateau de même type : 1")==0))){ //Tant qu'on a pas appuyé sur entrer sur l'un des deux items
+	while(((ch=wgetch(w)) != 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0) || ((ch!= 10 && (strcmp(list[i],"Un seul bateau de même type : 1")==0))){ //Tant qu'on a pas appuyé sur entrer sur l'un des deux items
          
 		// right pad with spaces to make the items appear with even width.
 		sprintf(item, "%-7s",  list[i]); 
@@ -546,11 +546,11 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
             	sprintf(item, "%-7s",  list[i]);
 		mvwprintw( w, i+1, 2, "%s", item);
 		wattroff( w, A_STANDOUT );
-		if((ch=wgetch(w)) == 10 && strcmp(list[i],"Un seul bateau de même type : 1")==0){
+		if(ch == 10 && strcmp(list[i],"Un seul bateau de même type : 1")==0){
 			eConfig=1;
 			wrefresh(w); // Refresh it (to leave it blank)
 			delwin(w); // and delete
-            	}else if((ch=wgetch(w)) == 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0){
+            	}else if((ch == 10 && strcmp(list[i],"Choisir son nombre de bateaux : 2")==0){
 			eConfig=2;
 			wrefresh(w); // Refresh it (to leave it blank)
 			delwin(w); // and delete
