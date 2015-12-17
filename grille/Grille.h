@@ -14,5 +14,6 @@ void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix);
 void Grille_ecrire_toucher(int i,int j, int num_grille,t_toucher choix);
 void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix);
 void Grille_ecrire_torpilleur(int i,int j, int num_grille,t_torpilleur choix);
+void Grille_Sauvegarder(FILE * fic1);
 
 #endif

@@ -6,6 +6,10 @@
 
 t_plateau grille; //structure qui prend 2 grille
 
+void Grille_Sauvegarder(FILE * fic1){
+    fwrite(&grille , sizeof(t_plateau) , 1 , fic1);
+}
+
 void Grille_init(){
     int i, j;
     for(i = 0; i < N; i++){

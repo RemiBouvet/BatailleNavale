@@ -38,7 +38,7 @@ int main(void){
 		clear();
 		Jouer_Init_Torpilleur(&N_Torpilleur,&N_Deplacement, &Taille_Portee);
 		Commencer_jeu_placement_bateau(N_Torpilleur);
-		Jouer_Partie(eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee);
+		Jouer_Partie(eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee, fic1);
     }else if(eChoixmenu==2){
         /*fic1=fopen("Joueur1.txt","r");
         fread(&grille,sizeof(grille),1,fic1);*/
@@ -46,4 +46,3 @@ int main(void){
     endwin();
 	return 1;
 }
-

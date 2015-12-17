@@ -203,7 +203,7 @@ int Jouer_Gagnant(int eJoueur){
 }
 
 
-void Jouer_Quitter_Continuer(int *bQuitter){
+void Jouer_Quitter_Continuer(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee){
 	//Fonction qui permet à l'utilisateur de choisir de continuer ou de quitter la partie.
 	int ech;
 	int bContinuer = 0;
@@ -221,6 +221,12 @@ void Jouer_Quitter_Continuer(int *bQuitter){
 			case 115: //TOUCHE s
 				if(bSauvegarder == 0){
 					printw("\n\nLa partie a bien été sauvegardée !");
+					fic1 = fopen("sauvegarde" , "wb");
+					Grille_Sauvegarder(fic1);
+					fwrite(&eJoueur , sizeof(int) , 1 , fic1);
+					fwrite(&N_Torpilleur , sizeof(int) , 1 , fic1);
+					fwrite(&N_Deplacement , sizeof(int) , 1 , fic1);
+					fwrite(&Taille_Portee , sizeof(int) , 1 , fic1);
 					bSauvegarder = 1;
 				}
 				break;
@@ -228,7 +234,7 @@ void Jouer_Quitter_Continuer(int *bQuitter){
 	}
 }
 
-void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee){
+void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee, FILE *fic1){
 	//Fonction qui définie la routine de la Partie
 
 	t_coordonnee* cTorpilleur = malloc(N_Torpilleur * sizeof(t_coordonnee)); // tableau de n entiers
@@ -245,7 +251,7 @@ void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_P
 		clear();
 		Jouer_Changer_Joueur(&eJoueur);
 		printw("\nJoueur %i a vous de jouer !\nAppuyez sur espace pour continuer, q pour quitter la partie, s pour sauvegarder :", eJoueur);
-		Jouer_Quitter_Continuer(&bQuitter);
+		Jouer_Quitter_Continuer(&bQuitter, fic1, eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee);
 	}
 	if(bGagnant){
 		printw("\nLe joueur %i a gagne !\n Appuyez sur une touche pour continuer !", eJoueur);
