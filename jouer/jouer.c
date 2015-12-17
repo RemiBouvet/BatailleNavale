@@ -119,7 +119,6 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 	else{
 		*Taille_Portee = 0;
 	}
-	clear();
 }
 
 void Jouer_Changer_Joueur(int *eJoueur){
@@ -208,24 +207,29 @@ void Jouer_Quitter_Continuer(int *bQuitter){
 	//Fonction qui permet à l'utilisateur de choisir de continuer ou de quitter la partie.
 	int ech;
 	int bContinuer = 0;
+	int bSauvegarder = 0;
 	while(*bQuitter == 0 && bContinuer == 0){
 		timeout(-1);
 		ech = getch();
 		switch(ech){
-			case 32:
+			case 32: //TOUCHE espace
 				bContinuer = 1;
 				break;
-			case 113:
-				refresh();
+			case 113: //TOUCHE q
 				*bQuitter = 1;
+				break;
+			case 115: //TOUCHE s
+				if(bSauvegarder == 0){
+					printw("\n\nLa partie a bien été sauvegardée !");
+					bSauvegarder = 1;
+				}
 				break;
 		}
 	}
 }
 
-void Jouer_Partie(int N_Torpilleur, int N_Deplacement, int Taille_Portee){
+void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee){
 	//Fonction qui définie la routine de la Partie
-	int eJoueur = 1;
 
 	t_coordonnee* cTorpilleur = malloc(N_Torpilleur * sizeof(t_coordonnee)); // tableau de n entiers
 	int eNumero_Torpilleur;
@@ -240,7 +244,7 @@ void Jouer_Partie(int N_Torpilleur, int N_Deplacement, int Taille_Portee){
 		bGagnant = Jouer_Gagnant(eJoueur);
 		clear();
 		Jouer_Changer_Joueur(&eJoueur);
-		printw("\nJoueur %i a vous de jouer !\nAppuyez sur espace pour continuer ou q pour quitter la partie", eJoueur);
+		printw("\nJoueur %i a vous de jouer !\nAppuyez sur espace pour continuer, q pour quitter la partie, s pour sauvegarder :", eJoueur);
 		Jouer_Quitter_Continuer(&bQuitter);
 	}
 	if(bGagnant){

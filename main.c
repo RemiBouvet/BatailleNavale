@@ -1,22 +1,25 @@
 #include "jouer/jouer.h"
 #include "Placer/Placement_bateau.h"
 #include "Affichage/include/afficher.h"
-#include <curses.h>
 #include <menu.h>
 #define WIDTH 50
 #define HEIGHT 200
 
 int main(void){
+	//Initialisation ncurses
 	WINDOW *win;
-	char sChoixmenu[20];
-	int eChoixmenu=0;
-	int N_Deplacement, N_Torpilleur, Taille_Portee;
 	initscr();
 	clear();
 	noecho();
-	cbreak();	//Line buffering disabled. pass on everything 
+	cbreak();
 	win = newwin(HEIGHT, WIDTH, 0, 0);
 	keypad(win, TRUE);
+
+
+
+	char sChoixmenu[20];
+	int eChoixmenu=0;
+	int N_Deplacement, N_Torpilleur, Taille_Portee;
 	refresh();
 	printw("*************************************************************************************************************\n");
 	printw("******************************** Bienvenue sur le jeu de la Bataille Navale *********************************\n");
