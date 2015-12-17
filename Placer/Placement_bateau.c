@@ -481,13 +481,13 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,in
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
-int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement la grille et qui demande à l'utilisateur de placé les bateaux*/
+void Commencer_jeu_placement_bateau(int eNb_torpilleurs){ /*Fonction qui initialise completement la grille et qui demande à l'utilisateur de placé les bateaux*/
 	char sChoix[20];
 	char sT[20];
 	char sNb_sous_m[20];
 	char sNb_Dest[20];
 	char sNb_Port_A[20];
-	int eChoix=0,eValide=1,eNb_torpilleurs=0,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,ch,i=0,eConfig=0;
+	int eChoix=0,eValide=1,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,ch,i=0,eConfig=0;
 	WINDOW *w; //Fenetre qui va contenir le menu suivant
 	char list[3][70] = { "1 : Un seul bateau de même type","2 : Choisir son nombre de bateaux"}; //Les phrases que l'on souhaite dans le menu 
 	char item[7];
@@ -495,14 +495,7 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 	box( w, 0, 0 ); // On met des valeurs par défaut
 	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
-	do{
-		printw("\nCombien de Torpilleur souhaitez-vous (J%i) et (J%i) (5 maximum) ?",eNumJ+1,eNumJ+2);
-		refresh(); //On envoie notre printw
-		echo(); 
-		scanw("%s",sT);
-		noecho();
-	}while(!bStringtonum(sT,&eNb_torpilleurs) || (eNb_torpilleurs<1 || eNb_torpilleurs>5)); //Tant qu'on a pas un nombres de torpilleurs en int on continue, et tant qu'on a pas un nombre de torpilleurs entre 1 et 5 inclus
-	
+		
 	for( i=0; i<2; i++ ) { //On a deux items donc on met i<2
 		if( i == 0 )   
 			wattron( w, A_STANDOUT ); // On met l'item sur laquelle on est positionner en lumineux.
@@ -600,5 +593,4 @@ int Commencer_jeu_placement_bateau(void){ /*Fonction qui initialise completement
 			eNumJ++;
 		}						
 	}
-	return eNb_torpilleurs; //On retourne le nombre de torpilleurs car ce nombre est nécéssaire pour la partie jouer
 }

@@ -17,5 +17,5 @@ void Enlever_grillebateau2(int eNum_grille);
 int Changement_colonne(char * v,int *pRes);
 void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur);
 void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur);
-int Commencer_jeu_placement_bateau(void);
+void Commencer_jeu_placement_bateau(int eNb_torpilleurs);
 #endif

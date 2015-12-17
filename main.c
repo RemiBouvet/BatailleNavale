@@ -32,7 +32,7 @@ int main(void){
 	if(eChoixmenu==1){
 		clear();
 		Jouer_Init_Torpilleur(&N_Torpilleur,&N_Deplacement, &Taille_Portee);
-		Commencer_jeu_placement_bateau();
+		Commencer_jeu_placement_bateau(N_Torpilleur);
 		Jouer_Partie(N_Torpilleur, N_Deplacement, Taille_Portee);
 	}else if(eChoixmenu==2)endwin(); //Si le joueur veut quitter
 	endwin();
