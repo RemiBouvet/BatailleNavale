@@ -8,7 +8,14 @@
 #include "TorpilleurChoisir.h"
 
 
-
+/**
+* \fn void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpilleur)
+* \brief Fonction qui permet de trouver tous les torpilleurs du joueur et les stockes dans le tableau de coordonne cBateau
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpilleur){
 	//Fonction qui permet de trouver tous les torpilleurs du joueur et les stockes dans le tableau de coordonne cBateau
 	int i, j;
@@ -26,7 +33,14 @@ void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpille
 	}
 }
 
-
+/**
+* \fn void Jouer_Selectionner_Torpilleur(int eJoueur, t_coordonnee cTorpilleur[], int *peNumero_Torpilleur, int N_Torpilleur)
+* \brief Fonction qui permet de selectionner un torpilleur
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Selectionner_Torpilleur(int eJoueur, t_coordonnee cTorpilleur[], int *peNumero_Torpilleur, int N_Torpilleur){
 	//Fonction qui permet de selectionner un torpilleur
 	int ech;
