@@ -11,6 +11,6 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 int Jouer_Gagnant(int eJoueur);
 void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee, FILE *fic1);
 void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Portee);
-void Jouer_Quitter_Continuer(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee);
+void Jouer_Quitter_Continuer_Sauvegarder(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee);
 
 #endif

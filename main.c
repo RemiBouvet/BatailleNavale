@@ -8,16 +8,13 @@
 int main(void){
 	//Initialisation ncurses
 	WINDOW *win;
-    FILE*fic1;
-
+    FILE*fic1=NULL;
 	initscr();
 	clear();
 	noecho();
 	cbreak();
 	win = newwin(HEIGHT, WIDTH, 0, 0);
 	keypad(win, TRUE);
-
-
 	int eJoueur = 1;
 	char sChoixmenu[20];
 	int eChoixmenu=0;
@@ -26,7 +23,7 @@ int main(void){
 	printw("*************************************************************************************************************\n");
 	printw("******************************** Bienvenue sur le jeu de la Bataille Navale *********************************\n");
 	printw("*************************************************************************************************************\n");
-	printw("\n\n\nMenu :\n\t1 : Nouvelle Partie\n\t2: Charger\n\t3: Quitter\n");
+	printw("\n\n\nMenu :\n\t1 : Nouvelle Partie\n\t2 : Charger\n\t3 : Quitter\n");
 	refresh();
 	do{
 		printw("Choix : ");
