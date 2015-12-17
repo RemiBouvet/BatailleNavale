@@ -484,59 +484,18 @@ void Commencer_jeu_placement_bateau(int eNb_torpilleurs){ /*Fonction qui initial
 	char sChoix[20];
 	char sNb_sous_m[20];
 	char sNb_Dest[20];
+    char sConfig[20];
 	char sNb_Port_A[20];
-	int eChoix=0,eValide=1,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,ch,i=0,eConfig=0;
-	WINDOW *w; //Fenetre qui va contenir le menu suivant
-	char list[3][70] = { "1 : Un seul bateau de même type","2 : Choisir son nombre de bateaux"}; //Les phrases que l'on souhaite dans le menu 
-	char item[7];
-	w = newwin( 5, 50, 8, 2 ); // On créé une fenêtre 
-	box( w, 0, 0 ); // On met des valeurs par défaut
+	int eChoix=0,eValide=1,eNumJ=0,eNb_sous_m=1,eNb_Dest=1,eNb_Port_A=1,eConfig=0;
 	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
-    refresh();
-	for( i=0; i<2; i++ ) { //On a deux items donc on met i<2
-		if( i == 0 )   
-			wattron( w, A_STANDOUT ); // On met l'item sur laquelle on est positionner en lumineux.
-		else
-			wattroff( w, A_STANDOUT );
-		sprintf(item, "%-7s",  list[i]);
-		mvwprintw( w, i+1, 2, "%s", item );
-	}
-	wrefresh( w ); // On met à jour la fenêtre
-	i = 0;
-	noecho(); // On desactive ce qu'on écrit dans le terminal
-	keypad( w, TRUE ); // On active le clavier
-	curs_set( 0 ); // On cache le curseur par defaut
-	printw("\n\nChoix des bateaux : ");
-	refresh(); 
-	while(((ch=wgetch(w)) != 10 && strcmp(list[i],"2 : Choisir son nombre de bateaux")==0) || ((ch!= 10 && (strcmp(list[i],"1 : Un seul bateau de même type")==0)))){ //Tant qu'on a pas appuyé sur entrer sur l'un des deux items
-		sprintf(item, "%-7s",  list[i]); 
-		mvwprintw( w, i+1, 2, "%s", item ); 
-        // On utilise la variable pour incrémenter ou décrémenter la valeur basée sur l'entrer
-        switch( ch ) {
-            case KEY_UP: //Fleche du haut
-                        i--;
-                        i = ( i<0 ) ? 1 : i;
-                        break;
-            case KEY_DOWN: //Fleche du bas
-                        i++;
-                        i = ( i>1 ) ? 0 : i;
-                        break;
-        }
-        wattron( w, A_STANDOUT ); //On illumine le second item
-        sprintf(item, "%-7s",  list[i]);
-		mvwprintw( w, i+1, 2, "%s", item);
-		wattroff( w, A_STANDOUT );
-		if(ch == 10 || strcmp(list[i],"1 : Un seul bateau de même type")==0){
-			eConfig=1;
-			wrefresh(w); 
-			delwin(w); 
-        }else if(ch == 10 || strcmp(list[i],"2 : Choisir son nombre de bateaux")==0){
-			eConfig=2;
-			wrefresh(w); // On réinitialise la fenetre
-			delwin(w); // et on supprime
-        }
-    }
+    do{
+        printw("\n\nChoix des bateaux : \n\t1 : Un seul bateau de même\t2 : Choisir son nombre de bateaux\nChoix :  ");
+        refresh();
+        echo();
+        scanw("%s",sConfig);
+        noecho();
+    }while(!bStringtonum(sConfig,&eConfig) || eConfig<1 || eConfig>2);
 	if(eConfig==1){
 		eNb_sous_m=1;
 		eNb_Dest=1;
