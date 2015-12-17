@@ -1,10 +1,10 @@
-//
-//  Placement_obstacle.c
-//
-//
-//  Created by Zerbane Mehdi on 02/12/2015.
-//
-//
+/**
+* \file Placement_obstacle.c
+* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \author ZERBANE Mehdi
+* \version 1.0
+*/
+
 #include "../grille/Struct.h"
 #include "../grille/Outil.h"
 #include "../grille/Grille.h"

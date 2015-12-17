@@ -1,3 +1,10 @@
+/**
+* \file jouer.c
+* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #include "TorpilleurDeplacer.h"
 #include "TorpilleurChoisir.h"
 #include "TorpilleurAttaquer.h"

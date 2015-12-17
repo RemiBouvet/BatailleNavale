@@ -1,10 +1,10 @@
-//
-//  Placement_bateau.c
-//
-//
-//  Created by Zerbane Mehdi on 27/11/2015.
-//
-//
+/**
+* \file Placement_bateau.c
+* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \author ZERBANE Mehdi
+* \version 1.0
+*/
+
 #include "../grille/Outil.h"
 #include "../grille/Grille.h"
 #include "../grille/Struct.h"
