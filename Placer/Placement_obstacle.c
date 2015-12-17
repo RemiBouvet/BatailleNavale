@@ -9,6 +9,16 @@
 #include "../grille/Outil.h"
 #include "../grille/Grille.h"
 #define nb_obstacle 5
+
+/**
+* \fn placer_obstacle()
+* \brief Fonction permettant de placer aléatoirement des obstacles
+*
+* \param Aucun
+* \return Ne retourne rien
+*
+*/
+
 void placer_obstacle(){
 	int compteur_o=0,i=0,j=0,res,res2;	
 	srand(time(NULL));
