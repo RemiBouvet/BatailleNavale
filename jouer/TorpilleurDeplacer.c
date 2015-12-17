@@ -1,10 +1,4 @@
-#include "../grille/Struct.h"
-#include "../grille/Grille.h"
 #include "TorpilleurDeplacer.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 
 
 int Jouer_Deplacement_Valide(int eJoueur, t_direction direction, int eNumero_Torpilleur, t_coordonnee cTorpilleur[], int N_Torpilleur){

@@ -7,11 +7,16 @@
 #include <stdlib.h>
 
 void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Portee){
+	//Fonction qui permet d'initialiser le nombre de torpilleur, le nombre de déplacement par tour, la taille de la portée du torpilleur.
 	int ech;
 	int bValider = 0;
+
+	//Initialisation des valeur
 	*N_Torpilleur = 2;
 	*N_Deplacement = 2;
 	*Taille_Portee = 3;
+
+	//Choix du nombre de torpilleur
 	printw("\nConfiguration de la partie :\n");
 	printw("\nVeuillez selectionner le nombre de torpilleur par joueur à l'aide des flèches , appuyez sur entree pour valider: %i torpilleur.", *N_Torpilleur);
 	refresh();
@@ -39,6 +44,8 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 		}
 	}
 	clear();
+
+	//Choix du nombre de case de déplacement
 	printw("\nConfiguration de la partie :\n");
 	printw("\nNombre de torpilleur choisi : %i.", *N_Torpilleur);
 	printw("\nVeuillez selectionner le nombre de case de deplacement par torpilleur à l'aide des flèches , appuyez sur entree pour valider: %i case de deplacement.", *N_Deplacement);
@@ -57,7 +64,7 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 				printw("\nVeuillez selectionner le nombre de case de deplacement par torpilleur à l'aide des flèches , appuyez sur entree pour valider: %i case de deplacement.", *N_Deplacement);
 				break;
 			case 67:
-				if(*N_Deplacement < 5)
+				if(*N_Deplacement < 8)
 					*N_Deplacement += 1;
 				clear();
 				printw("\nConfiguration de la partie :\n");
@@ -70,10 +77,12 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 		}
 	}
 	clear();
+
+	//Choix de la taille de la portee
 	printw("\nConfiguration de la partie :\n");
 	printw("\nNombre de torpilleur choisi : %i.", *N_Torpilleur);
 	printw("\nNombre de case de deplacement choisi : %i.", *N_Deplacement);
-	printw("\nVeuillez selectionner la taille de la portee du torpilleur : %ix%i", *Taille_Portee, *Taille_Portee);
+	printw("\nVeuillez selectionner la taille de la portee du torpilleur, appuyez sur entree pour valider : %ix%i", *Taille_Portee, *Taille_Portee);
 	refresh();
 	bValider = 0;
 	while(bValider == 0){
@@ -86,7 +95,7 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 				printw("\nConfiguration de la partie :\n");
 				printw("\nNombre de torpilleur choisi : %i.", *N_Torpilleur);
 				printw("\nNombre de case de deplacement choisi : %i.", *N_Deplacement);
-				printw("\nVeuillez selectionner la taille de la portee du torpilleur : %ix%i", *Taille_Portee, *Taille_Portee);
+				printw("\nVeuillez selectionner la taille de la portee du torpilleur, appuyez sur entree pour valider : %ix%i", *Taille_Portee, *Taille_Portee);
 				break;
 			case 67:
 				*Taille_Portee = 5;
@@ -94,7 +103,7 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 				printw("\nConfiguration de la partie :\n");
 				printw("\nNombre de torpilleur choisi : %i.", *N_Torpilleur);
 				printw("\nNombre de case de deplacement choisi : %i.", *N_Deplacement);
-				printw("\nVeuillez selectionner la taille de la portee du torpilleur : %ix%i", *Taille_Portee, *Taille_Portee);
+				printw("\nVeuillez selectionner la taille de la portee du torpilleur, appuyez sur entree pour valider : %ix%i", *Taille_Portee, *Taille_Portee);
 				break;
 			case 10:
 				bValider = 1;
@@ -106,6 +115,7 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 	printw("\nNombre de torpilleur choisi : %i.", *N_Torpilleur);
 	printw("\nNombre de case de deplacement choisi : %i.", *N_Deplacement);
 	printw("\nTaille de la portee choisie : %ix%i", *Taille_Portee, *Taille_Portee);
+	//Formatage de la valeur de la Taille_Portee
 	if(*Taille_Portee == 5){
 		*Taille_Portee = 1;
 	}
@@ -137,7 +147,7 @@ void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	dDirection = Droite;
 	int bValide = 0;
 	int i = 0;
-	while(i < N_Deplacement && dDirection != Aucune){
+	while(i < N_Deplacement && dDirection != Aucune){ //Tant qu'il reste des points de déplacement et qu'il n'a pas décider de s'arrêter
 		while(bValide == 0){
 			clear();
 			torpilleur_selection_afficher(pcTorpilleur[*peNumero_Torpilleur].x, pcTorpilleur[*peNumero_Torpilleur].y, eJoueur);
@@ -184,11 +194,11 @@ int Jouer_Gagnant(int eJoueur){
 	int eBateau, eToucher;
 	int bGagnant = 1;
 	int i, j;
-	for(i=0; i < N; i++){
+	for(i=0; i < N; i++){//On parcour l'integralite de la grille
 		for(j=0; j < M; j++){
 			Grille_lire_bateau(i,j, eJoueur,&eBateau);
 			Grille_lire_toucher(i,j, eJoueur,&eToucher);
-			if(eBateau != Aucun_b && eToucher == Non){
+			if(eBateau != Aucun_b && eToucher == Non){//On test si il y a une case bateau non touchée
 				bGagnant = 0;
 			}
 		}
@@ -198,6 +208,7 @@ int Jouer_Gagnant(int eJoueur){
 
 
 void Jouer_Quitter_Continuer(int *bQuitter){
+	//Fonction qui permet à l'utilisateur de choisir de continuer ou de quitter la partie.
 	int ech;
 	int bContinuer = 0;
 	while(*bQuitter == 0 && bContinuer == 0){
@@ -224,7 +235,7 @@ void Jouer_Partie(int N_Torpilleur, int N_Deplacement, int Taille_Portee){
 	int bGagnant = 0;
 	int bQuitter = 0;
 
-	while(bGagnant == 0 && bQuitter == 0){
+	while(bGagnant == 0 && bQuitter == 0){//On joue tant qu'il n'y a pas de gagnant ou tant que l'utilisateur n'a pas décidé de quitter la partie
 		clear();
 		Jouer_Choisir(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur);
 		Jouer_Deplacer(eJoueur, cTorpilleur, &eNumero_Torpilleur, N_Torpilleur, N_Deplacement);

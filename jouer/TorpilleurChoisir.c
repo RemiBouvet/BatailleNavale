@@ -1,11 +1,5 @@
-#include "../grille/Struct.h"
-#include "../grille/Grille.h"
 #include "TorpilleurChoisir.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <ncurses.h>
+
 
 
 void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpilleur){
@@ -25,22 +19,11 @@ void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpille
 	}
 }
 
-void Jouer_Afficher_Torpilleur(t_coordonnee cTorpilleur[], int N_Torpilleur){
-	int i;
-	for(i=0; i < N_Torpilleur; i++){
-		printw("\n Torpilleur %i : x = %i y = %i", i+1, cTorpilleur[i].x, cTorpilleur[i].y);
-		refresh();
-	}
-}
-
-void Jouer_Afficher_Torpilleur_Selectionne(int eNumero_Torpilleur){
-	printw("\nLe Torpilleur selectionne est le numero %i", eNumero_Torpilleur + 1);
-	refresh();
-}
 
 void Jouer_Selectionner_Torpilleur(int eJoueur, t_coordonnee cTorpilleur[], int *peNumero_Torpilleur, int N_Torpilleur){
+	//Fonction qui permet de selectionner un torpilleur
 	int ech;
-	int eNumero_Torpilleur = 0;
+	int eNumero_Torpilleur = 0; //Initialisation de la selection
 	int bValider = 0;
 	printw("\nVeuillez selectionner votre torpilleur a l'aide des fleches gauche et droite :");
 	refresh();
@@ -50,13 +33,13 @@ void Jouer_Selectionner_Torpilleur(int eJoueur, t_coordonnee cTorpilleur[], int 
 		timeout(-1);
 		ech = getch();
 		switch(ech){
-			case 68:
+			case 68: //Décrementer la selection
 				if(eNumero_Torpilleur >= 1)
 					eNumero_Torpilleur--;
 				clear();
 				torpilleur_selection_afficher(cTorpilleur[eNumero_Torpilleur].x, cTorpilleur[eNumero_Torpilleur].y, eJoueur);
 				break;
-			case 67:
+			case 67: //Incrémenter la selection
 				if(eNumero_Torpilleur < N_Torpilleur - 1)
 					eNumero_Torpilleur++;
 				clear();
