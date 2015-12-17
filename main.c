@@ -40,8 +40,15 @@ int main(void){
 		Commencer_jeu_placement_bateau(N_Torpilleur);
 		Jouer_Partie(eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee, fic1);
     }else if(eChoixmenu==2){
-        /*fic1=fopen("Joueur1.txt","r");
-        fread(&grille,sizeof(grille),1,fic1);*/
+        fic1=fopen("sauvegarde","r");
+        Grille_Charger(fic1);
+        fread(&eJoueur , sizeof(int) , 1 , fic1);
+        fread(&N_Torpilleur , sizeof(int) , 1 , fic1);
+        fread(&N_Deplacement , sizeof(int) , 1 , fic1);
+        fread(&Taille_Portee , sizeof(int) , 1 , fic1);
+        Jouer_Partie(eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee, fic1);
+
+        
     }else if(eChoixmenu==3)endwin(); //Si le joueur veut quitter
     endwin();
 	return 1;
