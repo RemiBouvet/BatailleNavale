@@ -483,7 +483,6 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,in
 /****************************************************************************/
 void Commencer_jeu_placement_bateau(int eNb_torpilleurs){ /*Fonction qui initialise completement la grille et qui demande à l'utilisateur de placé les bateaux*/
 	char sChoix[20];
-	char sT[20];
 	char sNb_sous_m[20];
 	char sNb_Dest[20];
 	char sNb_Port_A[20];
@@ -495,7 +494,7 @@ void Commencer_jeu_placement_bateau(int eNb_torpilleurs){ /*Fonction qui initial
 	box( w, 0, 0 ); // On met des valeurs par défaut
 	Grille_init(); //On initialise la grille avec tout à 0
 	placer_obstacle(); //On place les obstacles sur les grilles
-		
+    refresh();
 	for( i=0; i<2; i++ ) { //On a deux items donc on met i<2
 		if( i == 0 )   
 			wattron( w, A_STANDOUT ); // On met l'item sur laquelle on est positionner en lumineux.
