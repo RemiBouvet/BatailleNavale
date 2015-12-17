@@ -203,7 +203,7 @@ int Jouer_Gagnant(int eJoueur){
 }
 
 
-void Jouer_Quitter_Continuer(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee){
+void Jouer_Quitter_Continuer_Sauvegarder(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee){
 	//Fonction qui permet à l'utilisateur de choisir de continuer ou de quitter la partie.
 	int ech;
 	int bContinuer = 0;
@@ -219,7 +219,7 @@ void Jouer_Quitter_Continuer(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpi
 				*bQuitter = 1;
 				break;
 			case 115: //TOUCHE s
-				if(bSauvegarder == 0){
+				if(bSauvegarder == 0){ //Sauvegarde de la partie
 					printw("\n\nLa partie a bien été sauvegardée !");
 					fic1 = fopen("sauvegarde" , "wb");
 					Grille_Sauvegarder(fic1);
@@ -251,7 +251,7 @@ void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_P
 		clear();
 		Jouer_Changer_Joueur(&eJoueur);
 		printw("\nJoueur %i a vous de jouer !\nAppuyez sur espace pour continuer, q pour quitter la partie, s pour sauvegarder :", eJoueur);
-		Jouer_Quitter_Continuer(&bQuitter, fic1, eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee);
+		Jouer_Quitter_Continuer_Sauvegarder(&bQuitter, fic1, eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee);
 	}
 	if(bGagnant){
 		printw("\nLe joueur %i a gagne !\n Appuyez sur une touche pour continuer !", eJoueur);

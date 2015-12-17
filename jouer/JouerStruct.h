@@ -1,7 +1,6 @@
 #ifndef STRUCTURE_JOUER
 #define STRUCTURE_JOUER
 
-//#define N_Torpilleur 2
 
 #include "../grille/Grille.h"
 #include "../Affichage/include/afficher.h"
