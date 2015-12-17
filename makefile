@@ -18,8 +18,8 @@ TorpilleurChoisir.o : jouer/TorpilleurChoisir.c jouer/TorpilleurChoisir.h jouer/
 TorpilleurAttaquer.o : jouer/TorpilleurAttaquer.c jouer/TorpilleurAttaquer.h jouer/JouerStruct.h
 	gcc -c jouer/TorpilleurAttaquer.c jouer/TorpilleurAttaquer.h jouer/JouerStruct.h $(FLAG)
 
-jouer.o : jouer/jouer.c 
-	gcc -c jouer/jouer.c $(FLAG)
+jouer.o : jouer/jouer.c jouer/JouerStruct.h
+	gcc -c jouer/jouer.c jouer/JouerStruct.h $(FLAG)
 
 Placement_bateau.o: Placer/Placement_bateau.c grille/Struct.h grille/Outil.h Placer/Placement_bateau.h
 	gcc -c Placer/Placement_bateau.c $(FLAG)

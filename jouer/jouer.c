@@ -1,10 +1,7 @@
-#include "../grille/Grille.h"
 #include "TorpilleurDeplacer.h"
 #include "TorpilleurChoisir.h"
 #include "TorpilleurAttaquer.h"
-#include "../Affichage/include/afficher.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "JouerStruct.h"
 
 void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Portee){
 	//Fonction qui permet d'initialiser le nombre de torpilleur, le nombre de déplacement par tour, la taille de la portée du torpilleur.
