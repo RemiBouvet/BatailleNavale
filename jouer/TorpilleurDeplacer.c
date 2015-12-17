@@ -55,6 +55,8 @@ void Jouer_Deplacer_Torpilleur(int eJoueur, t_direction direction, int eNumero_T
 	}
 	Grille_ecrire_torpilleur(cTorpilleur[eNumero_Torpilleur].x,cTorpilleur[eNumero_Torpilleur].y, eJoueur, Aucun_t);
 	Grille_ecrire_torpilleur(cTorpilleur[eNumero_Torpilleur].x + x,cTorpilleur[eNumero_Torpilleur].y + y, eJoueur, Present);
+	cTorpilleur[eNumero_Torpilleur].x = cTorpilleur[eNumero_Torpilleur].x + x;
+	cTorpilleur[eNumero_Torpilleur].y = cTorpilleur[eNumero_Torpilleur].y + y;
 }
 
 

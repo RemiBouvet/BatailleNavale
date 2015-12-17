@@ -9,7 +9,8 @@
 int main(void){
 	WINDOW *win;
 	char sChoixmenu[20];
-	int nb_torpilleur=0,eChoixmenu=0;
+	int eChoixmenu=0;
+	int N_Deplacement, N_Torpilleur, Taille_Portee;
 	initscr();
 	clear();
 	noecho();
@@ -30,8 +31,9 @@ int main(void){
 	}while(!bStringtonum(sChoixmenu,&eChoixmenu) || eChoixmenu <1 || eChoixmenu >2); //Tant que on a pas un entier compris entre 1 et 2
 	if(eChoixmenu==1){
 		clear();
-		nb_torpilleur=Commencer_jeu_placement_bateau();
-		Jouer_Partie(nb_torpilleur, win);
+		Jouer_Init_Torpilleur(&N_Torpilleur,&N_Deplacement, &Taille_Portee);
+		Commencer_jeu_placement_bateau();
+		Jouer_Partie(N_Torpilleur, N_Deplacement, Taille_Portee);
 	}else if(eChoixmenu==2)endwin(); //Si le joueur veut quitter
 	endwin();
 	return 1;

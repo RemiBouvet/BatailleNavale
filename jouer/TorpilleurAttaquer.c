@@ -6,7 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int eNumero_Torpilleur,t_portee gPortee[N][M], int N_Torpilleur){
+void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int eNumero_Torpilleur,t_portee gPortee[N][M], int N_Torpilleur, int Taille_Portee){
 	//Fonction qui permet de stocker dans la grille gPortee[N][M] les cases où le torpilleur selectionne a la possibilite d'attaquer
 	int eObstacle;
 	int eToucher;
@@ -18,9 +18,9 @@ void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int e
 	}
 	int x = cTorpilleur[eNumero_Torpilleur].x;
 	int y = cTorpilleur[eNumero_Torpilleur].y;
-	for(i = x - 1; i < x +2; i++){
+	for(i = x - (1 + Taille_Portee); i < x + (2 +Taille_Portee); i++){
 		if(i >= 0 && i < N){
-			for(j = y - 1; j < y +2; j++){
+			for(j = y - (1 + Taille_Portee); j < y + (2 + Taille_Portee); j++){
 				if(j >= 0 && j < M){
 					Grille_lire_obstacle(i, j, eJoueurAdverse, &eObstacle);
 					Grille_lire_toucher(i, j, eJoueurAdverse, &eToucher);
