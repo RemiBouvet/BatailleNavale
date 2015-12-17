@@ -8,6 +8,8 @@
 int main(void){
 	//Initialisation ncurses
 	WINDOW *win;
+    FILE*fic1;
+
 	initscr();
 	clear();
 	noecho();
@@ -16,7 +18,7 @@ int main(void){
 	keypad(win, TRUE);
 
 
-
+	int eJoueur = 1;
 	char sChoixmenu[20];
 	int eChoixmenu=0;
 	int N_Deplacement, N_Torpilleur, Taille_Portee;
@@ -24,21 +26,24 @@ int main(void){
 	printw("*************************************************************************************************************\n");
 	printw("******************************** Bienvenue sur le jeu de la Bataille Navale *********************************\n");
 	printw("*************************************************************************************************************\n");
-	printw("\n\n\nMenu :\n\t1 : Jouer\n\t2: Quitter\n\n");
+	printw("\n\n\nMenu :\n\t1 : Nouvelle Partie\n\t2: Charger\n\t3: Quitter\n");
 	refresh();
 	do{
 		printw("Choix : ");
 		echo();
 		scanw("%s",sChoixmenu);
 		noecho();
-	}while(!bStringtonum(sChoixmenu,&eChoixmenu) || eChoixmenu <1 || eChoixmenu >2); //Tant que on a pas un entier compris entre 1 et 2
+	}while(!bStringtonum(sChoixmenu,&eChoixmenu) || eChoixmenu <1 || eChoixmenu >3); //Tant que on a pas un entier compris entre 1 et 2
 	if(eChoixmenu==1){
 		clear();
 		Jouer_Init_Torpilleur(&N_Torpilleur,&N_Deplacement, &Taille_Portee);
 		Commencer_jeu_placement_bateau(N_Torpilleur);
-		Jouer_Partie(N_Torpilleur, N_Deplacement, Taille_Portee);
-	}else if(eChoixmenu==2)endwin(); //Si le joueur veut quitter
-	endwin();
+		Jouer_Partie(eJoueur, N_Torpilleur, N_Deplacement, Taille_Portee);
+    }else if(eChoixmenu==2){
+        /*fic1=fopen("Joueur1.txt","r");
+        fread(&grille,sizeof(grille),1,fic1);*/
+    }else if(eChoixmenu==3)endwin(); //Si le joueur veut quitter
+    endwin();
 	return 1;
 }
 
