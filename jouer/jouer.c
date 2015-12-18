@@ -1,6 +1,6 @@
 /**
 * \file jouer.c
-* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \brief fichier qui contient l'ensemble des fonctions pour jouer.
 * \author BOUVET Remi
 * \version 1.0
 */

@@ -1,3 +1,10 @@
+/**
+* \file JouerStruct.h
+* \brief fichier qui contient l'ensemble des structures pour le module jouer.
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #ifndef STRUCTURE_JOUER
 #define STRUCTURE_JOUER
 

@@ -1,3 +1,10 @@
+/**
+* \file TorpilleurChoisir.h
+* \brief fichier qui contient l'ensemble des prototypes de TorpilleurChoisir.c
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #ifndef TORPILLEUR_CHOIX
 #define TORPILLEUR_CHOIX
 

@@ -1,3 +1,10 @@
+/**
+* \file jouer.h
+* \brief fichier qui contient l'ensemble des prototypes de jouer.c
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #ifndef JOUER
 #define JOUER
 

@@ -1,3 +1,10 @@
+/**
+* \file TorpilleurAttaquer.h
+* \brief fichier qui contient l'ensemble des portotypes de TorpilleurAttaquer.c
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #ifndef TORPILLEUR_ATTAQUER
 #define TORPILLEUR_ATTAQUER
 

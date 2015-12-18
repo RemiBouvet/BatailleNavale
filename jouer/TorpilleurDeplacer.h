@@ -1,3 +1,10 @@
+/**
+* \file TorpilleurDeplacer.h
+* \brief fichier qui contient l'ensemble des prototypes de TorpilleurDeplacer.c
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #ifndef TORPILLEUR_DEPLACER
 #define TORPILLEUR_DEPLACER
 
