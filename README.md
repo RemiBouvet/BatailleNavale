@@ -2,7 +2,7 @@
 
 ## Compilation
 
-Pour compiler ce programme vous pouvez faire la commande "make" dans le terminal, cette commande compilera le programme et mettre un executable dans le dossier bin.
+Pour compiler ce programme vous pouvez faire la commande "make" dans le terminal, cette commande compilera le programme et mettra un executable dans le dossier bin.
 
 ## Execution du programme
 
