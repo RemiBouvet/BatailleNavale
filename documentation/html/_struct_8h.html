@@ -98,8 +98,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__case.html">t_case</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure pour connaitre contenu d'une case  <a href="structt__case.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__plateau.html">t_plateau</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure contenant les grilles  <a href="structt__plateau.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -113,34 +115,115 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a1d4b3af78c5f9b3f943007e525cefc94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d4b3af78c5f9b3f943007e525cefc94"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>t_bateau</b> { <b>Aucun_b</b> =0, 
+<tr class="memitem:a1d4b3af78c5f9b3f943007e525cefc94"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_struct_8h.html#a1d4b3af78c5f9b3f943007e525cefc94">t_bateau</a> { <b>Aucun_b</b> =0, 
 <b>Sous_Marin</b> =3, 
 <b>Destroyer</b> =4, 
 <b>Porte_Avion</b> =5
- }<tr class="separator:a1d4b3af78c5f9b3f943007e525cefc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ }<tr class="memdesc:a1d4b3af78c5f9b3f943007e525cefc94"><td class="mdescLeft">&#160;</td><td class="mdescRight">enumeration regroupant les differents bateaux ainsi que leurs tailles en cases  <a href="_struct_8h.html#a1d4b3af78c5f9b3f943007e525cefc94">More...</a><br /></td></tr>
+<tr class="separator:a1d4b3af78c5f9b3f943007e525cefc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
-<tr class="memitem:aba77e4bb172ecd4a675a651dc54cdd9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba77e4bb172ecd4a675a651dc54cdd9d"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>t_obstacle</b> { <b>Aucun_o</b> =0, 
+<tr class="memitem:aba77e4bb172ecd4a675a651dc54cdd9d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_struct_8h.html#aba77e4bb172ecd4a675a651dc54cdd9d">t_obstacle</a> { <b>Aucun_o</b> =0, 
 <b>Obstacle</b> =1
- }<tr class="separator:aba77e4bb172ecd4a675a651dc54cdd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ }<tr class="memdesc:aba77e4bb172ecd4a675a651dc54cdd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">enumeration si un tir a touche une case ou non  <a href="_struct_8h.html#aba77e4bb172ecd4a675a651dc54cdd9d">More...</a><br /></td></tr>
+<tr class="separator:aba77e4bb172ecd4a675a651dc54cdd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
-<tr class="memitem:a5f32f22a43adf79ef72d31d445643c9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f32f22a43adf79ef72d31d445643c9d"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>t_toucher</b> { <b>Non</b> =0, 
+<tr class="memitem:a5f32f22a43adf79ef72d31d445643c9d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_struct_8h.html#a5f32f22a43adf79ef72d31d445643c9d">t_toucher</a> { <b>Non</b> =0, 
 <b>Oui</b> =1
- }<tr class="separator:a5f32f22a43adf79ef72d31d445643c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ }<tr class="memdesc:a5f32f22a43adf79ef72d31d445643c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">enumeration pour verifier presence obstacle ou non  <a href="_struct_8h.html#a5f32f22a43adf79ef72d31d445643c9d">More...</a><br /></td></tr>
+<tr class="separator:a5f32f22a43adf79ef72d31d445643c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
-<tr class="memitem:a072aa075110c11ec4eeaab41c77db60c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a072aa075110c11ec4eeaab41c77db60c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>t_torpilleur</b> { <b>Aucun_t</b> =0, 
+<tr class="memitem:a072aa075110c11ec4eeaab41c77db60c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_struct_8h.html#a072aa075110c11ec4eeaab41c77db60c">t_torpilleur</a> { <b>Aucun_t</b> =0, 
 <b>Present</b> =1
- }<tr class="separator:a072aa075110c11ec4eeaab41c77db60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ }<tr class="memdesc:a072aa075110c11ec4eeaab41c77db60c"><td class="mdescLeft">&#160;</td><td class="mdescRight">enumeration pour verifier s'il y a un torpilleur ou non  <a href="_struct_8h.html#a072aa075110c11ec4eeaab41c77db60c">More...</a><br /></td></tr>
+<tr class="separator:a072aa075110c11ec4eeaab41c77db60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
-<tr class="memitem:a1c24009a9acb283f7c370e970438776f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c24009a9acb283f7c370e970438776f"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>t_portee</b> { <b>Hors_Portee</b>, 
+<tr class="memitem:a1c24009a9acb283f7c370e970438776f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_struct_8h.html#a1c24009a9acb283f7c370e970438776f">t_portee</a> { <b>Hors_Portee</b>, 
 <b>Portee</b>
- }<tr class="separator:a1c24009a9acb283f7c370e970438776f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ }<tr class="memdesc:a1c24009a9acb283f7c370e970438776f"><td class="mdescLeft">&#160;</td><td class="mdescRight">enumeration permettant de savoir si la cible est a portee  <a href="_struct_8h.html#a1c24009a9acb283f7c370e970438776f">More...</a><br /></td></tr>
+<tr class="separator:a1c24009a9acb283f7c370e970438776f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>fichier qui contient l'ensemble des structures pour gestion grille. </p>
 <dl class="section author"><dt>Author</dt><dd>BOUVET Remi &amp; PRADERE-NIQUET Alexandre &amp; ZERBANE Mehdi </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a1d4b3af78c5f9b3f943007e525cefc94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_struct_8h.html#a1d4b3af78c5f9b3f943007e525cefc94">t_bateau</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>enumeration regroupant les differents bateaux ainsi que leurs tailles en cases </p>
+<p><a class="el" href="_struct_8h.html" title="fichier qui contient l&#39;ensemble des structures pour gestion grille. ">Struct.h</a> Structure </p>
+
+</div>
+</div>
+<a class="anchor" id="aba77e4bb172ecd4a675a651dc54cdd9d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_struct_8h.html#aba77e4bb172ecd4a675a651dc54cdd9d">t_obstacle</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>enumeration si un tir a touche une case ou non </p>
+<p><a class="el" href="_struct_8h.html" title="fichier qui contient l&#39;ensemble des structures pour gestion grille. ">Struct.h</a> Structure </p>
+
+</div>
+</div>
+<a class="anchor" id="a1c24009a9acb283f7c370e970438776f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_struct_8h.html#a1c24009a9acb283f7c370e970438776f">t_portee</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>enumeration permettant de savoir si la cible est a portee </p>
+<p><a class="el" href="_struct_8h.html" title="fichier qui contient l&#39;ensemble des structures pour gestion grille. ">Struct.h</a> Structure </p>
+
+</div>
+</div>
+<a class="anchor" id="a072aa075110c11ec4eeaab41c77db60c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_struct_8h.html#a072aa075110c11ec4eeaab41c77db60c">t_torpilleur</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>enumeration pour verifier s'il y a un torpilleur ou non </p>
+<p><a class="el" href="_struct_8h.html" title="fichier qui contient l&#39;ensemble des structures pour gestion grille. ">Struct.h</a> Structure </p>
+
+</div>
+</div>
+<a class="anchor" id="a5f32f22a43adf79ef72d31d445643c9d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_struct_8h.html#a5f32f22a43adf79ef72d31d445643c9d">t_toucher</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>enumeration pour verifier presence obstacle ou non </p>
+<p><a class="el" href="_struct_8h.html" title="fichier qui contient l&#39;ensemble des structures pour gestion grille. ">Struct.h</a> Structure </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

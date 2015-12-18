@@ -85,28 +85,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="_struct_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef STRUCTURE</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define STRUCTURE</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define N 10</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define M 10</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;ncurses.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Aucun_b=0,Sous_Marin=3,Destroyer=4,Porte_Avion=5}t_bateau;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Aucun_o=0,Obstacle=1}t_obstacle;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Non=0,Oui=1}t_toucher;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Aucun_t=0,Present=1}t_torpilleur;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef STRUCTURE</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define STRUCTURE</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define N 10</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define M 10</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;ncurses.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="_struct_8h.html#a1d4b3af78c5f9b3f943007e525cefc94">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Aucun_b=0,Sous_Marin=3,Destroyer=4,Porte_Avion=5}<a class="code" href="_struct_8h.html#a1d4b3af78c5f9b3f943007e525cefc94">t_bateau</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="_struct_8h.html#aba77e4bb172ecd4a675a651dc54cdd9d">   25</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Aucun_o=0,Obstacle=1}<a class="code" href="_struct_8h.html#aba77e4bb172ecd4a675a651dc54cdd9d">t_obstacle</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="_struct_8h.html#a5f32f22a43adf79ef72d31d445643c9d">   30</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Non=0,Oui=1}<a class="code" href="_struct_8h.html#a5f32f22a43adf79ef72d31d445643c9d">t_toucher</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="_struct_8h.html#a072aa075110c11ec4eeaab41c77db60c">   35</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Aucun_t=0,Present=1}<a class="code" href="_struct_8h.html#a072aa075110c11ec4eeaab41c77db60c">t_torpilleur</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structt__case.html">   37</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{t_bateau bateau;t_obstacle obstacle;t_toucher toucher;t_torpilleur torpilleur;}<a class="code" href="structt__case.html">t_case</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structt__plateau.html">   39</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{<a class="code" href="structt__case.html">t_case</a> grille1[N][M];<a class="code" href="structt__case.html">t_case</a> grille2[N][M];}<a class="code" href="structt__plateau.html">t_plateau</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Hors_Portee, Portee} t_portee;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="structt__case_html"><div class="ttname"><a href="structt__case.html">t_case</a></div><div class="ttdef"><b>Definition:</b> Struct.h:37</div></div>
-<div class="ttc" id="structt__plateau_html"><div class="ttname"><a href="structt__plateau.html">t_plateau</a></div><div class="ttdef"><b>Definition:</b> Struct.h:39</div></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structt__case.html">   41</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{<a class="code" href="_struct_8h.html#a1d4b3af78c5f9b3f943007e525cefc94">t_bateau</a> bateau;<a class="code" href="_struct_8h.html#aba77e4bb172ecd4a675a651dc54cdd9d">t_obstacle</a> obstacle;<a class="code" href="_struct_8h.html#a5f32f22a43adf79ef72d31d445643c9d">t_toucher</a> toucher;<a class="code" href="_struct_8h.html#a072aa075110c11ec4eeaab41c77db60c">t_torpilleur</a> torpilleur;}<a class="code" href="structt__case.html">t_case</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structt__plateau.html">   46</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{<a class="code" href="structt__case.html">t_case</a> grille1[N][M];<a class="code" href="structt__case.html">t_case</a> grille2[N][M];}<a class="code" href="structt__plateau.html">t_plateau</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="_struct_8h.html#a1c24009a9acb283f7c370e970438776f">   52</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{Hors_Portee, Portee} <a class="code" href="_struct_8h.html#a1c24009a9acb283f7c370e970438776f">t_portee</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_struct_8h_html_a072aa075110c11ec4eeaab41c77db60c"><div class="ttname"><a href="_struct_8h.html#a072aa075110c11ec4eeaab41c77db60c">t_torpilleur</a></div><div class="ttdeci">t_torpilleur</div><div class="ttdoc">enumeration pour verifier s&#39;il y a un torpilleur ou non </div><div class="ttdef"><b>Definition:</b> Struct.h:35</div></div>
+<div class="ttc" id="_struct_8h_html_a1d4b3af78c5f9b3f943007e525cefc94"><div class="ttname"><a href="_struct_8h.html#a1d4b3af78c5f9b3f943007e525cefc94">t_bateau</a></div><div class="ttdeci">t_bateau</div><div class="ttdoc">enumeration regroupant les differents bateaux ainsi que leurs tailles en cases </div><div class="ttdef"><b>Definition:</b> Struct.h:20</div></div>
+<div class="ttc" id="_struct_8h_html_aba77e4bb172ecd4a675a651dc54cdd9d"><div class="ttname"><a href="_struct_8h.html#aba77e4bb172ecd4a675a651dc54cdd9d">t_obstacle</a></div><div class="ttdeci">t_obstacle</div><div class="ttdoc">enumeration si un tir a touche une case ou non </div><div class="ttdef"><b>Definition:</b> Struct.h:25</div></div>
+<div class="ttc" id="_struct_8h_html_a5f32f22a43adf79ef72d31d445643c9d"><div class="ttname"><a href="_struct_8h.html#a5f32f22a43adf79ef72d31d445643c9d">t_toucher</a></div><div class="ttdeci">t_toucher</div><div class="ttdoc">enumeration pour verifier presence obstacle ou non </div><div class="ttdef"><b>Definition:</b> Struct.h:30</div></div>
+<div class="ttc" id="structt__case_html"><div class="ttname"><a href="structt__case.html">t_case</a></div><div class="ttdoc">structure pour connaitre contenu d&#39;une case </div><div class="ttdef"><b>Definition:</b> Struct.h:41</div></div>
+<div class="ttc" id="structt__plateau_html"><div class="ttname"><a href="structt__plateau.html">t_plateau</a></div><div class="ttdoc">structure contenant les grilles </div><div class="ttdef"><b>Definition:</b> Struct.h:46</div></div>
+<div class="ttc" id="_struct_8h_html_a1c24009a9acb283f7c370e970438776f"><div class="ttname"><a href="_struct_8h.html#a1c24009a9acb283f7c370e970438776f">t_portee</a></div><div class="ttdeci">t_portee</div><div class="ttdoc">enumeration permettant de savoir si la cible est a portee </div><div class="ttdef"><b>Definition:</b> Struct.h:52</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

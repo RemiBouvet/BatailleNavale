@@ -15,13 +15,13 @@ fichier qui contient l\textquotesingle{}ensemble des fonctions pour le placement
 \item 
 int \hyperlink{_placement__bateau_8c_a952c86e3a34ab17c0b69cc2f209f8cf3}{b\+Stringtonum} (char $\ast$v, int $\ast$res)
 \begin{DoxyCompactList}\small\item\em Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int. \end{DoxyCompactList}\item 
-int \hyperlink{_placement__bateau_8c_ab71a20c1e2654e27efe85bf99beee82c}{verif\+\_\+presence} (t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)
+int \hyperlink{_placement__bateau_8c_ab71a20c1e2654e27efe85bf99beee82c}{verif\+\_\+presence} (\hyperlink{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}{t\+\_\+bateau} bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)
 \begin{DoxyCompactList}\small\item\em Fonction qui regarde si là où l\textquotesingle{}on souhaite placer le bateau il y a dejà un bateau ou un obstacle. \end{DoxyCompactList}\item 
-int \hyperlink{_placement__bateau_8c_a095a9fc37771d268d38522cb79ce2f73}{Assez\+\_\+de\+\_\+place} (t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)
+int \hyperlink{_placement__bateau_8c_a095a9fc37771d268d38522cb79ce2f73}{Assez\+\_\+de\+\_\+place} (\hyperlink{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}{t\+\_\+bateau} bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)
 \begin{DoxyCompactList}\small\item\em Fonction qui regarde si il y a assez de place pour placer un bateau. \end{DoxyCompactList}\item 
-void \hyperlink{_placement__bateau_8c_a8fba6b6bcf6736a7529c055e31da6cec}{Placer\+\_\+grillebateau} (t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)
+void \hyperlink{_placement__bateau_8c_a8fba6b6bcf6736a7529c055e31da6cec}{Placer\+\_\+grillebateau} (\hyperlink{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}{t\+\_\+bateau} bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)
 \begin{DoxyCompactList}\small\item\em On place sur la grille le bateau. \end{DoxyCompactList}\item 
-void \hyperlink{_placement__bateau_8c_a27b05f5d310cf98f46304c171735826d}{Enlever\+\_\+grillebateau} (t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)
+void \hyperlink{_placement__bateau_8c_a27b05f5d310cf98f46304c171735826d}{Enlever\+\_\+grillebateau} (\hyperlink{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}{t\+\_\+bateau} bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)
 \begin{DoxyCompactList}\small\item\em Fonction qui supprime un bateau d\textquotesingle{}une grille. \end{DoxyCompactList}\item 
 void \hyperlink{_placement__bateau_8c_a26c93cf8e910a1feea6288391ae54955}{Enlever\+\_\+grillebateau2} (int e\+Num\+\_\+grille)
 \begin{DoxyCompactList}\small\item\em Fonction qui supprime tous les bateaux d\textquotesingle{}une grille. \end{DoxyCompactList}\item 
@@ -57,7 +57,7 @@ Z\+E\+R\+B\+A\+N\+E Mehdi
 \index{Assez\+\_\+de\+\_\+place@{Assez\+\_\+de\+\_\+place}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
 \subsubsection[{Assez\+\_\+de\+\_\+place(t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}int Assez\+\_\+de\+\_\+place (
 \begin{DoxyParamCaption}
-\item[{t\+\_\+bateau}]{bateau, }
+\item[{{\bf t\+\_\+bateau}}]{bateau, }
 \item[{int}]{i, }
 \item[{int}]{j, }
 \item[{int}]{e\+Choix\+\_\+sens, }
@@ -139,7 +139,7 @@ void
 \index{Enlever\+\_\+grillebateau@{Enlever\+\_\+grillebateau}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
 \subsubsection[{Enlever\+\_\+grillebateau(t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)}]{\setlength{\rightskip}{0pt plus 5cm}void Enlever\+\_\+grillebateau (
 \begin{DoxyParamCaption}
-\item[{t\+\_\+bateau}]{bateau, }
+\item[{{\bf t\+\_\+bateau}}]{bateau, }
 \item[{int}]{i, }
 \item[{int}]{j, }
 \item[{int}]{e\+Num\+\_\+grille, }
@@ -227,7 +227,7 @@ void
 \index{Placer\+\_\+grillebateau@{Placer\+\_\+grillebateau}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
 \subsubsection[{Placer\+\_\+grillebateau(t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)}]{\setlength{\rightskip}{0pt plus 5cm}void Placer\+\_\+grillebateau (
 \begin{DoxyParamCaption}
-\item[{t\+\_\+bateau}]{bateau, }
+\item[{{\bf t\+\_\+bateau}}]{bateau, }
 \item[{int}]{i, }
 \item[{int}]{j, }
 \item[{int}]{e\+Num\+\_\+grille, }
@@ -250,7 +250,7 @@ void
 \index{verif\+\_\+presence@{verif\+\_\+presence}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
 \subsubsection[{verif\+\_\+presence(t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}int verif\+\_\+presence (
 \begin{DoxyParamCaption}
-\item[{t\+\_\+bateau}]{bateau, }
+\item[{{\bf t\+\_\+bateau}}]{bateau, }
 \item[{int}]{i, }
 \item[{int}]{j, }
 \item[{int}]{e\+Choix\+\_\+sens, }

@@ -9,11 +9,11 @@ fichier qui contient l\textquotesingle{}ensemble des fonctions pour déplacer un
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{_torpilleur_deplacer_8c_a1bdbc4de1de7cb02f4fb2a23d0a5fdc9}{Jouer\+\_\+\+Deplacement\+\_\+\+Valide} (int e\+Joueur, t\+\_\+direction direction, int e\+Numero\+\_\+\+Torpilleur, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} c\+Torpilleur\mbox{[}$\,$\mbox{]}, int N\+\_\+\+Torpilleur)
+int \hyperlink{_torpilleur_deplacer_8c_a1bdbc4de1de7cb02f4fb2a23d0a5fdc9}{Jouer\+\_\+\+Deplacement\+\_\+\+Valide} (int e\+Joueur, \hyperlink{_jouer_struct_8h_aec4e3894aa763e81148b2241ff730790}{t\+\_\+direction} direction, int e\+Numero\+\_\+\+Torpilleur, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} c\+Torpilleur\mbox{[}$\,$\mbox{]}, int N\+\_\+\+Torpilleur)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de vérifier si le déplacement demande est valide en fonction des obstacles et des bordures de la grille. \end{DoxyCompactList}\item 
-void \hyperlink{_torpilleur_deplacer_8c_a9d983959cf23afc7c03d7318ba6501ff}{Jouer\+\_\+\+Deplacer\+\_\+\+Torpilleur} (int e\+Joueur, t\+\_\+direction direction, int e\+Numero\+\_\+\+Torpilleur, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} c\+Torpilleur\mbox{[}$\,$\mbox{]}, int N\+\_\+\+Torpilleur)
+void \hyperlink{_torpilleur_deplacer_8c_a9d983959cf23afc7c03d7318ba6501ff}{Jouer\+\_\+\+Deplacer\+\_\+\+Torpilleur} (int e\+Joueur, \hyperlink{_jouer_struct_8h_aec4e3894aa763e81148b2241ff730790}{t\+\_\+direction} direction, int e\+Numero\+\_\+\+Torpilleur, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} c\+Torpilleur\mbox{[}$\,$\mbox{]}, int N\+\_\+\+Torpilleur)
 \begin{DoxyCompactList}\small\item\em Fonction qui permet de mettre a jour les coordonne du torpilleur en fonction du déplacement demandé. \end{DoxyCompactList}\item 
-void \hyperlink{_torpilleur_deplacer_8c_af739712dad3d16ed31837f36675cb17d}{Jouer\+\_\+\+Choisir\+\_\+\+Direction} (t\+\_\+direction $\ast$d\+Direction)
+void \hyperlink{_torpilleur_deplacer_8c_af739712dad3d16ed31837f36675cb17d}{Jouer\+\_\+\+Choisir\+\_\+\+Direction} (\hyperlink{_jouer_struct_8h_aec4e3894aa763e81148b2241ff730790}{t\+\_\+direction} $\ast$d\+Direction)
 \end{DoxyCompactItemize}
 
 
@@ -33,7 +33,7 @@ B\+O\+U\+V\+E\+T Remi
 \index{Jouer\+\_\+\+Choisir\+\_\+\+Direction@{Jouer\+\_\+\+Choisir\+\_\+\+Direction}!Torpilleur\+Deplacer.\+c@{Torpilleur\+Deplacer.\+c}}
 \subsubsection[{Jouer\+\_\+\+Choisir\+\_\+\+Direction(t\+\_\+direction $\ast$d\+Direction)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Choisir\+\_\+\+Direction (
 \begin{DoxyParamCaption}
-\item[{t\+\_\+direction $\ast$}]{d\+Direction}
+\item[{{\bf t\+\_\+direction} $\ast$}]{d\+Direction}
 \end{DoxyParamCaption}
 )}\label{_torpilleur_deplacer_8c_af739712dad3d16ed31837f36675cb17d}
 
@@ -49,7 +49,7 @@ Ne retourne rien
 \subsubsection[{Jouer\+\_\+\+Deplacement\+\_\+\+Valide(int e\+Joueur, t\+\_\+direction direction, int e\+Numero\+\_\+\+Torpilleur, t\+\_\+coordonnee c\+Torpilleur[], int N\+\_\+\+Torpilleur)}]{\setlength{\rightskip}{0pt plus 5cm}int Jouer\+\_\+\+Deplacement\+\_\+\+Valide (
 \begin{DoxyParamCaption}
 \item[{int}]{e\+Joueur, }
-\item[{t\+\_\+direction}]{direction, }
+\item[{{\bf t\+\_\+direction}}]{direction, }
 \item[{int}]{e\+Numero\+\_\+\+Torpilleur, }
 \item[{{\bf t\+\_\+coordonnee}}]{c\+Torpilleur\mbox{[}$\,$\mbox{]}, }
 \item[{int}]{N\+\_\+\+Torpilleur}
@@ -72,7 +72,7 @@ Ne retourne rien
 \subsubsection[{Jouer\+\_\+\+Deplacer\+\_\+\+Torpilleur(int e\+Joueur, t\+\_\+direction direction, int e\+Numero\+\_\+\+Torpilleur, t\+\_\+coordonnee c\+Torpilleur[], int N\+\_\+\+Torpilleur)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Deplacer\+\_\+\+Torpilleur (
 \begin{DoxyParamCaption}
 \item[{int}]{e\+Joueur, }
-\item[{t\+\_\+direction}]{direction, }
+\item[{{\bf t\+\_\+direction}}]{direction, }
 \item[{int}]{e\+Numero\+\_\+\+Torpilleur, }
 \item[{{\bf t\+\_\+coordonnee}}]{c\+Torpilleur\mbox{[}$\,$\mbox{]}, }
 \item[{int}]{N\+\_\+\+Torpilleur}

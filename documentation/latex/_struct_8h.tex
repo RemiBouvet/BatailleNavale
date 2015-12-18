@@ -10,9 +10,9 @@ fichier qui contient l\textquotesingle{}ensemble des structures pour gestion gri
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structt__case}{t\+\_\+case}
-\item 
+\begin{DoxyCompactList}\small\item\em structure pour connaitre contenu d\textquotesingle{}une case \end{DoxyCompactList}\item 
 struct \hyperlink{structt__plateau}{t\+\_\+plateau}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em structure contenant les grilles \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,32 +25,27 @@ struct \hyperlink{structt__plateau}{t\+\_\+plateau}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}{}enum {\bfseries t\+\_\+bateau} \{ {\bfseries Aucun\+\_\+b} =0, 
+enum \hyperlink{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}{t\+\_\+bateau} \{ {\bfseries Aucun\+\_\+b} =0, 
 {\bfseries Sous\+\_\+\+Marin} =3, 
 {\bfseries Destroyer} =4, 
 {\bfseries Porte\+\_\+\+Avion} =5
- \}\label{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}
-
+ \}\begin{DoxyCompactList}\small\item\em enumeration regroupant les differents bateaux ainsi que leurs tailles en cases \end{DoxyCompactList}
 \item 
-\hypertarget{_struct_8h_aba77e4bb172ecd4a675a651dc54cdd9d}{}enum {\bfseries t\+\_\+obstacle} \{ {\bfseries Aucun\+\_\+o} =0, 
+enum \hyperlink{_struct_8h_aba77e4bb172ecd4a675a651dc54cdd9d}{t\+\_\+obstacle} \{ {\bfseries Aucun\+\_\+o} =0, 
 {\bfseries Obstacle} =1
- \}\label{_struct_8h_aba77e4bb172ecd4a675a651dc54cdd9d}
-
+ \}\begin{DoxyCompactList}\small\item\em enumeration si un tir a touche une case ou non \end{DoxyCompactList}
 \item 
-\hypertarget{_struct_8h_a5f32f22a43adf79ef72d31d445643c9d}{}enum {\bfseries t\+\_\+toucher} \{ {\bfseries Non} =0, 
+enum \hyperlink{_struct_8h_a5f32f22a43adf79ef72d31d445643c9d}{t\+\_\+toucher} \{ {\bfseries Non} =0, 
 {\bfseries Oui} =1
- \}\label{_struct_8h_a5f32f22a43adf79ef72d31d445643c9d}
-
+ \}\begin{DoxyCompactList}\small\item\em enumeration pour verifier presence obstacle ou non \end{DoxyCompactList}
 \item 
-\hypertarget{_struct_8h_a072aa075110c11ec4eeaab41c77db60c}{}enum {\bfseries t\+\_\+torpilleur} \{ {\bfseries Aucun\+\_\+t} =0, 
+enum \hyperlink{_struct_8h_a072aa075110c11ec4eeaab41c77db60c}{t\+\_\+torpilleur} \{ {\bfseries Aucun\+\_\+t} =0, 
 {\bfseries Present} =1
- \}\label{_struct_8h_a072aa075110c11ec4eeaab41c77db60c}
-
+ \}\begin{DoxyCompactList}\small\item\em enumeration pour verifier s\textquotesingle{}il y a un torpilleur ou non \end{DoxyCompactList}
 \item 
-\hypertarget{_struct_8h_a1c24009a9acb283f7c370e970438776f}{}enum {\bfseries t\+\_\+portee} \{ {\bfseries Hors\+\_\+\+Portee}, 
+enum \hyperlink{_struct_8h_a1c24009a9acb283f7c370e970438776f}{t\+\_\+portee} \{ {\bfseries Hors\+\_\+\+Portee}, 
 {\bfseries Portee}
- \}\label{_struct_8h_a1c24009a9acb283f7c370e970438776f}
-
+ \}\begin{DoxyCompactList}\small\item\em enumeration permettant de savoir si la cible est a portee \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 
 
@@ -63,3 +58,42 @@ B\+O\+U\+V\+E\+T Remi \& P\+R\+A\+D\+E\+R\+E-\/\+N\+I\+Q\+U\+E\+T Alexandre \& Z
 \begin{DoxyVersion}{Version}
 1.\+0 
 \end{DoxyVersion}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}{}\index{Struct.\+h@{Struct.\+h}!t\+\_\+bateau@{t\+\_\+bateau}}
+\index{t\+\_\+bateau@{t\+\_\+bateau}!Struct.\+h@{Struct.\+h}}
+\subsubsection[{t\+\_\+bateau}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf t\+\_\+bateau}}\label{_struct_8h_a1d4b3af78c5f9b3f943007e525cefc94}
+
+
+enumeration regroupant les differents bateaux ainsi que leurs tailles en cases 
+
+\hyperlink{_struct_8h}{Struct.\+h} Structure \hypertarget{_struct_8h_aba77e4bb172ecd4a675a651dc54cdd9d}{}\index{Struct.\+h@{Struct.\+h}!t\+\_\+obstacle@{t\+\_\+obstacle}}
+\index{t\+\_\+obstacle@{t\+\_\+obstacle}!Struct.\+h@{Struct.\+h}}
+\subsubsection[{t\+\_\+obstacle}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf t\+\_\+obstacle}}\label{_struct_8h_aba77e4bb172ecd4a675a651dc54cdd9d}
+
+
+enumeration si un tir a touche une case ou non 
+
+\hyperlink{_struct_8h}{Struct.\+h} Structure \hypertarget{_struct_8h_a1c24009a9acb283f7c370e970438776f}{}\index{Struct.\+h@{Struct.\+h}!t\+\_\+portee@{t\+\_\+portee}}
+\index{t\+\_\+portee@{t\+\_\+portee}!Struct.\+h@{Struct.\+h}}
+\subsubsection[{t\+\_\+portee}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf t\+\_\+portee}}\label{_struct_8h_a1c24009a9acb283f7c370e970438776f}
+
+
+enumeration permettant de savoir si la cible est a portee 
+
+\hyperlink{_struct_8h}{Struct.\+h} Structure \hypertarget{_struct_8h_a072aa075110c11ec4eeaab41c77db60c}{}\index{Struct.\+h@{Struct.\+h}!t\+\_\+torpilleur@{t\+\_\+torpilleur}}
+\index{t\+\_\+torpilleur@{t\+\_\+torpilleur}!Struct.\+h@{Struct.\+h}}
+\subsubsection[{t\+\_\+torpilleur}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf t\+\_\+torpilleur}}\label{_struct_8h_a072aa075110c11ec4eeaab41c77db60c}
+
+
+enumeration pour verifier s\textquotesingle{}il y a un torpilleur ou non 
+
+\hyperlink{_struct_8h}{Struct.\+h} Structure \hypertarget{_struct_8h_a5f32f22a43adf79ef72d31d445643c9d}{}\index{Struct.\+h@{Struct.\+h}!t\+\_\+toucher@{t\+\_\+toucher}}
+\index{t\+\_\+toucher@{t\+\_\+toucher}!Struct.\+h@{Struct.\+h}}
+\subsubsection[{t\+\_\+toucher}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf t\+\_\+toucher}}\label{_struct_8h_a5f32f22a43adf79ef72d31d445643c9d}
+
+
+enumeration pour verifier presence obstacle ou non 
+
+\hyperlink{_struct_8h}{Struct.\+h} Structure 
