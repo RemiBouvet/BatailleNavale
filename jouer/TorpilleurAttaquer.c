@@ -11,7 +11,7 @@
 * \fn void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int eNumero_Torpilleur,t_portee gPortee[N][M], int N_Torpilleur, int Taille_Portee)
 * \brief Fonction qui permet de stocker dans la grille gPortee[N][M] les cases où le torpilleur selectionne a la possibilite d'attaquer
 *
-* \param 
+* \param numero de l'adversaire, les coordonnees des torpilleurs, le numero du torpilleur, la portee des torpilleurs, le nombre torpilleur , la taille  portee du torpilleur
 * \return Ne retourne rien
 *
 */
@@ -50,7 +50,7 @@ void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int e
 * \fn int Jouer_Attaque_Possible(t_portee gPortee[N][M])
 * \brief Fonction qui permet de determiner si l'attaque est possible c'est à dire si le torpilleur a bien une case où il peut attaquer
 *
-* \param 
+* \param portee torpilleur
 * \return 
 *
 */
@@ -71,7 +71,7 @@ int Jouer_Attaque_Possible(t_portee gPortee[N][M]){
 * \fn void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur)
 * \brief Initialise le curseur
 *
-* \param 
+* \param portee torpilleurs, coordonnees curseur
 * \return Ne retourne rien
 *
 */
@@ -96,7 +96,7 @@ void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 * \fn Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur)
 * \brief Fonction qui permet de selectionner l'attaque du joueur
 *
-* \param 
+* \param numero du joueur, numero de torpilleur, portee torpilleur, coordonnees du curseur, nombre de torpilleurs
 * \return Ne retourne rien
 *
 */

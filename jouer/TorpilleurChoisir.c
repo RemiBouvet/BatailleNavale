@@ -12,7 +12,7 @@
 * \fn void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpilleur)
 * \brief Fonction qui permet de trouver tous les torpilleurs du joueur et les stockes dans le tableau de coordonne cBateau
 *
-* \param 
+* \param le numero de joueur, coordonnees des bateaux, nombre de torpilleurs
 * \return Ne retourne rien
 *
 */
@@ -37,7 +37,7 @@ void Jouer_Trouver_Torpilleur(int eJoueur, t_coordonnee cBateau[],int N_Torpille
 * \fn void Jouer_Selectionner_Torpilleur(int eJoueur, t_coordonnee cTorpilleur[], int *peNumero_Torpilleur, int N_Torpilleur)
 * \brief Fonction qui permet de selectionner un torpilleur
 *
-* \param 
+* \param numero du joueur, les coordonnees des torpilleurs, pointeur numero torpilleur, le nombre de torpilleur
 * \return Ne retourne rien
 *
 */
