@@ -94,23 +94,23 @@ void Jouer_Choisir_Direction(t_direction *dDirection){
 		timeout(-1);
 		ech = getch();
 		switch(ech){
-			case 68:
+			case 68: //FLECHE GAUCHE
 				*dDirection = Gauche;
 				bValider = 1;
 				break;
-			case 67:
+			case 67: //FLECHE DROITE
 				*dDirection = Droite;
 				bValider = 1;
 				break;
-			case 65:
+			case 65: //FLECHE HAUT
 				*dDirection = Haut;
 				bValider = 1;
 				break;
-			case 66:
+			case 66: //FLECHE BAS
 				*dDirection = Bas;
 				bValider = 1;
 				break;
-			case 10:
+			case 10: //TOUCHE ENTREE
 				*dDirection = Aucune;
 				bValider = 1;
 				break;

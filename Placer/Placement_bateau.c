@@ -1,6 +1,10 @@
 /**
 * \file Placement_bateau.c
+<<<<<<< HEAD
 * \brief fichier qui contient l'ensemble des fonctions pour le placement des bateaux.
+=======
+* \brief Fichier qui contient l'ensemble des fonctions qui réalisent le placement des bateaux.
+>>>>>>> 130c313b5ae8ce78ce2cbd6ac74914fdbdf7a52d
 * \author ZERBANE Mehdi
 * \version 1.0
 */
@@ -17,11 +21,11 @@ t_plateau grille;
 * \fn int bStringtonum(char *v,int *res)
 * \brief Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int
 *
-* \param 
-* \return 
+* \param char *v Chaine de caractere a convertir, int *res pointeur sur lequel sera retourner l'entier qui est dans la chaine de caracteres
+* \return 1 si on a un entier dans la chaine de caracteres, 0 dans le cas contraire
 *
 */
-int bStringtonum(char *v,int *res){ 
+int bStringtonum(char *v,int *res){ /* Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int*/
 	int eNum=1;
     	int i;
     	*res=0;
@@ -37,12 +41,12 @@ int bStringtonum(char *v,int *res){
 * \fn int verif_presence(t_bateau bateau,int i,int j,int eChoix_sens,int eNum_grille)
 * \brief Fonction qui regarde si là où l'on souhaite placer le bateau il y a dejà un bateau ou un obstacle
 *
-* \param 
-* \return 
+* \param t_bateau bateau prend la valeur du bateau rentré, int i valeur de la ligne de la matrice, int j valeur de la colonne de la matrice, int eChoix_sens 1 pour horizontal et 2 pour vertical, int eNum_grille vaut 1 pour J1 et 2 pour J2
+* \return 1
 *
 */
 int verif_presence(t_bateau bateau,int i,int j,int eChoix_sens,int eNum_grille){ 
-	int eCompteur=0,eResultat_b=0,eResultat_o=0,eResultat_t=0;
+	int eCompteur=0,eResultat_b=0,eResultat_o=0,eResultat_t=0; /* Fonction qui regarde si là où l'on souhaite placer le bateau il y a dejà un bateau ou un obstacle*/
 	if(eChoix_sens==1){
 		while(eCompteur<bateau){
 			Grille_lire_bateau(i,j+eCompteur,eNum_grille,&eResultat_b); //On regarde si il y a un bateau
@@ -68,8 +72,8 @@ int verif_presence(t_bateau bateau,int i,int j,int eChoix_sens,int eNum_grille){
 * \fn int Assez_de_place(t_bateau bateau, int i,int j,int eChoix_sens,int eNum_grille)
 * \brief Fonction qui regarde si il y a assez de place pour placer un bateau
 *
-* \param 
-* \return 
+* \param t_bateau bateau prend la valeur du bateau rentré
+* \return 1 si on a de la place, 0 dans le cas contraire
 *
 */
 int Assez_de_place(t_bateau bateau, int i,int j,int eChoix_sens,int eNum_grille){ 
@@ -86,8 +90,8 @@ int Assez_de_place(t_bateau bateau, int i,int j,int eChoix_sens,int eNum_grille)
 * \fn void Placer_grillebateau(t_bateau bateau, int i,int j,int eNum_grille,int eChoix_sens)
 * \brief On place sur la grille le bateau
 *
-* \param 
-* \return rien
+* \param t_bateau bateau prend la valeur du bateau rentré, int i valeur de la ligne de la matrice, int j valeur de la colonne de la matrice, int eChoix_sens 1 pour horizontal et 2 pour vertical, int eNum_grille vaut 1 pour J1 et 2 pour J2
+* \return void
 *
 */
 void Placer_grillebateau(t_bateau bateau, int i,int j,int eNum_grille,int eChoix_sens){ 
@@ -109,8 +113,8 @@ void Placer_grillebateau(t_bateau bateau, int i,int j,int eNum_grille,int eChoix
 * \fn void Enlever_grillebateau(t_bateau bateau, int i,int j,int eNum_grille,int eChoix_sens)
 * \brief Fonction qui supprime un bateau d'une grille
 *
-* \param 
-* \return rien
+* \param t_bateau bateau prend la valeur du bateau rentré, int i valeur de la ligne de la matrice, int j valeur de la colonne de la matrice, int eChoix_sens 1 pour horizontal et 2 pour vertical, int eNum_grille vaut 1 pour J1 et 2 pour J2
+* \return void
 *
 */
 void Enlever_grillebateau(t_bateau bateau, int i,int j,int eNum_grille,int eChoix_sens){ 
@@ -134,10 +138,10 @@ void Enlever_grillebateau(t_bateau bateau, int i,int j,int eNum_grille,int eChoi
 
 /**
 * \fn void Enlever_grillebateau2(int eNum_grille)
-* \brief Fonction qui supprime un bateau d'une grille
+* \brief Fonction qui supprime tous les bateaux d'une grille
 *
-* \param 
-* \return rien
+* \param int eNum_grille Prend la valeur 1 pour J1 et 2 pour J2
+* \return void
 *
 */
 void Enlever_grillebateau2(int eNum_grille){ 
@@ -172,8 +176,8 @@ void Enlever_grillebateau2(int eNum_grille){
 * \fn void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest)
 * \brief Fonction qui place aléatoirement des bateaux
 *
-* \param 
-* \return rien
+* \param int eNum_grille prend 1 pour J1 et 2 pour J2, int eNb_torpilleur Nombre de torpilleurs, int eNb_sous_m Nombre de sous_marins, int eNb_Port_A Nombre de porte-avion, int eNb_Dest Nombre de destroyer
+* \return void
 *
 */
 void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest){ 
@@ -277,10 +281,10 @@ void Placer_bateau_auto(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eN
 
 /**
 * \fn int Changement_colonne(char * v,int *pRes)
-* \brief 
+* \brief Fonction qui convertis une chaine de caracteres en int selon sa valeur dans la colonne de jeu
 *
-* \param 
-* \return 
+* \param char *v Chaine de caractères (colonne) ou l'on souhaite placer le bateau, int *pRes Pointeur qui prendra la valeur de la colonne ou sera place le bateau
+* \return 1 si on est dans les bornes I et J, 0 dans le cas contraire
 *
 */
 int Changement_colonne(char * v,int *pRes){
@@ -331,8 +335,8 @@ int Changement_colonne(char * v,int *pRes){
 * \fn void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest)
 * \brief Fonction qui place manuellement des bateaux
 *
-* \param 
-* \return Rien
+* \param int eNum_grille prend 1 pour J1 et 2 pour J2, int eNb_torpilleur Nombre de torpilleurs, int eNb_sous_m Nombre de sous_marins, int eNb_Port_A Nombre de porte-avion, int eNb_Dest Nombre de destroyer
+* \return void
 *
 */
 void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,int eNb_Port_A,int eNb_Dest){
@@ -439,7 +443,7 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,in
         }
     }while(!eValide);
 	clear();
-	eCompteur=0;
+	eCompteur=0; //On remet le compteur à 0
 	Grille_perso_afficher(eNum_grille); //On affiche la grille pour visualiser notre bateau
 	printw("Vous allez placer le Porte_Avion\n");   
     eOk=0;
@@ -535,8 +539,8 @@ void Placer_bateau_manuelle(int eNum_grille,int eNb_torpilleur,int eNb_sous_m,in
 * \fn void Commencer_jeu_placement_bateau(int eNb_torpilleurs)
 * \brief Fonction qui initialise completement la grille et qui demande à l'utilisateur de placé les bateaux
 *
-* \param 
-* \return Rien
+* \param int eNb_torpilleurs Nombre de torpilleurs
+* \return void
 *
 */
 void Commencer_jeu_placement_bateau(int eNb_torpilleurs){
