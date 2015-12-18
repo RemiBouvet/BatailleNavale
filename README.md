@@ -10,9 +10,6 @@
 
   structure case{t_bateau bateau, t_obstacle obstacle, t_toucher toucher, t_torpilleur torpilleur)
 
-  case grille1
-  case grille2
-
   struture {case grille1,case grille2} t_plateau
   t_plateau grille
 
@@ -20,6 +17,7 @@
 
 
    1. Rep jusqu'à quitter(bQuitter)
+   
         bQuitter = 0;
         MenuAfficher
         PartieLancer
