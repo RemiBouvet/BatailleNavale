@@ -1,8 +1,7 @@
 FLAG= -g -Wall -lmenu -lncurses
-PREFIX=.
-SRCDIR=$(PREFIX)/src
-INCDIR=$(PREFIX)/include
-BINDIR=$(PREFIX)/bin
+SRCDIR=src
+INCDIR=include
+BINDIR=bin
 CC=gcc
 EXEC=bataillenavale
 OBJ=$(SRCDIR)/grille/Grille.o $(SRCDIR)/grille/Outil.o $(SRCDIR)/jouer/TorpilleurDeplacer.o $(SRCDIR)/jouer/TorpilleurChoisir.o $(SRCDIR)/jouer/TorpilleurAttaquer.o $(SRCDIR)/jouer/jouer.o $(SRCDIR)/Placer/Placement_bateau.o $(SRCDIR)/Placer/Placement_obstacle.o $(SRCDIR)/Affichage/afficher.o $(SRCDIR)/main.o
