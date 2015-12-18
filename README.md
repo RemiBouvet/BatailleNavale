@@ -1,5 +1,14 @@
 # BatailleNavale ++
 
+## Compilation
+
+Pour compiler ce programme vous pouvez faire la commande "make" dans le terminal, cette commande compilera le programme et mettre un executable dans le dossier bin.
+
+## Execution du programme
+
+Pour executer le programme vous pouvez faire la commande "bin/bataillenavale"
+
+##Conception
   enum (Aucun, Torpilleur, Sous-Marin, Destroyer, Porte-Avion) t_bateau
 
   enum (Aucun, Obstacle) t_obstacle
