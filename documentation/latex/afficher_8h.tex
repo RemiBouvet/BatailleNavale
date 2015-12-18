@@ -1,0 +1,123 @@
+\hypertarget{afficher_8h}{}\section{afficher.\+h File Reference}
+\label{afficher_8h}\index{afficher.\+h@{afficher.\+h}}
+
+
+fichier qui contient l\textquotesingle{}ensemble des prototypes de \hyperlink{afficher_8c}{afficher.\+c}  
+
+
+{\ttfamily \#include \char`\"{}../../grille/\+Struct.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{afficher_8h_a0240ac851181b84ac374872dc5434ee4}{}\#define {\bfseries N}~10\label{afficher_8h_a0240ac851181b84ac374872dc5434ee4}
+
+\item 
+\hypertarget{afficher_8h_a52037c938e3c1b126c6277da5ca689d0}{}\#define {\bfseries M}~10\label{afficher_8h_a52037c938e3c1b126c6277da5ca689d0}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{afficher_8h_a95590bd011113df35c097ef5c6186829}{Grille\+\_\+perso\+\_\+afficher} (int num\+\_\+grille)
+\begin{DoxyCompactList}\small\item\em Fonction permettant d\textquotesingle{}afficher la grille du joueur qui contient ses bateaux, les obstacles, les cibles touchées et les torpilleurs. \end{DoxyCompactList}\item 
+void \hyperlink{afficher_8h_ae806c45e95b6ffcaec99ccec8bad849f}{Grille\+\_\+masque\+\_\+afficher} (int num\+\_\+grille)
+\begin{DoxyCompactList}\small\item\em Fonction permettant d\textquotesingle{}afficher la grille masquée de l\textquotesingle{}adversaire qui contient les obstacles ainsi que les cibles touchées. \end{DoxyCompactList}\item 
+void \hyperlink{afficher_8h_a06e85f79d917a44e1ec032678b0e5857}{Portee\+\_\+torpilleur\+\_\+afficher} (t\+\_\+portee g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]}, int num\+\_\+grille, int x, int y)
+\begin{DoxyCompactList}\small\item\em Fonction permettant d\textquotesingle{}afficher la portee du torpilleur selectionne sur la grille masquée de l\textquotesingle{}adversaire qui contient les obstacles, les cibles touchées et les tirs rates. \end{DoxyCompactList}\item 
+void \hyperlink{afficher_8h_afd65ac206b5d1e21d753d1d381975169}{torpilleur\+\_\+selection\+\_\+afficher} (int x, int y, int num\+\_\+grille)
+\begin{DoxyCompactList}\small\item\em Fonction permettant d\textquotesingle{}afficher la selection du torpilleur sur la grille masquée de l\textquotesingle{}adversaire qui contient les obstacles, les cibles touchées et les tirs rates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+fichier qui contient l\textquotesingle{}ensemble des prototypes de \hyperlink{afficher_8c}{afficher.\+c} 
+
+\begin{DoxyAuthor}{Author}
+P\+R\+A\+D\+E\+R\+E-\/\+N\+I\+Q\+U\+E\+T Alexandre 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{afficher_8h_ae806c45e95b6ffcaec99ccec8bad849f}{}\index{afficher.\+h@{afficher.\+h}!Grille\+\_\+masque\+\_\+afficher@{Grille\+\_\+masque\+\_\+afficher}}
+\index{Grille\+\_\+masque\+\_\+afficher@{Grille\+\_\+masque\+\_\+afficher}!afficher.\+h@{afficher.\+h}}
+\subsubsection[{Grille\+\_\+masque\+\_\+afficher(int num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+masque\+\_\+afficher (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+\_\+grille}
+\end{DoxyParamCaption}
+)}\label{afficher_8h_ae806c45e95b6ffcaec99ccec8bad849f}
+
+
+Fonction permettant d\textquotesingle{}afficher la grille masquée de l\textquotesingle{}adversaire qui contient les obstacles ainsi que les cibles touchées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Prend} & en paramètre le numéro de la grille à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{afficher_8h_a95590bd011113df35c097ef5c6186829}{}\index{afficher.\+h@{afficher.\+h}!Grille\+\_\+perso\+\_\+afficher@{Grille\+\_\+perso\+\_\+afficher}}
+\index{Grille\+\_\+perso\+\_\+afficher@{Grille\+\_\+perso\+\_\+afficher}!afficher.\+h@{afficher.\+h}}
+\subsubsection[{Grille\+\_\+perso\+\_\+afficher(int num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+perso\+\_\+afficher (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+\_\+grille}
+\end{DoxyParamCaption}
+)}\label{afficher_8h_a95590bd011113df35c097ef5c6186829}
+
+
+Fonction permettant d\textquotesingle{}afficher la grille du joueur qui contient ses bateaux, les obstacles, les cibles touchées et les torpilleurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Prend} & en paramètre le numéro de la grille à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{afficher_8h_a06e85f79d917a44e1ec032678b0e5857}{}\index{afficher.\+h@{afficher.\+h}!Portee\+\_\+torpilleur\+\_\+afficher@{Portee\+\_\+torpilleur\+\_\+afficher}}
+\index{Portee\+\_\+torpilleur\+\_\+afficher@{Portee\+\_\+torpilleur\+\_\+afficher}!afficher.\+h@{afficher.\+h}}
+\subsubsection[{Portee\+\_\+torpilleur\+\_\+afficher(t\+\_\+portee g\+Portee[N][M], int num\+\_\+grille, int x, int y)}]{\setlength{\rightskip}{0pt plus 5cm}void Portee\+\_\+torpilleur\+\_\+afficher (
+\begin{DoxyParamCaption}
+\item[{t\+\_\+portee}]{g\+Portee\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]}, }
+\item[{int}]{num\+\_\+grille, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{afficher_8h_a06e85f79d917a44e1ec032678b0e5857}
+
+
+Fonction permettant d\textquotesingle{}afficher la portee du torpilleur selectionne sur la grille masquée de l\textquotesingle{}adversaire qui contient les obstacles, les cibles touchées et les tirs rates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Prend} & en paramètre le numéro de la grille à afficher, la grille qui contient les portees des torpilleurs, et les coordonnees du curseur du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{afficher_8h_afd65ac206b5d1e21d753d1d381975169}{}\index{afficher.\+h@{afficher.\+h}!torpilleur\+\_\+selection\+\_\+afficher@{torpilleur\+\_\+selection\+\_\+afficher}}
+\index{torpilleur\+\_\+selection\+\_\+afficher@{torpilleur\+\_\+selection\+\_\+afficher}!afficher.\+h@{afficher.\+h}}
+\subsubsection[{torpilleur\+\_\+selection\+\_\+afficher(int x, int y, int num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}void torpilleur\+\_\+selection\+\_\+afficher (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{num\+\_\+grille}
+\end{DoxyParamCaption}
+)}\label{afficher_8h_afd65ac206b5d1e21d753d1d381975169}
+
+
+Fonction permettant d\textquotesingle{}afficher la selection du torpilleur sur la grille masquée de l\textquotesingle{}adversaire qui contient les obstacles, les cibles touchées et les tirs rates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Prend} & en paramètre le numéro de la grille à afficher et les coordonnees du curseur du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}

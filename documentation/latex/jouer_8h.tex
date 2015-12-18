@@ -1,0 +1,172 @@
+\hypertarget{jouer_8h}{}\section{jouer.\+h File Reference}
+\label{jouer_8h}\index{jouer.\+h@{jouer.\+h}}
+
+
+fichier qui contient l\textquotesingle{}ensemble des prototypes de \hyperlink{jouer_8c}{jouer.\+c}  
+
+
+{\ttfamily \#include \char`\"{}Jouer\+Struct.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{jouer_8h_a2fac30c70cf09bb91fd1c13f80f5da87}{Jouer\+\_\+\+Changer\+\_\+\+Joueur} (int $\ast$e\+Joueur)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de changer de joueur. \end{DoxyCompactList}\item 
+\hypertarget{jouer_8h_a2745dd7f3f8695d2eaa54d02797f7748}{}void {\bfseries Jouer\+\_\+\+Choisir} (int e\+Joueur, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} $\ast$pc\+Torpilleur, int $\ast$pe\+Numero\+\_\+\+Torpilleur)\label{jouer_8h_a2745dd7f3f8695d2eaa54d02797f7748}
+
+\item 
+void \hyperlink{jouer_8h_a5c556b0f295c07d03e888dcbdf303406}{Jouer\+\_\+\+Deplacer} (int e\+Joueur, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} $\ast$pc\+Torpilleur, int $\ast$pe\+Numero\+\_\+\+Torpilleur, int N\+\_\+\+Torpilleur, int N\+\_\+\+Deplacement)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de gérer le deplacement du torpilleur. \end{DoxyCompactList}\item 
+\hypertarget{jouer_8h_ab03eb0a62a524831345ef21aaea7cc62}{}void {\bfseries Jouer\+\_\+\+Attaquer} (int e\+Joueur, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} $\ast$pc\+Torpilleur, int $\ast$pe\+Numero\+\_\+\+Torpilleur, int Taille\+\_\+\+Portee)\label{jouer_8h_ab03eb0a62a524831345ef21aaea7cc62}
+
+\item 
+int \hyperlink{jouer_8h_a7e411ae6bbf941bd7dd58d3058e25b94}{Jouer\+\_\+\+Gagnant} (int e\+Joueur)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de déterminer si le joueur adverse a perdu à la fin du tour. \end{DoxyCompactList}\item 
+void \hyperlink{jouer_8h_aa296143754cd96b3848dedddee6f4d97}{Jouer\+\_\+\+Partie} (int e\+Joueur, int N\+\_\+\+Torpilleur, int N\+\_\+\+Deplacement, int Taille\+\_\+\+Portee, F\+I\+L\+E $\ast$fic1)
+\begin{DoxyCompactList}\small\item\em Fonction qui définie la routine de la Partie. \end{DoxyCompactList}\item 
+void \hyperlink{jouer_8h_a94b127cf7938858930e9556ff6c69515}{Jouer\+\_\+\+Init\+\_\+\+Torpilleur} (int $\ast$N\+\_\+\+Torpilleur, int $\ast$N\+\_\+\+Deplacement, int $\ast$Taille\+\_\+\+Portee)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser le nombre de torpilleur, le nombre de déplacement par tour, la taille de la portée du torpilleur. \end{DoxyCompactList}\item 
+void \hyperlink{jouer_8h_a570c893fc7a6fa478caabcda97a2a423}{Jouer\+\_\+\+Quitter\+\_\+\+Continuer\+\_\+\+Sauvegarder} (int $\ast$b\+Quitter, F\+I\+L\+E $\ast$fic1, int e\+Joueur, int N\+\_\+\+Torpilleur, int N\+\_\+\+Deplacement, int Taille\+\_\+\+Portee)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet à l\textquotesingle{}utilisateur de choisir de continuer ou de quitter la partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+fichier qui contient l\textquotesingle{}ensemble des prototypes de \hyperlink{jouer_8c}{jouer.\+c} 
+
+\begin{DoxyAuthor}{Author}
+B\+O\+U\+V\+E\+T Remi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{jouer_8h_a2fac30c70cf09bb91fd1c13f80f5da87}{}\index{jouer.\+h@{jouer.\+h}!Jouer\+\_\+\+Changer\+\_\+\+Joueur@{Jouer\+\_\+\+Changer\+\_\+\+Joueur}}
+\index{Jouer\+\_\+\+Changer\+\_\+\+Joueur@{Jouer\+\_\+\+Changer\+\_\+\+Joueur}!jouer.\+h@{jouer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Changer\+\_\+\+Joueur(int $\ast$e\+Joueur)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Changer\+\_\+\+Joueur (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{e\+Joueur}
+\end{DoxyParamCaption}
+)}\label{jouer_8h_a2fac30c70cf09bb91fd1c13f80f5da87}
+
+
+Fonction qui permet de changer de joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{jouer_8h_a5c556b0f295c07d03e888dcbdf303406}{}\index{jouer.\+h@{jouer.\+h}!Jouer\+\_\+\+Deplacer@{Jouer\+\_\+\+Deplacer}}
+\index{Jouer\+\_\+\+Deplacer@{Jouer\+\_\+\+Deplacer}!jouer.\+h@{jouer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Deplacer(int e\+Joueur, t\+\_\+coordonnee $\ast$pc\+Torpilleur, int $\ast$pe\+Numero\+\_\+\+Torpilleur, int N\+\_\+\+Torpilleur, int N\+\_\+\+Deplacement)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Deplacer (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Joueur, }
+\item[{{\bf t\+\_\+coordonnee} $\ast$}]{pc\+Torpilleur, }
+\item[{int $\ast$}]{pe\+Numero\+\_\+\+Torpilleur, }
+\item[{int}]{N\+\_\+\+Torpilleur, }
+\item[{int}]{N\+\_\+\+Deplacement}
+\end{DoxyParamCaption}
+)}\label{jouer_8h_a5c556b0f295c07d03e888dcbdf303406}
+
+
+Fonction qui permet de gérer le deplacement du torpilleur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em le} & numero de joueur, les coordonnees du torpilleur , le pointeur du torpilleur selectionne, le nombre de torpilleur, le nombre de deplacement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{jouer_8h_a7e411ae6bbf941bd7dd58d3058e25b94}{}\index{jouer.\+h@{jouer.\+h}!Jouer\+\_\+\+Gagnant@{Jouer\+\_\+\+Gagnant}}
+\index{Jouer\+\_\+\+Gagnant@{Jouer\+\_\+\+Gagnant}!jouer.\+h@{jouer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Gagnant(int e\+Joueur)}]{\setlength{\rightskip}{0pt plus 5cm}int Jouer\+\_\+\+Gagnant (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Joueur}
+\end{DoxyParamCaption}
+)}\label{jouer_8h_a7e411ae6bbf941bd7dd58d3058e25b94}
+
+
+Fonction qui permet de déterminer si le joueur adverse a perdu à la fin du tour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em le} & numero de joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le joueur gagnant 
+\end{DoxyReturn}
+\hypertarget{jouer_8h_a94b127cf7938858930e9556ff6c69515}{}\index{jouer.\+h@{jouer.\+h}!Jouer\+\_\+\+Init\+\_\+\+Torpilleur@{Jouer\+\_\+\+Init\+\_\+\+Torpilleur}}
+\index{Jouer\+\_\+\+Init\+\_\+\+Torpilleur@{Jouer\+\_\+\+Init\+\_\+\+Torpilleur}!jouer.\+h@{jouer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Init\+\_\+\+Torpilleur(int $\ast$\+N\+\_\+\+Torpilleur, int $\ast$\+N\+\_\+\+Deplacement, int $\ast$\+Taille\+\_\+\+Portee)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Init\+\_\+\+Torpilleur (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{N\+\_\+\+Torpilleur, }
+\item[{int $\ast$}]{N\+\_\+\+Deplacement, }
+\item[{int $\ast$}]{Taille\+\_\+\+Portee}
+\end{DoxyParamCaption}
+)}\label{jouer_8h_a94b127cf7938858930e9556ff6c69515}
+
+
+Fonction qui permet d\textquotesingle{}initialiser le nombre de torpilleur, le nombre de déplacement par tour, la taille de la portée du torpilleur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointeur} & nombre torpilleurn, pointeur nombre de deplacement, pointeur taille portee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{jouer_8h_aa296143754cd96b3848dedddee6f4d97}{}\index{jouer.\+h@{jouer.\+h}!Jouer\+\_\+\+Partie@{Jouer\+\_\+\+Partie}}
+\index{Jouer\+\_\+\+Partie@{Jouer\+\_\+\+Partie}!jouer.\+h@{jouer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Partie(int e\+Joueur, int N\+\_\+\+Torpilleur, int N\+\_\+\+Deplacement, int Taille\+\_\+\+Portee, F\+I\+L\+E $\ast$fic1)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Partie (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Joueur, }
+\item[{int}]{N\+\_\+\+Torpilleur, }
+\item[{int}]{N\+\_\+\+Deplacement, }
+\item[{int}]{Taille\+\_\+\+Portee, }
+\item[{F\+I\+L\+E $\ast$}]{fic1}
+\end{DoxyParamCaption}
+)}\label{jouer_8h_aa296143754cd96b3848dedddee6f4d97}
+
+
+Fonction qui définie la routine de la Partie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em le} & numero de joueur, le nombre de torpilleur, le nombre de deplacement, taille de la portee, le fichier pour sauvegarde \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{jouer_8h_a570c893fc7a6fa478caabcda97a2a423}{}\index{jouer.\+h@{jouer.\+h}!Jouer\+\_\+\+Quitter\+\_\+\+Continuer\+\_\+\+Sauvegarder@{Jouer\+\_\+\+Quitter\+\_\+\+Continuer\+\_\+\+Sauvegarder}}
+\index{Jouer\+\_\+\+Quitter\+\_\+\+Continuer\+\_\+\+Sauvegarder@{Jouer\+\_\+\+Quitter\+\_\+\+Continuer\+\_\+\+Sauvegarder}!jouer.\+h@{jouer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Quitter\+\_\+\+Continuer\+\_\+\+Sauvegarder(int $\ast$b\+Quitter, F\+I\+L\+E $\ast$fic1, int e\+Joueur, int N\+\_\+\+Torpilleur, int N\+\_\+\+Deplacement, int Taille\+\_\+\+Portee)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Quitter\+\_\+\+Continuer\+\_\+\+Sauvegarder (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{b\+Quitter, }
+\item[{F\+I\+L\+E $\ast$}]{fic1, }
+\item[{int}]{e\+Joueur, }
+\item[{int}]{N\+\_\+\+Torpilleur, }
+\item[{int}]{N\+\_\+\+Deplacement, }
+\item[{int}]{Taille\+\_\+\+Portee}
+\end{DoxyParamCaption}
+)}\label{jouer_8h_a570c893fc7a6fa478caabcda97a2a423}
+
+
+Fonction qui permet à l\textquotesingle{}utilisateur de choisir de continuer ou de quitter la partie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entier} & pour quitter partie, fichier de sauvegarde, le numero de joueur, le nombre de torpilleur, le nombre de deplacement, la taille de la portee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}

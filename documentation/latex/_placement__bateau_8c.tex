@@ -1,0 +1,271 @@
+\hypertarget{_placement__bateau_8c}{}\section{Placement\+\_\+bateau.\+c File Reference}
+\label{_placement__bateau_8c}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+
+
+fichier qui contient l\textquotesingle{}ensemble des fonctions pour le placement des bateaux.  
+
+
+{\ttfamily \#include \char`\"{}../grille/\+Outil.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../grille/\+Grille.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../grille/\+Struct.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Placement\+\_\+obstacle.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../\+Affichage/include/afficher.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_placement__bateau_8c_a952c86e3a34ab17c0b69cc2f209f8cf3}{b\+Stringtonum} (char $\ast$v, int $\ast$res)
+\begin{DoxyCompactList}\small\item\em Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int. \end{DoxyCompactList}\item 
+int \hyperlink{_placement__bateau_8c_ab71a20c1e2654e27efe85bf99beee82c}{verif\+\_\+presence} (t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si là où l\textquotesingle{}on souhaite placer le bateau il y a dejà un bateau ou un obstacle. \end{DoxyCompactList}\item 
+int \hyperlink{_placement__bateau_8c_a095a9fc37771d268d38522cb79ce2f73}{Assez\+\_\+de\+\_\+place} (t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si il y a assez de place pour placer un bateau. \end{DoxyCompactList}\item 
+void \hyperlink{_placement__bateau_8c_a8fba6b6bcf6736a7529c055e31da6cec}{Placer\+\_\+grillebateau} (t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)
+\begin{DoxyCompactList}\small\item\em On place sur la grille le bateau. \end{DoxyCompactList}\item 
+void \hyperlink{_placement__bateau_8c_a27b05f5d310cf98f46304c171735826d}{Enlever\+\_\+grillebateau} (t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)
+\begin{DoxyCompactList}\small\item\em Fonction qui supprime un bateau d\textquotesingle{}une grille. \end{DoxyCompactList}\item 
+void \hyperlink{_placement__bateau_8c_a26c93cf8e910a1feea6288391ae54955}{Enlever\+\_\+grillebateau2} (int e\+Num\+\_\+grille)
+\begin{DoxyCompactList}\small\item\em Fonction qui supprime tous les bateaux d\textquotesingle{}une grille. \end{DoxyCompactList}\item 
+void \hyperlink{_placement__bateau_8c_a3c6f0910d9ef6002afce371ea69f8d19}{Placer\+\_\+bateau\+\_\+auto} (int e\+Num\+\_\+grille, int e\+Nb\+\_\+torpilleur, int e\+Nb\+\_\+sous\+\_\+m, int e\+Nb\+\_\+\+Port\+\_\+\+A, int e\+Nb\+\_\+\+Dest)
+\begin{DoxyCompactList}\small\item\em Fonction qui place aléatoirement des bateaux. \end{DoxyCompactList}\item 
+int \hyperlink{_placement__bateau_8c_aa91a4d1db4d07719dcd1ddde95f633f4}{Changement\+\_\+colonne} (char $\ast$v, int $\ast$p\+Res)
+\begin{DoxyCompactList}\small\item\em Fonction qui convertis une chaine de caracteres en int selon sa valeur dans la colonne de jeu. \end{DoxyCompactList}\item 
+void \hyperlink{_placement__bateau_8c_a910903114a90b31097ff5a488760522c}{Placer\+\_\+bateau\+\_\+manuelle} (int e\+Num\+\_\+grille, int e\+Nb\+\_\+torpilleur, int e\+Nb\+\_\+sous\+\_\+m, int e\+Nb\+\_\+\+Port\+\_\+\+A, int e\+Nb\+\_\+\+Dest)
+\begin{DoxyCompactList}\small\item\em Fonction qui place manuellement des bateaux. \end{DoxyCompactList}\item 
+void \hyperlink{_placement__bateau_8c_a3efe1846a1c078871720846857ccbdb6}{Commencer\+\_\+jeu\+\_\+placement\+\_\+bateau} (int e\+Nb\+\_\+torpilleurs)
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise completement la grille et qui demande à l\textquotesingle{}utilisateur de placé les bateaux. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_placement__bateau_8c_a805fd55505c75c257abb582d075cbeb5}{}\hyperlink{structt__plateau}{t\+\_\+plateau} {\bfseries grille}\label{_placement__bateau_8c_a805fd55505c75c257abb582d075cbeb5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+fichier qui contient l\textquotesingle{}ensemble des fonctions pour le placement des bateaux. 
+
+\begin{DoxyAuthor}{Author}
+Z\+E\+R\+B\+A\+N\+E Mehdi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{_placement__bateau_8c_a095a9fc37771d268d38522cb79ce2f73}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Assez\+\_\+de\+\_\+place@{Assez\+\_\+de\+\_\+place}}
+\index{Assez\+\_\+de\+\_\+place@{Assez\+\_\+de\+\_\+place}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Assez\+\_\+de\+\_\+place(t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}int Assez\+\_\+de\+\_\+place (
+\begin{DoxyParamCaption}
+\item[{t\+\_\+bateau}]{bateau, }
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{e\+Choix\+\_\+sens, }
+\item[{int}]{e\+Num\+\_\+grille}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a095a9fc37771d268d38522cb79ce2f73}
+
+
+Fonction qui regarde si il y a assez de place pour placer un bateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+bateau} & bateau prend la valeur du bateau rentré \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si on a de la place, 0 dans le cas contraire 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_a952c86e3a34ab17c0b69cc2f209f8cf3}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!b\+Stringtonum@{b\+Stringtonum}}
+\index{b\+Stringtonum@{b\+Stringtonum}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{b\+Stringtonum(char $\ast$v, int $\ast$res)}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Stringtonum (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{v, }
+\item[{int $\ast$}]{res}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a952c86e3a34ab17c0b69cc2f209f8cf3}
+
+
+Fonction qui convertis une chaine de caractères en int si la chaine de caractère est un int. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$v Chaine de caractere a convertir, int $\ast$res pointeur sur lequel sera retourner l\textquotesingle{}entier qui est dans la chaine de caracteres \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si on a un entier dans la chaine de caracteres, 0 dans le cas contraire 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_aa91a4d1db4d07719dcd1ddde95f633f4}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Changement\+\_\+colonne@{Changement\+\_\+colonne}}
+\index{Changement\+\_\+colonne@{Changement\+\_\+colonne}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Changement\+\_\+colonne(char $\ast$v, int $\ast$p\+Res)}]{\setlength{\rightskip}{0pt plus 5cm}int Changement\+\_\+colonne (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{v, }
+\item[{int $\ast$}]{p\+Res}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_aa91a4d1db4d07719dcd1ddde95f633f4}
+
+
+Fonction qui convertis une chaine de caracteres en int selon sa valeur dans la colonne de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$v Chaine de caractères (colonne) ou l\textquotesingle{}on souhaite placer le bateau, int $\ast$p\+Res Pointeur qui prendra la valeur de la colonne ou sera place le bateau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si on est dans les bornes I et J, 0 dans le cas contraire 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_a3efe1846a1c078871720846857ccbdb6}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Commencer\+\_\+jeu\+\_\+placement\+\_\+bateau@{Commencer\+\_\+jeu\+\_\+placement\+\_\+bateau}}
+\index{Commencer\+\_\+jeu\+\_\+placement\+\_\+bateau@{Commencer\+\_\+jeu\+\_\+placement\+\_\+bateau}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Commencer\+\_\+jeu\+\_\+placement\+\_\+bateau(int e\+Nb\+\_\+torpilleurs)}]{\setlength{\rightskip}{0pt plus 5cm}void Commencer\+\_\+jeu\+\_\+placement\+\_\+bateau (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Nb\+\_\+torpilleurs}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a3efe1846a1c078871720846857ccbdb6}
+
+
+Fonction qui initialise completement la grille et qui demande à l\textquotesingle{}utilisateur de placé les bateaux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & e\+Nb\+\_\+torpilleurs Nombre de torpilleurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_a27b05f5d310cf98f46304c171735826d}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Enlever\+\_\+grillebateau@{Enlever\+\_\+grillebateau}}
+\index{Enlever\+\_\+grillebateau@{Enlever\+\_\+grillebateau}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Enlever\+\_\+grillebateau(t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)}]{\setlength{\rightskip}{0pt plus 5cm}void Enlever\+\_\+grillebateau (
+\begin{DoxyParamCaption}
+\item[{t\+\_\+bateau}]{bateau, }
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{e\+Num\+\_\+grille, }
+\item[{int}]{e\+Choix\+\_\+sens}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a27b05f5d310cf98f46304c171735826d}
+
+
+Fonction qui supprime un bateau d\textquotesingle{}une grille. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+bateau} & bateau prend la valeur du bateau rentré, int i valeur de la ligne de la matrice, int j valeur de la colonne de la matrice, int e\+Choix\+\_\+sens 1 pour horizontal et 2 pour vertical, int e\+Num\+\_\+grille vaut 1 pour J1 et 2 pour J2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_a26c93cf8e910a1feea6288391ae54955}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Enlever\+\_\+grillebateau2@{Enlever\+\_\+grillebateau2}}
+\index{Enlever\+\_\+grillebateau2@{Enlever\+\_\+grillebateau2}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Enlever\+\_\+grillebateau2(int e\+Num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}void Enlever\+\_\+grillebateau2 (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Num\+\_\+grille}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a26c93cf8e910a1feea6288391ae54955}
+
+
+Fonction qui supprime tous les bateaux d\textquotesingle{}une grille. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & e\+Num\+\_\+grille Prend la valeur 1 pour J1 et 2 pour J2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_a3c6f0910d9ef6002afce371ea69f8d19}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Placer\+\_\+bateau\+\_\+auto@{Placer\+\_\+bateau\+\_\+auto}}
+\index{Placer\+\_\+bateau\+\_\+auto@{Placer\+\_\+bateau\+\_\+auto}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Placer\+\_\+bateau\+\_\+auto(int e\+Num\+\_\+grille, int e\+Nb\+\_\+torpilleur, int e\+Nb\+\_\+sous\+\_\+m, int e\+Nb\+\_\+\+Port\+\_\+\+A, int e\+Nb\+\_\+\+Dest)}]{\setlength{\rightskip}{0pt plus 5cm}void Placer\+\_\+bateau\+\_\+auto (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Num\+\_\+grille, }
+\item[{int}]{e\+Nb\+\_\+torpilleur, }
+\item[{int}]{e\+Nb\+\_\+sous\+\_\+m, }
+\item[{int}]{e\+Nb\+\_\+\+Port\+\_\+\+A, }
+\item[{int}]{e\+Nb\+\_\+\+Dest}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a3c6f0910d9ef6002afce371ea69f8d19}
+
+
+Fonction qui place aléatoirement des bateaux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & e\+Num\+\_\+grille prend 1 pour J1 et 2 pour J2, int e\+Nb\+\_\+torpilleur Nombre de torpilleurs, int e\+Nb\+\_\+sous\+\_\+m Nombre de sous\+\_\+marins, int e\+Nb\+\_\+\+Port\+\_\+\+A Nombre de porte-\/avion, int e\+Nb\+\_\+\+Dest Nombre de destroyer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_a910903114a90b31097ff5a488760522c}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Placer\+\_\+bateau\+\_\+manuelle@{Placer\+\_\+bateau\+\_\+manuelle}}
+\index{Placer\+\_\+bateau\+\_\+manuelle@{Placer\+\_\+bateau\+\_\+manuelle}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Placer\+\_\+bateau\+\_\+manuelle(int e\+Num\+\_\+grille, int e\+Nb\+\_\+torpilleur, int e\+Nb\+\_\+sous\+\_\+m, int e\+Nb\+\_\+\+Port\+\_\+\+A, int e\+Nb\+\_\+\+Dest)}]{\setlength{\rightskip}{0pt plus 5cm}void Placer\+\_\+bateau\+\_\+manuelle (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Num\+\_\+grille, }
+\item[{int}]{e\+Nb\+\_\+torpilleur, }
+\item[{int}]{e\+Nb\+\_\+sous\+\_\+m, }
+\item[{int}]{e\+Nb\+\_\+\+Port\+\_\+\+A, }
+\item[{int}]{e\+Nb\+\_\+\+Dest}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a910903114a90b31097ff5a488760522c}
+
+
+Fonction qui place manuellement des bateaux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & e\+Num\+\_\+grille prend 1 pour J1 et 2 pour J2, int e\+Nb\+\_\+torpilleur Nombre de torpilleurs, int e\+Nb\+\_\+sous\+\_\+m Nombre de sous\+\_\+marins, int e\+Nb\+\_\+\+Port\+\_\+\+A Nombre de porte-\/avion, int e\+Nb\+\_\+\+Dest Nombre de destroyer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_a8fba6b6bcf6736a7529c055e31da6cec}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!Placer\+\_\+grillebateau@{Placer\+\_\+grillebateau}}
+\index{Placer\+\_\+grillebateau@{Placer\+\_\+grillebateau}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{Placer\+\_\+grillebateau(t\+\_\+bateau bateau, int i, int j, int e\+Num\+\_\+grille, int e\+Choix\+\_\+sens)}]{\setlength{\rightskip}{0pt plus 5cm}void Placer\+\_\+grillebateau (
+\begin{DoxyParamCaption}
+\item[{t\+\_\+bateau}]{bateau, }
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{e\+Num\+\_\+grille, }
+\item[{int}]{e\+Choix\+\_\+sens}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_a8fba6b6bcf6736a7529c055e31da6cec}
+
+
+On place sur la grille le bateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+bateau} & bateau prend la valeur du bateau rentré, int i valeur de la ligne de la matrice, int j valeur de la colonne de la matrice, int e\+Choix\+\_\+sens 1 pour horizontal et 2 pour vertical, int e\+Num\+\_\+grille vaut 1 pour J1 et 2 pour J2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{_placement__bateau_8c_ab71a20c1e2654e27efe85bf99beee82c}{}\index{Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}!verif\+\_\+presence@{verif\+\_\+presence}}
+\index{verif\+\_\+presence@{verif\+\_\+presence}!Placement\+\_\+bateau.\+c@{Placement\+\_\+bateau.\+c}}
+\subsubsection[{verif\+\_\+presence(t\+\_\+bateau bateau, int i, int j, int e\+Choix\+\_\+sens, int e\+Num\+\_\+grille)}]{\setlength{\rightskip}{0pt plus 5cm}int verif\+\_\+presence (
+\begin{DoxyParamCaption}
+\item[{t\+\_\+bateau}]{bateau, }
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{e\+Choix\+\_\+sens, }
+\item[{int}]{e\+Num\+\_\+grille}
+\end{DoxyParamCaption}
+)}\label{_placement__bateau_8c_ab71a20c1e2654e27efe85bf99beee82c}
+
+
+Fonction qui regarde si là où l\textquotesingle{}on souhaite placer le bateau il y a dejà un bateau ou un obstacle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+bateau} & bateau prend la valeur du bateau rentré, int i valeur de la ligne de la matrice, int j valeur de la colonne de la matrice, int e\+Choix\+\_\+sens 1 pour horizontal et 2 pour vertical, int e\+Num\+\_\+grille vaut 1 pour J1 et 2 pour J2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 
+\end{DoxyReturn}
