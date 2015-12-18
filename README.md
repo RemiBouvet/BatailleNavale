@@ -10,8 +10,10 @@ Pour executer le programme vous pouvez faire la commande "bin/bataillenavale"
 
 ## Séparation des tâches
 
-Zerbane Mehdi : Placement des obstacles et des bateaux
+Zerbane Mehdi : Placement des obstacles et des bateaux\
+
 Bouvet Rémi : Déplacement et attaque
+
 Pradère-Niquet Alexandre : Affichage
 
 ##Conception
