@@ -1,3 +1,10 @@
+/**
+* \file Grille.c
+* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \author BOUVET Remi & PRADERE-NIQUET Alexandre & ZERBANE Mehdi
+* \version 1.0
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Grille.h"

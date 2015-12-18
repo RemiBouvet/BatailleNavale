@@ -1,8 +1,23 @@
+/**
+* \file jouer.c
+* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #include "TorpilleurDeplacer.h"
 #include "TorpilleurChoisir.h"
 #include "TorpilleurAttaquer.h"
 #include "JouerStruct.h"
 
+/**
+* \fn void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Portee)
+* \brief Fonction qui permet d'initialiser le nombre de torpilleur, le nombre de déplacement par tour, la taille de la portée du torpilleur.
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Portee){
 	//Fonction qui permet d'initialiser le nombre de torpilleur, le nombre de déplacement par tour, la taille de la portée du torpilleur.
 	int ech;
@@ -121,6 +136,14 @@ void Jouer_Init_Torpilleur(int *N_Torpilleur, int *N_Deplacement, int *Taille_Po
 	}
 }
 
+/**
+* \fn void Jouer_Changer_Joueur(int *eJoueur)
+* \brief Fonction qui permet de changer de joueur
+*
+* \param Numero du joueur 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Changer_Joueur(int *eJoueur){
 	//Fonction qui permet de changer de joueur
 	if(*eJoueur == 1){
@@ -131,12 +154,28 @@ void Jouer_Changer_Joueur(int *eJoueur){
 	}
 }
 
+/**
+* \fn void Jouer_Choisir(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur)
+* \brief Fonction qui gère le fait de trouver et de choisir le torpilleur a jouer
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Choisir(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur){
 	//Fonction qui gère le fait de trouver et de choisir le torpilleur a jouer
 	Jouer_Trouver_Torpilleur(eJoueur, pcTorpilleur, N_Torpilleur);
 	Jouer_Selectionner_Torpilleur(eJoueur,pcTorpilleur,peNumero_Torpilleur, N_Torpilleur);
 }
 
+/**
+* \fn void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur, int N_Deplacement)
+* \brief Fonction qui permet de gérer le deplacement du torpilleur
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur, int N_Deplacement){
 	//Fonction qui permet de gérer le deplacement du torpilleur
 	t_direction dDirection;
@@ -156,6 +195,14 @@ void Jouer_Deplacer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	}
 }
 
+/**
+* \fn void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur, int Taille_Portee)
+* \brief Fonction qui permet de gérer l'attaque du torpilleur
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpilleur, int N_Torpilleur, int Taille_Portee){
 	//Fonction qui permet de gérer l'attaque du torpilleur
 	t_portee gPortee[N][M];
@@ -184,6 +231,14 @@ void Jouer_Attaquer(int eJoueur,t_coordonnee *pcTorpilleur,int *peNumero_Torpill
 	}
 }
 
+/**
+* \fn int Jouer_Gagnant(int eJoueur)
+* \brief Fonction qui permet de déterminer si le joueur adverse a perdu à la fin du tour
+*
+* \param 
+* \return le joueur gagnant
+*
+*/
 int Jouer_Gagnant(int eJoueur){
 	//Fonction qui permet de déterminer si le joueur adverse a perdu à la fin du tour
 	Jouer_Changer_Joueur(&eJoueur);
@@ -202,7 +257,14 @@ int Jouer_Gagnant(int eJoueur){
 	return bGagnant;
 }
 
-
+/**
+* \fn void Jouer_Quitter_Continuer_Sauvegarder(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee)
+* \brief Fonction qui permet à l'utilisateur de choisir de continuer ou de quitter la partie.
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Quitter_Continuer_Sauvegarder(int *bQuitter, FILE *fic1, int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee){
 	//Fonction qui permet à l'utilisateur de choisir de continuer ou de quitter la partie.
 	int ech;
@@ -234,6 +296,14 @@ void Jouer_Quitter_Continuer_Sauvegarder(int *bQuitter, FILE *fic1, int eJoueur,
 	}
 }
 
+/**
+* \fn void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee, FILE *fic1)
+* \brief Fonction qui définie la routine de la Partie
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Partie(int eJoueur, int N_Torpilleur, int N_Deplacement, int Taille_Portee, FILE *fic1){
 	//Fonction qui définie la routine de la Partie
 

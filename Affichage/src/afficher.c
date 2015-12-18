@@ -1,3 +1,10 @@
+/**
+* \file afficher.c
+* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \author PRADERE-NIQUET Alexandre
+* \version 1.0
+*/
+
 #include "../../grille/Grille.h"
 #include "../../grille/Struct.h"
 #include "../../grille/Outil.h"
@@ -5,8 +12,15 @@
 
 t_plateau grille;
 
+/**
+* \fn void Grille_perso_afficher(int num_grille)
+* \brief Fonction permettant d'afficher la grille du joueur qui contient ses bateaux, les obstacles, les cibles touchées et les torpilleurs
+*
+* \param Prend en paramètre le numéro de la grille à afficher
+* \return Ne retourne rien
+*
+*/
 void Grille_perso_afficher(int num_grille){
-/* Fonction permettant d'afficher la grille du joueur qui contient ses bateaux, les obstacles, les cibles touchées et les torpilleurs*/
 	 int i,j, k;
 	 int nL=0; // numero de ligne
 	 if(num_grille==1){
@@ -158,8 +172,15 @@ void Grille_perso_afficher(int num_grille){
     	refresh();
 }
 
-void Grille_masque_afficher(int num_grille){
-/* Fonction permettant d'afficher la grille masquée de l'adversaire qui contient les obstacles ainsi que les cibles touchées */ 
+/**
+* \fn void Grille_masque_afficher(int num_grille)
+* \brief Fonction permettant d'afficher la grille masquée de l'adversaire qui contient les obstacles ainsi que les cibles touchées
+*
+* \param Prend en paramètre le numéro de la grille à afficher
+* \return Ne retourne rien
+*
+*/
+void Grille_masque_afficher(int num_grille){ 
 	int i,j, k;
 	int nL=0;
 	if(num_grille==2){
@@ -325,8 +346,15 @@ void Grille_masque_afficher(int num_grille){
     	refresh();
 }
 
+/**
+* \fn void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int y)
+* \brief Fonction permettant d'afficher la portee du torpilleur selectionne sur la grille masquée de l'adversaire qui contient les obstacles, les cibles touchées et les tirs rates
+*
+* \param Prend en paramètre le numéro de la grille à afficher, la grille qui contient les portees des torpilleurs, et les coordonnees du curseur du joueur
+* \return Ne retourne rien
+*
+*/
 void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int y){
-/* Fonction permettant d'afficher la grille masquée de l'adversaire qui contient les obstacles ainsi que les cibles touchées */ 
 	int i,j, k;
 	int nL=0;
 	if(num_grille==2){
@@ -526,9 +554,16 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
     	refresh();
 }
 
+/**
+* \fn void torpilleur_selection_afficher(int x,int y, int num_grille)
+* \brief Fonction permettant d'afficher la selection du torpilleur sur la grille masquée de l'adversaire qui contient les obstacles, les cibles touchées et les tirs rates
+*
+* \param Prend en paramètre le numéro de la grille à afficher et les coordonnees du curseur du joueur
+* \return Ne retourne rien
+*
+*/
 void torpilleur_selection_afficher(int x,int y, int num_grille){
-/* Fonction qui permet d'afficher la selection du torpilleur */
-int i,j, k;
+	int i,j, k;
 	int nL=0;
 	if(num_grille==2){
 	 	printw("*********************************** GRILLE SELECTION TORPILLEUR JOUEUR 2 *********************************** \n\n");

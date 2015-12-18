@@ -1,6 +1,20 @@
+/**
+* \file TorpilleurAttaquer.c
+* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \author BOUVET Remi
+* \version 1.0
+*/
+
 #include "TorpilleurAttaquer.h"
 
-
+/**
+* \fn void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int eNumero_Torpilleur,t_portee gPortee[N][M], int N_Torpilleur, int Taille_Portee)
+* \brief Fonction qui permet de stocker dans la grille gPortee[N][M] les cases où le torpilleur selectionne a la possibilite d'attaquer
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int eNumero_Torpilleur,t_portee gPortee[N][M], int N_Torpilleur, int Taille_Portee){
 	//Fonction qui permet de stocker dans la grille gPortee[N][M] les cases où le torpilleur selectionne a la possibilite d'attaquer
 	int eObstacle;
@@ -32,8 +46,16 @@ void Jouer_Calculer_Portee(int eJoueurAdverse, t_coordonnee cTorpilleur[], int e
 	}
 }
 
+/**
+* \fn int Jouer_Attaque_Possible(t_portee gPortee[N][M])
+* \brief Fonction qui permet de determiner si l'attaque est possible c'est à dire si le torpilleur a bien une case où il peut attaquer
+*
+* \param 
+* \return 
+*
+*/
 int Jouer_Attaque_Possible(t_portee gPortee[N][M]){
-	//Fonction qui permmet de determiner si l'attaque est possible c'est à dire si le torpilleur a bien une case où il peut attaquer
+	//Fonction qui permet de determiner si l'attaque est possible c'est à dire si le torpilleur a bien une case où il peut attaquer
 	int i, j;	
 	for(i = 0; i < N; i++){
 		for(j = 0; j < M; j++){
@@ -45,6 +67,14 @@ int Jouer_Attaque_Possible(t_portee gPortee[N][M]){
 	return 0;
 }
 
+/**
+* \fn void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur)
+* \brief Initialise le curseur
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	//Initialise le curseur
 	int i, j;
@@ -62,6 +92,14 @@ void Jouer_Init_Curseur(t_portee gPortee[N][M], t_coordonnee *cCurseur){
 	}
 }
 
+/**
+* \fn Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur)
+* \brief Fonction qui permet de selectionner l'attaque du joueur
+*
+* \param 
+* \return Ne retourne rien
+*
+*/
 void Jouer_Choisir_Attaque(int eJoueur, int eNumero_Torpilleur, t_portee gPortee[N][M], t_coordonnee *cCurseur,int N_Torpilleur){
 	//Fonction qui permet de selectionner l'attaque du joueur
 	int ech;
