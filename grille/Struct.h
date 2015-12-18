@@ -14,11 +14,11 @@
 
 /**
 * \enum typedef enum{Aucun_b=0,Sous_Marin=3,Destroyer=4,Porte_Avion=5}t_bateau
-* \brief enumeration regroupant l'ensemble des bateaux
+* \brief enumeration regroupant les differents bateaux ainsi que leurs tailles en cases
 * \enum typedef enum{Aucun_o=0,Obstacle=1}t_obstacle
 * \brief enumeration pour presence obstacle ou non
 * \enum typedef enum{Non=0,Oui=1}t_toucher
-* \brief enumeration si un tir a ete effectue ou non
+* \brief enumeration si un tir a touche un bateau ou non
 * \enum typedef enum{Aucun_t=0,Present=1}t_torpilleur
 * \brief enumeration s'il y a un torpilleur ou non
 * \struct typedef struct {t_bateau bateau;t_obstacle obstacle;t_toucher toucher;t_torpilleur torpilleur;}t_case
