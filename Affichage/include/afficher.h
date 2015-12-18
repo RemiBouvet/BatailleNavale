@@ -1,3 +1,10 @@
+/**
+* \file afficher.h
+* \brief fichier qui contient l'ensemble des prototypes de afficher.c
+* \author PRADERE-NIQUET Alexandre
+* \version 1.0
+*/
+
 #ifndef AFFICHER
 #define AFFICHER
 #include "../../grille/Struct.h"

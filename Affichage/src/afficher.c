@@ -1,6 +1,6 @@
 /**
 * \file afficher.c
-* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \brief fichier qui contient l'ensemble des fonctions qui réalisent l'affichage.
 * \author PRADERE-NIQUET Alexandre
 * \version 1.0
 */
