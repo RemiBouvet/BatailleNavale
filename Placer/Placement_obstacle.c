@@ -1,6 +1,6 @@
 /**
 * \file Placement_obstacle.c
-* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \brief fichier qui contient l'ensemble des fonctions pour placer des obstacles.
 * \author ZERBANE Mehdi
 * \version 1.0
 */

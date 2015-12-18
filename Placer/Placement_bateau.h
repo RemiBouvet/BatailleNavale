@@ -1,3 +1,10 @@
+/**
+* \file Placement_bateau.h
+* \brief fichier qui contient l'ensemble des prototypes de Placement_bateau.c
+* \author ZERBANE Mehdi
+* \version 1.0
+*/
+
 #ifndef PLACEMENT_BATEAU
 #define PLACEMENT_BATEAU
 

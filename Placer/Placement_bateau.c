@@ -1,6 +1,6 @@
 /**
 * \file Placement_bateau.c
-* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \brief fichier qui contient l'ensemble des fonctions pour le placement des bateaux.
 * \author ZERBANE Mehdi
 * \version 1.0
 */
