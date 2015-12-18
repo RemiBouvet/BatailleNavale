@@ -1,0 +1,122 @@
+\hypertarget{_torpilleur_attaquer_8h}{}\section{Torpilleur\+Attaquer.\+h File Reference}
+\label{_torpilleur_attaquer_8h}\index{Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}}
+
+
+fichier qui contient l\textquotesingle{}ensemble des portotypes de \hyperlink{_torpilleur_attaquer_8c}{Torpilleur\+Attaquer.\+c}  
+
+
+{\ttfamily \#include \char`\"{}Jouer\+Struct.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_torpilleur_attaquer_8h_ad999b898d029ccfd1f173368c7e06974}{Jouer\+\_\+\+Calculer\+\_\+\+Portee} (int e\+Joueur\+Adverse, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} c\+Torpilleur\mbox{[}$\,$\mbox{]}, int e\+Numero\+\_\+\+Torpilleur, t\+\_\+portee g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]}, int N\+\_\+\+Torpilleur, int Taille\+\_\+\+Portee)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de stocker dans la grille g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]} les cases où le torpilleur selectionne a la possibilite d\textquotesingle{}attaquer. \end{DoxyCompactList}\item 
+int \hyperlink{_torpilleur_attaquer_8h_aa2b3626366012301c530bdfba69fca87}{Jouer\+\_\+\+Attaque\+\_\+\+Possible} (t\+\_\+portee g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de determiner si l\textquotesingle{}attaque est possible c\textquotesingle{}est à dire si le torpilleur a bien une case où il peut attaquer. \end{DoxyCompactList}\item 
+void \hyperlink{_torpilleur_attaquer_8h_a2cdbd53dd02df6d6a8c15cc79ea04996}{Jouer\+\_\+\+Init\+\_\+\+Curseur} (t\+\_\+portee g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]}, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} $\ast$c\+Curseur)
+\begin{DoxyCompactList}\small\item\em Initialise le curseur. \end{DoxyCompactList}\item 
+\hypertarget{_torpilleur_attaquer_8h_ac5bbeed10800207e49c119c3927fa625}{}void {\bfseries Jouer\+\_\+\+Deplacer\+\_\+\+Curseur} (t\+\_\+portee g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]}, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} $\ast$c\+Curseur)\label{_torpilleur_attaquer_8h_ac5bbeed10800207e49c119c3927fa625}
+
+\item 
+void \hyperlink{_torpilleur_attaquer_8h_a7702296cc76a891f4f1d1ec70f73c2ea}{Jouer\+\_\+\+Choisir\+\_\+\+Attaque} (int e\+Joueur, int e\+Numero\+\_\+\+Torpilleur, t\+\_\+portee g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]}, \hyperlink{structt__coordonnee}{t\+\_\+coordonnee} $\ast$c\+Curseur, int N\+\_\+\+Torpilleur)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de selectionner l\textquotesingle{}attaque du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+fichier qui contient l\textquotesingle{}ensemble des portotypes de \hyperlink{_torpilleur_attaquer_8c}{Torpilleur\+Attaquer.\+c} 
+
+\begin{DoxyAuthor}{Author}
+B\+O\+U\+V\+E\+T Remi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{_torpilleur_attaquer_8h_aa2b3626366012301c530bdfba69fca87}{}\index{Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}!Jouer\+\_\+\+Attaque\+\_\+\+Possible@{Jouer\+\_\+\+Attaque\+\_\+\+Possible}}
+\index{Jouer\+\_\+\+Attaque\+\_\+\+Possible@{Jouer\+\_\+\+Attaque\+\_\+\+Possible}!Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Attaque\+\_\+\+Possible(t\+\_\+portee g\+Portee[N][M])}]{\setlength{\rightskip}{0pt plus 5cm}int Jouer\+\_\+\+Attaque\+\_\+\+Possible (
+\begin{DoxyParamCaption}
+\item[{t\+\_\+portee}]{g\+Portee\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{_torpilleur_attaquer_8h_aa2b3626366012301c530bdfba69fca87}
+
+
+Fonction qui permet de determiner si l\textquotesingle{}attaque est possible c\textquotesingle{}est à dire si le torpilleur a bien une case où il peut attaquer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em portee} & torpilleur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{_torpilleur_attaquer_8h_ad999b898d029ccfd1f173368c7e06974}{}\index{Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}!Jouer\+\_\+\+Calculer\+\_\+\+Portee@{Jouer\+\_\+\+Calculer\+\_\+\+Portee}}
+\index{Jouer\+\_\+\+Calculer\+\_\+\+Portee@{Jouer\+\_\+\+Calculer\+\_\+\+Portee}!Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Calculer\+\_\+\+Portee(int e\+Joueur\+Adverse, t\+\_\+coordonnee c\+Torpilleur[], int e\+Numero\+\_\+\+Torpilleur, t\+\_\+portee g\+Portee[N][M], int N\+\_\+\+Torpilleur, int Taille\+\_\+\+Portee)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Calculer\+\_\+\+Portee (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Joueur\+Adverse, }
+\item[{{\bf t\+\_\+coordonnee}}]{c\+Torpilleur\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{e\+Numero\+\_\+\+Torpilleur, }
+\item[{t\+\_\+portee}]{g\+Portee\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]}, }
+\item[{int}]{N\+\_\+\+Torpilleur, }
+\item[{int}]{Taille\+\_\+\+Portee}
+\end{DoxyParamCaption}
+)}\label{_torpilleur_attaquer_8h_ad999b898d029ccfd1f173368c7e06974}
+
+
+Fonction qui permet de stocker dans la grille g\+Portee\mbox{[}N\mbox{]}\mbox{[}M\mbox{]} les cases où le torpilleur selectionne a la possibilite d\textquotesingle{}attaquer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & de l\textquotesingle{}adversaire, les coordonnees des torpilleurs, le numero du torpilleur, la portee des torpilleurs, le nombre torpilleur , la taille portee du torpilleur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_torpilleur_attaquer_8h_a7702296cc76a891f4f1d1ec70f73c2ea}{}\index{Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}!Jouer\+\_\+\+Choisir\+\_\+\+Attaque@{Jouer\+\_\+\+Choisir\+\_\+\+Attaque}}
+\index{Jouer\+\_\+\+Choisir\+\_\+\+Attaque@{Jouer\+\_\+\+Choisir\+\_\+\+Attaque}!Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Choisir\+\_\+\+Attaque(int e\+Joueur, int e\+Numero\+\_\+\+Torpilleur, t\+\_\+portee g\+Portee[N][M], t\+\_\+coordonnee $\ast$c\+Curseur, int N\+\_\+\+Torpilleur)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Choisir\+\_\+\+Attaque (
+\begin{DoxyParamCaption}
+\item[{int}]{e\+Joueur, }
+\item[{int}]{e\+Numero\+\_\+\+Torpilleur, }
+\item[{t\+\_\+portee}]{g\+Portee\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]}, }
+\item[{{\bf t\+\_\+coordonnee} $\ast$}]{c\+Curseur, }
+\item[{int}]{N\+\_\+\+Torpilleur}
+\end{DoxyParamCaption}
+)}\label{_torpilleur_attaquer_8h_a7702296cc76a891f4f1d1ec70f73c2ea}
+
+
+Fonction qui permet de selectionner l\textquotesingle{}attaque du joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & du joueur, numero de torpilleur, portee torpilleur, coordonnees du curseur, nombre de torpilleurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_torpilleur_attaquer_8h_a2cdbd53dd02df6d6a8c15cc79ea04996}{}\index{Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}!Jouer\+\_\+\+Init\+\_\+\+Curseur@{Jouer\+\_\+\+Init\+\_\+\+Curseur}}
+\index{Jouer\+\_\+\+Init\+\_\+\+Curseur@{Jouer\+\_\+\+Init\+\_\+\+Curseur}!Torpilleur\+Attaquer.\+h@{Torpilleur\+Attaquer.\+h}}
+\subsubsection[{Jouer\+\_\+\+Init\+\_\+\+Curseur(t\+\_\+portee g\+Portee[N][M], t\+\_\+coordonnee $\ast$c\+Curseur)}]{\setlength{\rightskip}{0pt plus 5cm}void Jouer\+\_\+\+Init\+\_\+\+Curseur (
+\begin{DoxyParamCaption}
+\item[{t\+\_\+portee}]{g\+Portee\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]}, }
+\item[{{\bf t\+\_\+coordonnee} $\ast$}]{c\+Curseur}
+\end{DoxyParamCaption}
+)}\label{_torpilleur_attaquer_8h_a2cdbd53dd02df6d6a8c15cc79ea04996}
+
+
+Initialise le curseur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em portee} & torpilleurs, coordonnees curseur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}

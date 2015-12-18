@@ -1,0 +1,319 @@
+\hypertarget{_grille_8c}{}\section{Grille.\+c File Reference}
+\label{_grille_8c}\index{Grille.\+c@{Grille.\+c}}
+
+
+fichier qui contient l\textquotesingle{}ensemble des fonctions pour gestion grille.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Grille.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Struct.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Outil.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_grille_8c_a4610565eafb06fbf8a3f5ee0eaf20a78}{Grille\+\_\+\+Sauvegarder} (F\+I\+L\+E $\ast$fic1)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de sauvegarder. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_aeda7be6be83ba3cba921f2759e2e6cbb}{Grille\+\_\+\+Charger} (F\+I\+L\+E $\ast$fic1)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de charger une partie. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_a33d2ab750b7c027232a5bbc20e4b5fb5}{Grille\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser la grille. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_ab827941e8ac7c71c851d72e7623b8281}{Grille\+\_\+lire\+\_\+case} (int i, int j, int num\+\_\+grille, \hyperlink{structt__case}{t\+\_\+case} $\ast$p\+Ensemble)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de connaitre le contenu d\textquotesingle{}une case. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_a631b62d10a497ad15989c0f34678b275}{Grille\+\_\+ecrire\+\_\+case} (int i, int j, int num\+\_\+grille, \hyperlink{structt__case}{t\+\_\+case} ensemble\mbox{[}N\mbox{]}\mbox{[}M\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}ecrire le contenu d\textquotesingle{}une case. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_af24957e7ae025a512a36b1594c983c3d}{Grille\+\_\+lire\+\_\+bateau} (int i, int j, int num\+\_\+grille, int $\ast$pe\+Resultat)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de connaitre le type de bateau. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_a3efb223e0294f350bad34a719de35758}{Grille\+\_\+lire\+\_\+toucher} (int i, int j, int num\+\_\+grille, int $\ast$pe\+Resultat)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de connaitre s\textquotesingle{}il y a eu un tir ou non. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_ac2c6f9a0dd081e89f72907be968ee830}{Grille\+\_\+lire\+\_\+obstacle} (int i, int j, int num\+\_\+grille, int $\ast$pe\+Resultat)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de connaitre s\textquotesingle{}il y a un obstacle ou non. \end{DoxyCompactList}\item 
+\hypertarget{_grille_8c_ae36a440774d9391c40af2b926a3d6a7d}{}void {\bfseries Grille\+\_\+lire\+\_\+torpilleur} (int i, int j, int num\+\_\+grille, int $\ast$pe\+Resultat)\label{_grille_8c_ae36a440774d9391c40af2b926a3d6a7d}
+
+\item 
+void \hyperlink{_grille_8c_a7873f5392e212430a4ff93c620e920b9}{Grille\+\_\+ecrire\+\_\+bateau} (int i, int j, int num\+\_\+grille, t\+\_\+bateau choix)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}ecrire le type de bateau qu\textquotesingle{}il y a dans la case. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_adeaab4ceda8e12b8cbd43ed86fc5565b}{Grille\+\_\+ecrire\+\_\+toucher} (int i, int j, int num\+\_\+grille, t\+\_\+toucher choix)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}ecrire s\textquotesingle{}il y a un tir effectue ou non. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_a312f78d5895dcd3100ec282a26fefa13}{Grille\+\_\+ecrire\+\_\+obstacle} (int i, int j, int num\+\_\+grille, t\+\_\+obstacle choix)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}ecrire un obstacle ou non. \end{DoxyCompactList}\item 
+void \hyperlink{_grille_8c_a32d95f00301d27ec3c9cf4165fee81af}{Grille\+\_\+ecrire\+\_\+torpilleur} (int i, int j, int num\+\_\+grille, t\+\_\+torpilleur choix)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}ecrire s\textquotesingle{}il y a un torpilleur ou non. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_grille_8c_a805fd55505c75c257abb582d075cbeb5}{}\hyperlink{structt__plateau}{t\+\_\+plateau} {\bfseries grille}\label{_grille_8c_a805fd55505c75c257abb582d075cbeb5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+fichier qui contient l\textquotesingle{}ensemble des fonctions pour gestion grille. 
+
+\begin{DoxyAuthor}{Author}
+B\+O\+U\+V\+E\+T Remi \& P\+R\+A\+D\+E\+R\+E-\/\+N\+I\+Q\+U\+E\+T Alexandre \& Z\+E\+R\+B\+A\+N\+E Mehdi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{_grille_8c_aeda7be6be83ba3cba921f2759e2e6cbb}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+\+Charger@{Grille\+\_\+\+Charger}}
+\index{Grille\+\_\+\+Charger@{Grille\+\_\+\+Charger}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+\+Charger(\+F\+I\+L\+E $\ast$fic1)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+\+Charger (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fic1}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_aeda7be6be83ba3cba921f2759e2e6cbb}
+
+
+Fonction qui permet de charger une partie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier} & pour charger une partie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_a7873f5392e212430a4ff93c620e920b9}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+ecrire\+\_\+bateau@{Grille\+\_\+ecrire\+\_\+bateau}}
+\index{Grille\+\_\+ecrire\+\_\+bateau@{Grille\+\_\+ecrire\+\_\+bateau}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+ecrire\+\_\+bateau(int i, int j, int num\+\_\+grille, t\+\_\+bateau choix)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+ecrire\+\_\+bateau (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{t\+\_\+bateau}]{choix}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_a7873f5392e212430a4ff93c620e920b9}
+
+
+Fonction qui permet d\textquotesingle{}ecrire le type de bateau qu\textquotesingle{}il y a dans la case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, le type de bateau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_a631b62d10a497ad15989c0f34678b275}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+ecrire\+\_\+case@{Grille\+\_\+ecrire\+\_\+case}}
+\index{Grille\+\_\+ecrire\+\_\+case@{Grille\+\_\+ecrire\+\_\+case}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+ecrire\+\_\+case(int i, int j, int num\+\_\+grille, t\+\_\+case ensemble[N][M])}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+ecrire\+\_\+case (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{{\bf t\+\_\+case}}]{ensemble\mbox{[}\+N\mbox{]}\mbox{[}\+M\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_a631b62d10a497ad15989c0f34678b275}
+
+
+Fonction qui permet d\textquotesingle{}ecrire le contenu d\textquotesingle{}une case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, ce qu\textquotesingle{}il y a dans la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_a312f78d5895dcd3100ec282a26fefa13}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+ecrire\+\_\+obstacle@{Grille\+\_\+ecrire\+\_\+obstacle}}
+\index{Grille\+\_\+ecrire\+\_\+obstacle@{Grille\+\_\+ecrire\+\_\+obstacle}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+ecrire\+\_\+obstacle(int i, int j, int num\+\_\+grille, t\+\_\+obstacle choix)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+ecrire\+\_\+obstacle (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{t\+\_\+obstacle}]{choix}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_a312f78d5895dcd3100ec282a26fefa13}
+
+
+Fonction qui permet d\textquotesingle{}ecrire un obstacle ou non. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, si on place obstacle ou non \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_a32d95f00301d27ec3c9cf4165fee81af}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+ecrire\+\_\+torpilleur@{Grille\+\_\+ecrire\+\_\+torpilleur}}
+\index{Grille\+\_\+ecrire\+\_\+torpilleur@{Grille\+\_\+ecrire\+\_\+torpilleur}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+ecrire\+\_\+torpilleur(int i, int j, int num\+\_\+grille, t\+\_\+torpilleur choix)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+ecrire\+\_\+torpilleur (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{t\+\_\+torpilleur}]{choix}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_a32d95f00301d27ec3c9cf4165fee81af}
+
+
+Fonction qui permet d\textquotesingle{}ecrire s\textquotesingle{}il y a un torpilleur ou non. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, s\textquotesingle{}il y a un torpilleur ou non \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_adeaab4ceda8e12b8cbd43ed86fc5565b}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+ecrire\+\_\+toucher@{Grille\+\_\+ecrire\+\_\+toucher}}
+\index{Grille\+\_\+ecrire\+\_\+toucher@{Grille\+\_\+ecrire\+\_\+toucher}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+ecrire\+\_\+toucher(int i, int j, int num\+\_\+grille, t\+\_\+toucher choix)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+ecrire\+\_\+toucher (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{t\+\_\+toucher}]{choix}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_adeaab4ceda8e12b8cbd43ed86fc5565b}
+
+
+Fonction qui permet d\textquotesingle{}ecrire s\textquotesingle{}il y a un tir effectue ou non. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, si touche ou non \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_a33d2ab750b7c027232a5bbc20e4b5fb5}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+init@{Grille\+\_\+init}}
+\index{Grille\+\_\+init@{Grille\+\_\+init}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+init()}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_a33d2ab750b7c027232a5bbc20e4b5fb5}
+
+
+Fonction qui permet d\textquotesingle{}initialiser la grille. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aucun} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_af24957e7ae025a512a36b1594c983c3d}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+lire\+\_\+bateau@{Grille\+\_\+lire\+\_\+bateau}}
+\index{Grille\+\_\+lire\+\_\+bateau@{Grille\+\_\+lire\+\_\+bateau}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+lire\+\_\+bateau(int i, int j, int num\+\_\+grille, int $\ast$pe\+Resultat)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+lire\+\_\+bateau (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{int $\ast$}]{pe\+Resultat}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_af24957e7ae025a512a36b1594c983c3d}
+
+
+Fonction qui permet de connaitre le type de bateau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, ce qu\textquotesingle{}il y a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_ab827941e8ac7c71c851d72e7623b8281}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+lire\+\_\+case@{Grille\+\_\+lire\+\_\+case}}
+\index{Grille\+\_\+lire\+\_\+case@{Grille\+\_\+lire\+\_\+case}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+lire\+\_\+case(int i, int j, int num\+\_\+grille, t\+\_\+case $\ast$p\+Ensemble)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+lire\+\_\+case (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{{\bf t\+\_\+case} $\ast$}]{p\+Ensemble}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_ab827941e8ac7c71c851d72e7623b8281}
+
+
+Fonction qui permet de connaitre le contenu d\textquotesingle{}une case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, ce qu\textquotesingle{}il y a dans la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_ac2c6f9a0dd081e89f72907be968ee830}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+lire\+\_\+obstacle@{Grille\+\_\+lire\+\_\+obstacle}}
+\index{Grille\+\_\+lire\+\_\+obstacle@{Grille\+\_\+lire\+\_\+obstacle}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+lire\+\_\+obstacle(int i, int j, int num\+\_\+grille, int $\ast$pe\+Resultat)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+lire\+\_\+obstacle (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{int $\ast$}]{pe\+Resultat}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_ac2c6f9a0dd081e89f72907be968ee830}
+
+
+Fonction qui permet de connaitre s\textquotesingle{}il y a un obstacle ou non. 
+
+Fonction qui permet de connaitre s\textquotesingle{}il y a un torpilleur ou non.
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, ce qu\textquotesingle{}il y a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_a3efb223e0294f350bad34a719de35758}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+lire\+\_\+toucher@{Grille\+\_\+lire\+\_\+toucher}}
+\index{Grille\+\_\+lire\+\_\+toucher@{Grille\+\_\+lire\+\_\+toucher}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+lire\+\_\+toucher(int i, int j, int num\+\_\+grille, int $\ast$pe\+Resultat)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+lire\+\_\+toucher (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{num\+\_\+grille, }
+\item[{int $\ast$}]{pe\+Resultat}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_a3efb223e0294f350bad34a719de35758}
+
+
+Fonction qui permet de connaitre s\textquotesingle{}il y a eu un tir ou non. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & ligne, numero colonne, numero de grille, ce qu\textquotesingle{}il y a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
+\hypertarget{_grille_8c_a4610565eafb06fbf8a3f5ee0eaf20a78}{}\index{Grille.\+c@{Grille.\+c}!Grille\+\_\+\+Sauvegarder@{Grille\+\_\+\+Sauvegarder}}
+\index{Grille\+\_\+\+Sauvegarder@{Grille\+\_\+\+Sauvegarder}!Grille.\+c@{Grille.\+c}}
+\subsubsection[{Grille\+\_\+\+Sauvegarder(\+F\+I\+L\+E $\ast$fic1)}]{\setlength{\rightskip}{0pt plus 5cm}void Grille\+\_\+\+Sauvegarder (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fic1}
+\end{DoxyParamCaption}
+)}\label{_grille_8c_a4610565eafb06fbf8a3f5ee0eaf20a78}
+
+
+Fonction qui permet de sauvegarder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier} & pour sauvegarder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ne retourne rien 
+\end{DoxyReturn}
