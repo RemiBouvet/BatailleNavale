@@ -1,3 +1,10 @@
+/**
+* \file Grille.h
+* \brief fichier qui contient l'ensemble des prototypes de Grille.c
+* \author BOUVET Remi & PRADERE-NIQUET Alexandre & ZERBANE Mehdi
+* \version 1.0
+*/
+
 #ifndef GRILLE
 #define GRILLE
 #define N 10

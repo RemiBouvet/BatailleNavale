@@ -1,6 +1,6 @@
 /**
 * \file Grille.c
-* \brief fichier qui contient l'ensemble des fonctions qui rélaisent l'affichage.
+* \brief fichier qui contient l'ensemble des fonctions pour gestion grille.
 * \author BOUVET Remi & PRADERE-NIQUET Alexandre & ZERBANE Mehdi
 * \version 1.0
 */
@@ -13,13 +13,38 @@
 
 t_plateau grille; //structure qui prend 2 grille
 
+/**
+* \fn void Grille_Sauvegarder(FILE * fic1)
+* \brief Fonction qui permet de sauvegarder
+*
+* \param fichier pour sauvegarder 
+* \return Ne retourne rien
+*
+*/
 void Grille_Sauvegarder(FILE * fic1){
     fwrite(&grille , sizeof(t_plateau) , 1 , fic1);
 }
 
+/**
+* \fn void Grille_Charger(FILE * fic1)
+* \brief Fonction qui permet de charger une partie
+*
+* \param fichier pour charger une partie 
+* \return Ne retourne rien
+*
+*/
 void Grille_Charger(FILE * fic1){
     fread(&grille , sizeof(t_plateau) , 1 , fic1);
 }
+
+/**
+* \fn void Grille_init()
+* \brief Fonction qui permet d'initialiser la grille
+*
+* \param aucun 
+* \return Ne retourne rien
+*
+*/
 void Grille_init(){
     int i, j;
     for(i = 0; i < N; i++){
@@ -36,6 +61,14 @@ void Grille_init(){
     }
 }
 
+/**
+* \fn void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble)
+* \brief Fonction qui permet de connaitre le contenu d'une case
+*
+* \param numero ligne, numero colonne, numero de grille, ce qu'il y a dans la case
+* \return Ne retourne rien
+*
+*/
 void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble){
     int ab=(pEnsemble)->bateau;
     int cd=(pEnsemble)->toucher;
@@ -47,6 +80,14 @@ void Grille_lire_case(int i, int j, int num_grille,t_case *pEnsemble){
     Grille_lire_torpilleur(i,j,num_grille,&ap);
 }
 
+/**
+* \fn void Grille_ecrire_case(int i, int j, int num_grille,t_case ensemble[N][M])
+* \brief Fonction qui permet d'ecrire le contenu d'une case
+*
+* \param numero ligne, numero colonne, numero de grille, ce qu'il y a dans la case
+* \return Ne retourne rien
+*
+*/
 void Grille_ecrire_case(int i, int j, int num_grille,t_case ensemble[N][M]){
     Grille_ecrire_bateau(i,j, num_grille, ensemble[i][j].bateau);
     Grille_ecrire_toucher(i,j, num_grille,ensemble[i][j].toucher);
@@ -55,6 +96,14 @@ void Grille_ecrire_case(int i, int j, int num_grille,t_case ensemble[N][M]){
 
 }
 
+/**
+* \fn void Grille_lire_bateau(int i,int j, int num_grille,int *peResultat)
+* \brief Fonction qui permet de connaitre le type de bateau 
+*
+* \param numero ligne, numero colonne, numero de grille, ce qu'il y a
+* \return Ne retourne rien
+*
+*/
 void Grille_lire_bateau(int i,int j, int num_grille,int *peResultat){
     if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
@@ -66,7 +115,14 @@ void Grille_lire_bateau(int i,int j, int num_grille,int *peResultat){
 
 }
 
-
+/**
+* \fn void Grille_lire_toucher(int i,int j, int num_grille,int *peResultat)
+* \brief Fonction qui permet de connaitre s'il y a eu un tir ou non 
+*
+* \param numero ligne, numero colonne, numero de grille, ce qu'il y a
+* \return Ne retourne rien
+*
+*/
 void Grille_lire_toucher(int i,int j, int num_grille,int *peResultat){
     if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
@@ -77,7 +133,14 @@ void Grille_lire_toucher(int i,int j, int num_grille,int *peResultat){
     }
 }
 
-
+/**
+* \fn void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat)
+* \brief Fonction qui permet de connaitre s'il y a un obstacle ou non 
+*
+* \param numero ligne, numero colonne, numero de grille, ce qu'il y a
+* \return Ne retourne rien
+*
+*/
 void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat){
 
     if(i>=0 && i<=N && j>=0 && j<=M){
@@ -88,6 +151,14 @@ void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat){
     }
 }
 
+/**
+* \fn void Grille_lire_obstacle(int i,int j, int num_grille,int *peResultat)
+* \brief Fonction qui permet de connaitre s'il y a un torpilleur ou non 
+*
+* \param numero ligne, numero colonne, numero de grille, ce qu'il y a
+* \return Ne retourne rien
+*
+*/
 void Grille_lire_torpilleur(int i,int j, int num_grille,int *peResultat){
     if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
@@ -98,7 +169,14 @@ void Grille_lire_torpilleur(int i,int j, int num_grille,int *peResultat){
     }
 }
 
-
+/**
+* \fn void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix)
+* \brief Fonction qui permet d'ecrire le type de bateau qu'il y a dans la case
+*
+* \param numero ligne, numero colonne, numero de grille, le type de bateau
+* \return Ne retourne rien
+*
+*/
 void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
     if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
@@ -122,6 +200,14 @@ void Grille_ecrire_bateau(int i,int j, int num_grille, t_bateau choix){
     }
 }
 
+/**
+* \fn void Grille_ecrire_toucher(int i,int j, int num_grille,t_toucher choix)
+* \brief Fonction qui permet d'ecrire s'il y a un tir effectue ou non
+*
+* \param numero ligne, numero colonne, numero de grille, si touche ou non
+* \return Ne retourne rien
+*
+*/
 void Grille_ecrire_toucher(int i,int j, int num_grille,t_toucher choix){
     if(i>=0 && i<N && j>=0 && j<M){
         if(bCroit(1,num_grille,2)){
@@ -137,6 +223,14 @@ void Grille_ecrire_toucher(int i,int j, int num_grille,t_toucher choix){
     }
 }
 
+/**
+* \fn void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix)
+* \brief Fonction qui permet d'ecrire un obstacle ou non
+*
+* \param numero ligne, numero colonne, numero de grille, si on place obstacle ou non
+* \return Ne retourne rien
+*
+*/
 void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix){
     //Assert1("Numero grille",num_grille==1);
     //Assert1("Numero grille",num_grille==2);
@@ -154,7 +248,14 @@ void Grille_ecrire_obstacle(int i,int j, int num_grille,t_obstacle choix){
     }
 }
 
-
+/**
+* \fn void Grille_ecrire_torpilleur(int i,int j, int num_grille,t_torpilleur choix)
+* \brief Fonction qui permet d'ecrire s'il y a un torpilleur ou non
+*
+* \param numero ligne, numero colonne, numero de grille, s'il y a un torpilleur ou non
+* \return Ne retourne rien
+*
+*/
 void Grille_ecrire_torpilleur(int i,int j, int num_grille,t_torpilleur choix){
     if(i>=0 && i<=N && j>=0 && j<=M){
         if(bCroit(1,num_grille,2)){
