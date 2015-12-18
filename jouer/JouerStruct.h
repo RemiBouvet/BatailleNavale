@@ -16,7 +16,7 @@
 
 /**
 * \struct typedef struct {int x;int y;} t_coordonnee
-* \brief structure pour des coordonnées 
+* \brief structure qui permet de rassembler deux entier x et y pour y stocker comme son nom l’indique des coordonées
 * \enum typedef enum{Aucune, Haut, Bas, Gauche, Droite}t_direction
 * \brief enumeration permettant de definir la direction que le torpilleur pourra prendre
 */
