@@ -341,7 +341,7 @@ void Grille_masque_afficher(int num_grille){
     	printw("\n");
     	printw("T_BT = torpilleur sur bateau touché");
     	printw("\n");
-    	printw("X = obstacle");
+    	printw("XX = obstacle");
     	printw("\n\n");
     	refresh();
 }
@@ -547,7 +547,7 @@ void Portee_torpilleur_afficher(t_portee gPortee[N][M],int num_grille,int x, int
     	printw("\n");
     	printw("PJ = portee torpilleur");
     	printw("\n");
-    	printw("RATE = tir dans le vide");
+    	printw("** = tir dans le vide");
     	printw("\n");
     	printw("XX = obstacle");
     	printw("\n\n");
